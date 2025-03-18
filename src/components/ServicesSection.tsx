@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Activity, Microscope, Dna, Brain, BarChart3, Flask } from 'lucide-react';
+import { ArrowRight, Activity, Microscope, Dna, Brain, BarChart3, Beaker } from 'lucide-react';
 
 const ServiceCard = ({ 
   icon: Icon, 
@@ -68,7 +68,7 @@ const ServicesSection = () => {
       description: 'Robust data analytics tools that transform diagnostic data into actionable healthcare insights.',
     },
     {
-      icon: Flask,
+      icon: Beaker,
       title: 'Research Partnerships',
       description: 'Collaborative research initiatives advancing the frontier of diagnostic medicine.',
     },
