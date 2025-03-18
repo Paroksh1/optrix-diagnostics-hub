@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Activity, Microscope, Dna, Brain, BarChart3, Beaker } from 'lucide-react';
+import { ArrowRight, Microscope, Dna, Activity, BarChart3, Scan, TestTube } from 'lucide-react';
 
 const ServiceCard = ({ 
   icon: Icon, 
@@ -44,33 +44,33 @@ const ServicesSection = () => {
   const services = [
     {
       icon: Microscope,
-      title: 'Advanced Laboratory Diagnostics',
-      description: 'Cutting-edge laboratory tests with superior accuracy and rapid turnaround times for clinical decisions.',
-    },
-    {
-      icon: Dna,
-      title: 'Genetic Sequencing',
-      description: 'Comprehensive DNA analysis for personalized medicine and early disease detection.',
-    },
-    {
-      icon: Brain,
-      title: 'AI-Powered Diagnostics',
-      description: 'Machine learning algorithms that enhance diagnostic accuracy and provide predictive insights.',
+      title: 'Multimodal Microscopy',
+      description: 'Advanced microscopy system with excitation light sources, spectral filters, and high-resolution camera for detailed oral tissue analysis.',
     },
     {
       icon: Activity,
-      title: 'Remote Patient Monitoring',
-      description: 'Continuous health tracking solutions that enable proactive care and early intervention.',
+      title: 'Autofluorescence Imaging',
+      description: 'Reveals distinct molecular distribution patterns to differentiate between healthy and malignant tissues with high precision.',
+    },
+    {
+      icon: TestTube,
+      title: 'Spectral Analysis',
+      description: 'Identifies variations in fluorescence peaks of key endogenous fluorophores, correlating with metabolic changes in cancer cells.',
+    },
+    {
+      icon: Scan,
+      title: 'Phase Imaging',
+      description: 'Highlights morphological irregularities, such as altered cellular structure and density, which are indicative of malignancy.',
+    },
+    {
+      icon: Dna,
+      title: 'Non-Invasive Detection',
+      description: 'Provides rapid and non-invasive oral cancer diagnostic capabilities without the need for painful biopsies.',
     },
     {
       icon: BarChart3,
-      title: 'Analytics Platform',
-      description: 'Robust data analytics tools that transform diagnostic data into actionable healthcare insights.',
-    },
-    {
-      icon: Beaker,
-      title: 'Research Partnerships',
-      description: 'Collaborative research initiatives advancing the frontier of diagnostic medicine.',
+      title: 'Comparative Analysis',
+      description: 'Integrates molecular and morphological data for enhanced diagnostic accuracy compared to traditional histopathology.',
     },
   ];
 
@@ -79,13 +79,13 @@ const ServicesSection = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Our Solutions
+            Our Solution
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-            Diagnostic Excellence Through Innovation
+            M3DOC: Multimodal Microscopic Diagnostic for Oral Cancer
           </h2>
           <p className="text-muted-foreground">
-            Our comprehensive suite of diagnostic services combines cutting-edge technology with clinical expertise to deliver unmatched accuracy and efficiency.
+            Our revolutionary M3DOC system combines cutting-edge optical technology with advanced analytics to provide early, accurate detection of oral cancer with unprecedented precision.
           </p>
         </div>
         
@@ -105,9 +105,9 @@ const ServicesSection = () => {
         <div className="mt-20 glass-card rounded-xl overflow-hidden animate-slide-in" style={{animationDelay: '0.4s'}}>
           <div className="grid md:grid-cols-2">
             <div className="p-8 md:p-12">
-              <h3 className="text-2xl font-bold mb-4">AI-Powered Diagnostic Capabilities</h3>
+              <h3 className="text-2xl font-bold mb-4">M3DOC Technology</h3>
               <p className="text-muted-foreground mb-6">
-                Our AI systems process millions of data points to identify patterns invisible to the human eye, enabling earlier detection and more precise diagnoses.
+                The M3DOC system has been tested on a range of oral tissue samples, both healthy and cancerous, revealing significant diagnostic capabilities through our proprietary imaging technology.
               </p>
               
               <div className="space-y-4">
@@ -116,8 +116,8 @@ const ServicesSection = () => {
                     <div className="w-2 h-2 rounded-full bg-primary"></div>
                   </div>
                   <div>
-                    <p className="font-medium">99.7% Accuracy Rate</p>
-                    <p className="text-sm text-muted-foreground">Exceeding industry standards for diagnostic precision</p>
+                    <p className="font-medium">High Diagnostic Accuracy</p>
+                    <p className="text-sm text-muted-foreground">Comparative studies with traditional histopathology demonstrated the potential of M3DOC as a rapid diagnostic tool</p>
                   </div>
                 </div>
                 
@@ -127,7 +127,7 @@ const ServicesSection = () => {
                   </div>
                   <div>
                     <p className="font-medium">Real-time Analysis</p>
-                    <p className="text-sm text-muted-foreground">Immediate processing of diagnostic data</p>
+                    <p className="text-sm text-muted-foreground">Immediate processing of tissue imaging data for quick clinical decisions</p>
                   </div>
                 </div>
                 
@@ -136,8 +136,8 @@ const ServicesSection = () => {
                     <div className="w-2 h-2 rounded-full bg-primary"></div>
                   </div>
                   <div>
-                    <p className="font-medium">Predictive Insights</p>
-                    <p className="text-sm text-muted-foreground">Identifying potential health issues before they manifest</p>
+                    <p className="font-medium">Non-invasive Detection</p>
+                    <p className="text-sm text-muted-foreground">Comfortable experience for patients while providing crucial diagnostic information</p>
                   </div>
                 </div>
               </div>
@@ -149,16 +149,16 @@ const ServicesSection = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-primary to-accent relative overflow-hidden hidden md:block">
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 rounded-full bg-white animate-pulse"></div>
-                <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 rounded-full bg-white animate-pulse" style={{animationDelay: '1s'}}></div>
-                <div className="absolute top-1/2 left-1/2 w-1/4 h-1/4 rounded-full bg-white animate-pulse" style={{animationDelay: '2s'}}></div>
-              </div>
+            <div className="relative overflow-hidden hidden md:flex items-center justify-center bg-gradient-to-br from-primary to-accent">
+              <img 
+                src="/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a2d608.png" 
+                alt="M3DOC Diagnostic System" 
+                className="w-full h-full object-contain p-8 mix-blend-luminosity opacity-90"
+              />
               
               <div className="absolute bottom-8 left-8 right-8 text-white">
-                <p className="text-xl font-bold mb-2">Smart Diagnostics</p>
-                <p className="text-sm opacity-80">Powered by proprietary machine learning algorithms</p>
+                <p className="text-xl font-bold mb-2">M3DOC System</p>
+                <p className="text-sm opacity-80">Advanced optical setup for oral cancer detection</p>
               </div>
             </div>
           </div>

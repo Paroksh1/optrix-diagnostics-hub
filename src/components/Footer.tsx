@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <Logo className="mb-4" />
             <p className="text-muted-foreground mb-6 max-w-xs">
-              Transforming healthcare with innovative diagnostic solutions and cutting-edge technology.
+              Transforming oral cancer detection with our innovative M3DOC diagnostic system for early, accurate, and non-invasive detection.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200">
@@ -40,22 +40,22 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="font-bold text-lg mb-4">Solutions</h3>
+            <h3 className="font-bold text-lg mb-4">Technology</h3>
             <ul className="space-y-3">
-              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Laboratory Diagnostics</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Genetic Sequencing</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">AI Diagnostics</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Remote Monitoring</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Multimodal Microscopy</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Autofluorescence Imaging</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Spectral Analysis</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-200">Phase Imaging</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-bold text-lg mb-4">Resources</h3>
+            <h3 className="font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200">Research</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200">Case Studies</a></li>
-              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200">Contact</a></li>
+              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200">sidmehta927@gmail.com</a></li>
+              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200">+91 9667206444</a></li>
+              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200">IIT Delhi, India</a></li>
+              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-200">Get in Touch</a></li>
             </ul>
           </div>
         </div>

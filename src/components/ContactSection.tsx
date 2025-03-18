@@ -49,10 +49,10 @@ const ContactSection = () => {
               Get In Touch
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-              Ready to Transform Your Diagnostic Capabilities?
+              Ready to Transform Your Oral Cancer Diagnostic Capabilities?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Contact us to discover how Opti-Mode Diagnostics can enhance your healthcare practice with cutting-edge diagnostic solutions.
+              Contact us to discover how Opti-Mode Diagnostics can enhance your healthcare practice with our cutting-edge M3DOC oral cancer detection system.
             </p>
             
             <div className="space-y-6">
@@ -62,7 +62,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">contact@optimode-diagnostics.com</p>
+                  <p className="font-medium">sidmehta927@gmail.com</p>
                 </div>
               </div>
               
@@ -72,7 +72,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">+1 (555) 987-6543</p>
+                  <p className="font-medium">+91 9667206444</p>
                 </div>
               </div>
               
@@ -82,7 +82,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Address</p>
-                  <p className="font-medium">100 Innovation Way, San Francisco, CA 94107</p>
+                  <p className="font-medium">IIT Delhi, Hauz Khas, New Delhi, India</p>
                 </div>
               </div>
             </div>
