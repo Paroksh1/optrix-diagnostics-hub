@@ -18,7 +18,7 @@ const DiagnosticAnimation = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl"></div>
       
       <img 
-        src="/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a2d608.png" 
+        src="/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png" 
         alt="M3DOC Diagnostic System" 
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 object-contain"
       />
@@ -71,7 +71,7 @@ const HeroSection = () => {
               href="#services" 
               className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all duration-200 font-medium flex items-center justify-center"
             >
-              Discover M3DOC
+              Discover Our Products
               <ChevronRight className="ml-1 w-5 h-5" />
             </a>
             <a 
