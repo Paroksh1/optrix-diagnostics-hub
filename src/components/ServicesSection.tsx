@@ -46,7 +46,11 @@ const ProductCard = ({
         </div>
         
         <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5">
-          <img src={imageSrc} alt={title} className="w-full h-full object-contain p-4" />
+          <img 
+            src={imageSrc} 
+            alt={title} 
+            className="w-full h-full object-contain p-4 max-h-64" 
+          />
         </div>
       </div>
     </div>
@@ -81,7 +85,7 @@ const ServicesSection = () => {
         'Portable design',
         'User-friendly interface'
       ],
-      imageSrc: '/lovable-uploads/95311108-cad0-4520-8fc6-8c2ff4a8b579.png'
+      imageSrc: '/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a2d608.png'
     }
   ];
 
