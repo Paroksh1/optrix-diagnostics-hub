@@ -8,6 +8,8 @@ import ServicesSection from '../components/ServicesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import InnovationTimeline from '../components/InnovationTimeline';
+import ARViewer from '../components/ARViewer';
 
 // ScrollProgress component that changes background gradient based on scroll position
 const ScrollProgress = () => {
@@ -92,6 +94,104 @@ const StorytellingOverlay = () => {
   );
 };
 
+// Interactive molecular animation component
+const MolecularAnimation = () => {
+  return (
+    <motion.div
+      className="fixed bottom-10 left-10 z-10 hidden lg:block"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1 }}
+    >
+      <div className="relative w-32 h-32">
+        <motion.div 
+          className="absolute w-4 h-4 rounded-full bg-primary/50"
+          animate={{ 
+            x: [0, 20, 0, -20, 0], 
+            y: [0, -20, -40, -20, 0],
+            scale: [1, 1.2, 1, 0.8, 1] 
+          }}
+          transition={{ repeat: Infinity, duration: 8 }}
+        />
+        <motion.div 
+          className="absolute w-6 h-6 rounded-full bg-accent/40 left-12 top-10"
+          animate={{ 
+            x: [0, -30, 0, 30, 0], 
+            y: [0, 20, 40, 20, 0],
+            scale: [1, 0.8, 1, 1.2, 1] 
+          }}
+          transition={{ repeat: Infinity, duration: 7, delay: 0.5 }}
+        />
+        <motion.div 
+          className="absolute w-5 h-5 rounded-full bg-primary/30 left-16 top-4"
+          animate={{ 
+            x: [0, -10, -20, -10, 0], 
+            y: [0, 10, 0, -10, 0],
+            scale: [1, 1.1, 1, 0.9, 1] 
+          }}
+          transition={{ repeat: Infinity, duration: 6, delay: 1 }}
+        />
+        
+        {/* Connecting lines */}
+        <svg className="absolute inset-0 w-full h-full" opacity="0.3">
+          <motion.line 
+            x1="20" y1="20" x2="65" y2="65" 
+            stroke="currentColor" 
+            className="text-primary"
+            animate={{ x1: [20, 40, 20, 0, 20], y1: [20, 0, -20, 0, 20] }}
+            transition={{ repeat: Infinity, duration: 8 }}
+          />
+          <motion.line 
+            x1="65" y1="65" x2="80" y2="20" 
+            stroke="currentColor" 
+            className="text-accent"
+            animate={{ x2: [80, 70, 60, 70, 80], y2: [20, 30, 20, 10, 20] }}
+            transition={{ repeat: Infinity, duration: 6, delay: 1 }}
+          />
+        </svg>
+      </div>
+    </motion.div>
+  );
+};
+
+// AR Showcase Section
+const ARShowcase = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+  
+  return (
+    <motion.div 
+      ref={ref}
+      className="py-24 bg-gradient-to-br from-primary/5 to-background"
+      style={{ opacity, y }}
+    >
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+            Interactive Experience
+          </span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
+            Explore Our Technology in 3D
+          </h2>
+          <p className="text-muted-foreground">
+            Get a closer look at our diagnostic devices with our interactive 3D visualization
+          </p>
+        </div>
+        
+        <div className="max-w-md mx-auto">
+          <ARViewer />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Index = () => {
   useEffect(() => {
     // Apply the custom cursor to the body on mount
@@ -113,9 +213,16 @@ const Index = () => {
       {/* Interactive storytelling overlay */}
       <StorytellingOverlay />
       
+      {/* Floating molecular animation */}
+      <MolecularAnimation />
+      
       <main>
         <HeroSection />
         <ServicesSection />
+        {/* AR Viewer showcase */}
+        <ARShowcase />
+        {/* Innovation Timeline */}
+        <InnovationTimeline />
         <AboutSection />
         <TestimonialsSection />
         <ContactSection />
