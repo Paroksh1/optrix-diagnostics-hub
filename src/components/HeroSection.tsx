@@ -18,7 +18,7 @@ const DiagnosticAnimation = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl"></div>
       
       <img 
-        src="/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png" 
+        src="/lovable-uploads/78de9949-8937-4fc0-acb3-b0b07cf6a5c2.png" 
         alt="M3DOC Diagnostic System" 
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 object-contain"
       />

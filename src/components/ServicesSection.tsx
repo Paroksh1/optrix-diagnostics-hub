@@ -68,7 +68,7 @@ const ServicesSection = () => {
         '95% detection accuracy',
         'Rapid diagnosis in minutes'
       ],
-      imageSrc: '/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png'
+      imageSrc: '/lovable-uploads/78de9949-8937-4fc0-acb3-b0b07cf6a5c2.png'
     },
     {
       title: 'Advanced Diagnostic Microscope',
@@ -81,7 +81,7 @@ const ServicesSection = () => {
         'Portable design',
         'User-friendly interface'
       ],
-      imageSrc: '/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png'
+      imageSrc: '/lovable-uploads/95311108-cad0-4520-8fc6-8c2ff4a8b579.png'
     }
   ];
 
