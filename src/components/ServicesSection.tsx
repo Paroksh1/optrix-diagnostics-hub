@@ -85,7 +85,7 @@ const ServicesSection = () => {
         'Portable design',
         'User-friendly interface'
       ],
-      imageSrc: '/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a2d608.png'
+      imageSrc: '/lovable-uploads/8e8e1104-ff89-4ee8-91d9-baed16c12987.png'
     }
   ];
 
