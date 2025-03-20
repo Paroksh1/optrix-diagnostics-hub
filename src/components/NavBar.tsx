@@ -15,11 +15,9 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="bg-transparent py-2">
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="py-1">
-          <Logo className="z-20" />
-        </div>
+    <header className="bg-transparent py-1">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <Logo className="z-20" />
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">

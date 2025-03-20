@@ -7,7 +7,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
       <img 
         src="/lovable-uploads/929ca821-1038-477e-a778-f88afc3c5519.png" 
         alt="Opti-Mode Diagnostics" 
-        className="h-10 md:h-12 lg:h-14" 
+        className="h-16 md:h-20 lg:h-24" 
       />
     </div>
   );
