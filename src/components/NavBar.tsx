@@ -15,7 +15,7 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="bg-transparent py-1">
+    <header className="absolute w-full z-50">
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Logo className="z-20" />
         
