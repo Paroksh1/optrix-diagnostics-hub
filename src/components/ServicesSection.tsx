@@ -92,7 +92,7 @@ const ServicesSection = () => {
         'Portable design',
         'User-friendly interface'
       ],
-      imageSrc: '/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png',
+      imageSrc: '/lovable-uploads/cea21519-6fd1-4ba0-8cdb-284f51489037.png',
       productLink: '/products/diagnostic-microscope'
     }
   ];
@@ -145,18 +145,20 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6 mb-16 animate-slide-in">
+        {/* Modified to center the products using flex and justify-center */}
+        <div className="flex flex-wrap justify-center gap-6 mb-16 animate-slide-in">
           {products.map((product, index) => (
-            <ProductCard
-              key={index}
-              title={product.title}
-              description={product.description}
-              features={product.features}
-              imageSrc={product.imageSrc}
-              isActive={activeCard === index}
-              onClick={() => setActiveCard(index)}
-              productLink={product.productLink}
-            />
+            <div key={index} className="w-full sm:w-96">
+              <ProductCard
+                title={product.title}
+                description={product.description}
+                features={product.features}
+                imageSrc={product.imageSrc}
+                isActive={activeCard === index}
+                onClick={() => setActiveCard(index)}
+                productLink={product.productLink}
+              />
+            </div>
           ))}
         </div>
         
