@@ -73,22 +73,6 @@ const AboutSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* Journey badge */}
-            <div className="absolute top-4 right-4 bg-white px-4 py-2 rounded-full shadow-md flex items-center gap-2 z-10">
-              <div className="bg-blue-500 p-2 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
-              </div>
-              <span className="font-medium">Our Diagnostic Journey</span>
-            </div>
-            
-            {/* Result badge */}
-            <div className="absolute top-16 right-16 text-right z-10">
-              <p className="text-xs text-gray-500">Rapid Screening</p>
-              <p className="font-medium">Precise Results</p>
-            </div>
-            
             {/* Main visualization - circular patterns */}
             <div className="aspect-square bg-blue-50 rounded-3xl flex items-center justify-center overflow-hidden relative">
               {/* Circular patterns */}

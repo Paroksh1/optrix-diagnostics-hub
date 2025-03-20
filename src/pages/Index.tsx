@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '../components/NavBar';
@@ -178,8 +177,8 @@ const Index = () => {
       
       <main>
         <HeroSection />
-        <ServicesSection />
         <AboutSection />
+        <ServicesSection />
         <TestimonialsSection />
         <ContactSection />
       </main>
