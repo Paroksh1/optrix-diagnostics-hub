@@ -51,7 +51,7 @@ const ProductCard = ({
           </Link>
         </div>
         
-        <div className="h-48 overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5">
+        <div className="h-36 overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5">
           <img 
             src={imageSrc} 
             alt={title} 
@@ -145,10 +145,10 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        {/* Modified to center the products using flex and justify-center */}
-        <div className="flex flex-wrap justify-center gap-6 mb-16 animate-slide-in">
+        {/* Products container - centered with max-width */}
+        <div className="max-w-4xl mx-auto flex justify-center gap-6 mb-16 animate-slide-in">
           {products.map((product, index) => (
-            <div key={index} className="w-full sm:w-96">
+            <div key={index} className="w-full max-w-xs">
               <ProductCard
                 title={product.title}
                 description={product.description}
