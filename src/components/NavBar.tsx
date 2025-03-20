@@ -15,9 +15,9 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="relative bg-transparent py-4">
+    <header className="bg-transparent py-2">
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="py-0">
+        <div className="py-1">
           <Logo className="z-20" />
         </div>
         
