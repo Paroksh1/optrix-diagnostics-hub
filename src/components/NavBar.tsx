@@ -36,7 +36,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           <a 
             href="#contact" 
-            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full transition-all duration-200 font-medium"
+            className="bg-black hover:bg-black/90 text-white px-5 py-2 rounded-full transition-all duration-200 font-medium"
           >
             Get Started
           </a>
@@ -66,7 +66,7 @@ const NavBar = () => {
               ))}
               <a 
                 href="#contact" 
-                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all duration-200 font-medium mt-4"
+                className="bg-black hover:bg-black/90 text-white px-6 py-3 rounded-full transition-all duration-200 font-medium mt-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get Started
