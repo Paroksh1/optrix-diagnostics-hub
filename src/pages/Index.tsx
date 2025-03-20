@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '../components/NavBar';
@@ -7,8 +8,6 @@ import ServicesSection from '../components/ServicesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-import InnovationTimeline from '../components/InnovationTimeline';
-import ARViewer from '../components/ARViewer';
 
 // ScrollProgress component that changes background gradient based on scroll position
 const ScrollProgress = () => {
@@ -153,44 +152,6 @@ const MolecularAnimation = () => {
   );
 };
 
-// AR Showcase Section
-const ARShowcase = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
-  
-  return (
-    <motion.div 
-      ref={ref}
-      className="py-24 bg-gradient-to-br from-primary/5 to-background"
-      style={{ opacity, y }}
-    >
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Interactive Experience
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-            Explore Our Technology in 3D
-          </h2>
-          <p className="text-muted-foreground">
-            Get a closer look at our diagnostic devices with our interactive 3D visualization
-          </p>
-        </div>
-        
-        <div className="max-w-md mx-auto">
-          <ARViewer />
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 const Index = () => {
   useEffect(() => {
     // Apply the custom cursor to the body on mount
@@ -218,10 +179,6 @@ const Index = () => {
       <main>
         <HeroSection />
         <ServicesSection />
-        {/* AR Viewer showcase */}
-        <ARShowcase />
-        {/* Innovation Timeline */}
-        <InnovationTimeline />
         <AboutSection />
         <TestimonialsSection />
         <ContactSection />
