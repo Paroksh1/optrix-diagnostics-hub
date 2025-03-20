@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Cube, Maximize2, Minimize2, RotateCcw } from 'lucide-react';
+import { Box, Maximize2, Minimize2, RotateCcw } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ARViewer = ({ modelUrl = '/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a2d608.png' }) => {
@@ -36,7 +36,7 @@ const ARViewer = ({ modelUrl = '/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a
       
       <div className="p-4 bg-primary/10">
         <h3 className="text-lg font-bold flex items-center">
-          <Cube className="w-5 h-5 mr-2" /> AR Product Viewer
+          <Box className="w-5 h-5 mr-2" /> AR Product Viewer
         </h3>
         <p className="text-sm text-muted-foreground">Interact with our diagnostic device in 3D</p>
       </div>
