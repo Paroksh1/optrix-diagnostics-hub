@@ -15,8 +15,8 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="absolute w-full z-50 pt-0">
-      <div className="container mx-auto px-4 flex items-center justify-between">
+    <header className="absolute w-full z-50 top-0">
+      <div className="container mx-auto px-4 flex items-center justify-between py-2">
         <Logo className="z-20" />
         
         {/* Desktop Navigation */}
