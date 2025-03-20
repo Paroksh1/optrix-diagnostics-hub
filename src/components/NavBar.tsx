@@ -27,11 +27,11 @@ const NavBar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass shadow-md py-5' : 'bg-transparent py-10'
+        isScrolled ? 'glass shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="py-4">
+        <div className="py-0">
           <Logo className="z-20" />
         </div>
         
