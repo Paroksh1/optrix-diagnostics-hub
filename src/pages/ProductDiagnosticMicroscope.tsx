@@ -71,7 +71,7 @@ const ProductDiagnosticMicroscope = () => {
               
               <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-6 flex items-center justify-center">
                 <img 
-                  src="/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png" 
+                  src="/lovable-uploads/19cdaa2e-ff55-43cb-a0f2-f4dbdfd0f645.png" 
                   alt="Advanced Diagnostic Microscope" 
                   className="max-w-full max-h-96 object-contain" 
                 />
@@ -168,7 +168,7 @@ const ProductDiagnosticMicroscope = () => {
           <div className="mb-20">
             <h2 className="text-2xl font-bold mb-6 text-center">Explore the Device in 3D</h2>
             <div className="max-w-lg mx-auto h-96">
-              <ARViewer modelUrl="/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png" />
+              <ARViewer modelUrl="/lovable-uploads/19cdaa2e-ff55-43cb-a0f2-f4dbdfd0f645.png" />
             </div>
           </div>
         </div>
