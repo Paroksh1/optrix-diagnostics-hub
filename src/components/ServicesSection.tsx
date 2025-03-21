@@ -145,10 +145,10 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        {/* Products container - centered with max-width */}
-        <div className="max-w-4xl mx-auto flex justify-center gap-6 mb-16 animate-slide-in">
+        {/* Products container - fixed alignment with flex */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-16 animate-slide-in">
           {products.map((product, index) => (
-            <div key={index} className="w-full max-w-xs">
+            <div key={index} className="w-full">
               <ProductCard
                 title={product.title}
                 description={product.description}
