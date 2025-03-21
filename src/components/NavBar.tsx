@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState('home');
   const isMobile = useIsMobile();
 
   const navLinks = [
@@ -23,36 +24,61 @@ const NavBar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setHasScrolled(scrollPosition > 20);
+      
+      // Set active link based on scroll position
+      const sections = navLinks.map(link => link.href.substring(1));
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element && scrollPosition >= element.offsetTop - 200) {
+          setActiveLink(section);
+          break;
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navLinks]);
 
   return (
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
         hasScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-md py-2' 
-          : 'bg-white/90 backdrop-blur-sm shadow-sm py-3'
+          : 'bg-white/90 backdrop-blur-sm py-4'
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between h-14">
+      <div className="container mx-auto px-4 flex items-center justify-between">
         <Logo className="z-20" />
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <motion.a
-              key={link.text}
-              href={link.href}
-              className="text-foreground hover:text-primary transition-colors duration-200 font-medium relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              whileHover={{ y: -2, scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {link.text}
-            </motion.a>
-          ))}
+        <nav className="hidden md:flex space-x-10">
+          {navLinks.map((link) => {
+            const isActive = activeLink === link.href.substring(1);
+            return (
+              <motion.a
+                key={link.text}
+                href={link.href}
+                className={`text-foreground transition-colors duration-200 font-medium text-base relative ${
+                  isActive ? 'text-primary' : 'hover:text-primary'
+                }`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setActiveLink(link.href.substring(1))}
+              >
+                {link.text}
+                <span 
+                  className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-primary rounded-full transition-transform duration-300 ${
+                    isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}
+                  style={{ 
+                    transformOrigin: isActive ? 'center' : 'left',
+                    transform: isActive ? 'scaleX(1)' : 'scaleX(0)'
+                  }}
+                />
+              </motion.a>
+            );
+          })}
         </nav>
         
         {/* Contact Button (Desktop) */}
@@ -60,7 +86,7 @@ const NavBar = () => {
           <motion.a 
             href="#contact" 
             className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-white rounded-full group"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, boxShadow: '0 5px 15px rgba(0, 120, 255, 0.4)' }}
             whileTap={{ scale: 0.98 }}
           >
             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-r from-primary via-accent to-primary rounded-full group-hover:w-full group-hover:h-56"></span>
@@ -73,7 +99,7 @@ const NavBar = () => {
         
         {/* Mobile Menu Toggle */}
         <motion.button 
-          className="md:hidden text-foreground z-20"
+          className="md:hidden text-foreground z-20 p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
           whileTap={{ scale: 0.9 }}
@@ -91,23 +117,40 @@ const NavBar = () => {
               exit={{ opacity: 0 }}
             >
               <div className="flex flex-col items-center justify-center h-full space-y-6">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.text}
-                    href={link.href}
-                    className="text-foreground hover:text-primary transition-colors duration-200 text-xl font-medium relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {link.text}
-                  </motion.a>
-                ))}
+                {navLinks.map((link, i) => {
+                  const isActive = activeLink === link.href.substring(1);
+                  return (
+                    <motion.div
+                      key={link.text}
+                      className="relative"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <motion.a
+                        href={link.href}
+                        className={`text-foreground transition-colors duration-200 text-xl font-medium ${
+                          isActive ? 'text-primary' : ''
+                        }`}
+                        onClick={() => {
+                          setActiveLink(link.href.substring(1));
+                          setIsMobileMenuOpen(false);
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {link.text}
+                      </motion.a>
+                      <span 
+                        className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-primary rounded-full transition-transform duration-300 ${
+                          isActive ? 'scale-x-100' : 'scale-x-0'
+                        }`}
+                      />
+                    </motion.div>
+                  );
+                })}
                 <motion.a 
                   href="#contact" 
-                  className="relative inline-flex items-center justify-center px-5 py-2 overflow-hidden font-medium text-white rounded-full group mt-4"
+                  className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-white rounded-full group mt-4"
                   onClick={() => setIsMobileMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
