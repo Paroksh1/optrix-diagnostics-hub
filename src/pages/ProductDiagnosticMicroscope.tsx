@@ -239,7 +239,7 @@ const ProductDiagnosticMicroscope = () => {
           
           <div className="mb-20">
             <h2 className="text-2xl font-bold mb-6 text-center">Explore the Device in 3D</h2>
-            <div className="max-w-lg mx-auto h-96">
+            <div className="max-w-sm mx-auto">
               <ARViewer modelUrl="/lovable-uploads/19cdaa2e-ff55-43cb-a0f2-f4dbdfd0f645.png" />
             </div>
           </div>

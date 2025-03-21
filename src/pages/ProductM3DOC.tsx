@@ -239,7 +239,7 @@ const ProductM3DOC = () => {
           
           <div className="mb-20">
             <h2 className="text-2xl font-bold mb-6 text-center">Explore the Device in 3D</h2>
-            <div className="max-w-lg mx-auto h-96">
+            <div className="max-w-sm mx-auto">
               <ARViewer modelUrl="/lovable-uploads/78de9949-8937-4fc0-acb3-b0b07cf6a5c2.png" />
             </div>
           </div>
