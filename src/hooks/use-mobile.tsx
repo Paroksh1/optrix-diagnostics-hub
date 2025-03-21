@@ -4,10 +4,8 @@ import * as React from "react"
 const MOBILE_BREAKPOINT = 768
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean>(
-    typeof window !== 'undefined' ? window.innerWidth < MOBILE_BREAKPOINT : true
-  )
-
+  const [isMobile, setIsMobile] = React.useState<boolean>(false)
+  
   React.useEffect(() => {
     // Function to check if device is mobile
     const checkIsMobile = () => {

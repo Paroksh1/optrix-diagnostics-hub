@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const navLinks = [
     { text: 'Home', href: '#home' },
@@ -15,12 +17,12 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="absolute w-full z-50 top-0">
-      <div className="container mx-auto px-4 flex items-center justify-between py-2">
+    <header className="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-sm shadow-sm">
+      <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <Logo className="z-20" />
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.text}
@@ -36,7 +38,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           <a 
             href="#contact" 
-            className="bg-black hover:bg-black/90 text-white px-5 py-2 rounded-full transition-all duration-200 font-medium"
+            className="bg-black hover:bg-black/90 text-white px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm"
           >
             Get Started
           </a>
@@ -46,6 +48,7 @@ const NavBar = () => {
         <button 
           className="md:hidden text-foreground z-20"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -53,12 +56,12 @@ const NavBar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-background/98 backdrop-blur-sm z-10 md:hidden">
-            <div className="flex flex-col items-center justify-center h-full space-y-8">
+            <div className="flex flex-col items-center justify-center h-full space-y-6">
               {navLinks.map((link) => (
                 <a
                   key={link.text}
                   href={link.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 text-2xl font-medium"
+                  className="text-foreground hover:text-primary transition-colors duration-200 text-xl font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.text}
@@ -66,7 +69,7 @@ const NavBar = () => {
               ))}
               <a 
                 href="#contact" 
-                className="bg-black hover:bg-black/90 text-white px-6 py-3 rounded-full transition-all duration-200 font-medium mt-4"
+                className="bg-black hover:bg-black/90 text-white px-5 py-2 rounded-full transition-all duration-200 font-medium mt-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get Started
