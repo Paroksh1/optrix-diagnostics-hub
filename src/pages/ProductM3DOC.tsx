@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Shield, Zap, Scan, Microscope, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Shield, Zap, Scan, Microscope, BarChart3, CloudCog } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
