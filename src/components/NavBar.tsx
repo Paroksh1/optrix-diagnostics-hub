@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,65 +18,81 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-sm shadow-sm">
+    <header className="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-sm shadow-sm font-poppins">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <Logo className="z-20" />
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <a
+            <motion.a
               key={link.text}
               href={link.href}
               className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
               {link.text}
-            </a>
+            </motion.a>
           ))}
         </nav>
         
         {/* Contact Button (Desktop) */}
         <div className="hidden md:block">
-          <a 
+          <motion.a 
             href="#contact" 
-            className="bg-black hover:bg-black/90 text-white px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm"
+            className="bg-black hover:bg-black/90 text-white px-5 py-2 rounded-full transition-colors duration-200 font-medium text-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
             Get Started
-          </a>
+          </motion.a>
         </div>
         
         {/* Mobile Menu Toggle */}
-        <button 
+        <motion.button 
           className="md:hidden text-foreground z-20"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
+          whileTap={{ scale: 0.9 }}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </motion.button>
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-background/98 backdrop-blur-sm z-10 md:hidden">
+          <motion.div 
+            className="fixed inset-0 bg-background/98 backdrop-blur-sm z-10 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
             <div className="flex flex-col items-center justify-center h-full space-y-6">
-              {navLinks.map((link) => (
-                <a
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.text}
                   href={link.href}
                   className="text-foreground hover:text-primary transition-colors duration-200 text-xl font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
                   {link.text}
-                </a>
+                </motion.a>
               ))}
-              <a 
+              <motion.a 
                 href="#contact" 
                 className="bg-black hover:bg-black/90 text-white px-5 py-2 rounded-full transition-all duration-200 font-medium mt-4"
                 onClick={() => setIsMobileMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
               >
                 Get Started
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </header>

@@ -1,15 +1,42 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Button } from './ui/button';
 
 const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-white"
+      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-white font-poppins"
     >
-      {/* Badge at the top */}
-      <div className="mb-16 inline-flex items-center bg-blue-50 px-4 py-2 rounded-full">
+      {/* Subtle animated background particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-primary/5"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 40 + 10}px`,
+              height: `${Math.random() * 40 + 10}px`,
+            }}
+            animate={{
+              x: [0, Math.random() * 50 - 25, 0],
+              y: [0, Math.random() * 50 - 25, 0],
+              opacity: [0.3, 0.7, 0.3]
+            }}
+            transition={{
+              duration: Math.random() * 10 + 15,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Badge at the top with more spacing */}
+      <div className="mb-20 inline-flex items-center bg-blue-50 px-4 py-2 rounded-full hover:scale-105 transition-transform">
         <span className="text-blue-600 font-medium flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2">
             <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813a3.75 3.75 0 002.576-2.576l.813-2.846A.75.75 0 019 4.5z" clipRule="evenodd" />
@@ -21,39 +48,57 @@ const HeroSection = () => {
         </span>
       </div>
       
-      {/* Main Heading */}
+      {/* Main Heading with improved typography and spacing */}
       <motion.div 
-        className="text-center max-w-4xl mx-auto"
+        className="text-center max-w-4xl mx-auto pb-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
-          Revolutionizing Cancer Detection<br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-400 via-green-500 to-purple-600">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center tracking-tight leading-tight">
+          <span className="font-extrabold">Revolutionizing</span> Cancer Detection<br />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 font-extrabold">
             Through Advanced Optics
           </span>
         </h1>
         
-        <p className="text-gray-600 text-lg md:text-xl mb-12 max-w-3xl mx-auto">
+        <p className="text-gray-600 text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed">
           Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="#services" 
-            className="bg-black hover:bg-black/90 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium"
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <Button
+            asChild
+            size="lg"
+            className="bg-black hover:bg-black/90 text-white px-8 py-6 rounded-full transition-all duration-300 font-medium text-base"
           >
-            Explore Our Products
-          </a>
-          <a 
-            href="#contact"
-            className="bg-black hover:bg-black/90 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium"
+            <a href="#services">Explore Our Products</a>
+          </Button>
+          
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="bg-white hover:bg-gray-50 text-black border border-gray-200 px-8 py-6 rounded-full transition-all duration-300 font-medium text-base"
           >
-            Contact Us
-          </a>
+            <a href="#contact">Contact Us</a>
+          </Button>
         </div>
       </motion.div>
+
+      {/* Interactive geometric elements */}
+      <div className="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 hidden md:block">
+        {[1, 2, 3].map((i) => (
+          <motion.div
+            key={i}
+            className="w-6 h-6 mb-4 rounded-md bg-primary/10 hover:bg-primary/20 cursor-pointer"
+            whileHover={{ scale: 1.2, rotate: 45 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            animate={{ y: [0, 10, 0], opacity: [0.3, 0.8, 0.3] }}
+            style={{ animationDelay: `${i * 0.2}s` }}
+          />
+        ))}
+      </div>
     </section>
   );
 };
