@@ -22,7 +22,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
         <motion.img 
           src="/lovable-uploads/61af4e2a-135a-4f61-8a83-9357e42fc668.png" 
           alt="Opti-Mode Diagnostics" 
-          className={`${isMobile ? 'h-10' : 'h-12'} w-auto`}
+          className={`${isMobile ? 'h-8' : 'h-10'} w-auto`}
         />
       </motion.a>
     </motion.div>
