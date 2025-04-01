@@ -109,7 +109,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0, 162, 255, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-r from-primary via-accent to-primary rounded-full group-hover:w-full group-hover:h-56"></span>
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-r from-black via-primary to-black rounded-full group-hover:w-full group-hover:h-56"></span>
               <span className="relative z-10 font-medium text-base">Explore Our Products</span>
             </motion.a>
           </Button>
@@ -123,7 +123,7 @@ const HeroSection = () => {
             <motion.a 
               href="#contact"
               className="relative"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(150, 150, 150, 0.3)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(0, 162, 255, 0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10">Contact Us</span>
