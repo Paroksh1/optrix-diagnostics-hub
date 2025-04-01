@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
@@ -98,7 +97,11 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-8 justify-center"
           variants={itemVariants}
         >
-          <Button size="lg" className="px-8 py-6">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="px-8 py-6 border border-gray-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
+          >
             <a href="#services" className="font-medium text-base">
               Explore Our Products
             </a>
@@ -107,7 +110,7 @@ const HeroSection = () => {
           <Button
             size="lg"
             variant="outline"
-            className="border border-gray-200 px-8 py-6 rounded-full font-medium text-base"
+            className="border border-gray-200 px-8 py-6 rounded-full hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
           >
             <a href="#contact" className="font-medium text-base">
               Contact Us
