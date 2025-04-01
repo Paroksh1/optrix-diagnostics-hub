@@ -83,18 +83,12 @@ const NavBar = () => {
         
         {/* Contact Button (Desktop) */}
         <div className="hidden md:block">
-          <motion.a 
+          <a 
             href="#contact" 
-            className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-white rounded-full group"
-            whileHover={{ scale: 1.05, boxShadow: '0 5px 15px rgba(0, 120, 255, 0.4)' }}
-            whileTap={{ scale: 0.98 }}
+            className="bg-black text-white px-5 py-2 rounded-full font-medium text-sm"
           >
-            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-r from-black via-black to-primary rounded-full group-hover:w-full group-hover:h-56"></span>
-            <span className="absolute inset-0 w-full h-full -mt-1 rounded-full opacity-30 bg-gradient-to-b from-transparent via-transparent to-black group-hover:opacity-0"></span>
-            <span className="relative bg-black group-hover:bg-transparent px-5 py-2 rounded-full transition-colors duration-200 font-medium text-sm">
-              Get Started
-            </span>
-          </motion.a>
+            Get Started
+          </a>
         </div>
         
         {/* Mobile Menu Toggle */}
@@ -148,21 +142,13 @@ const NavBar = () => {
                     </motion.div>
                   );
                 })}
-                <motion.a 
+                <a 
                   href="#contact" 
-                  className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-white rounded-full group mt-4"
+                  className="bg-black text-white px-5 py-2 rounded-full font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navLinks.length *.1 }}
-                  whileHover={{ scale: 1.05 }}
                 >
-                  <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-r from-black via-primary to-black rounded-full group-hover:w-full group-hover:h-56"></span>
-                  <span className="absolute inset-0 w-full h-full -mt-1 rounded-full opacity-30 bg-gradient-to-b from-transparent via-transparent to-black group-hover:opacity-0"></span>
-                  <span className="relative bg-black group-hover:bg-transparent px-5 py-2 rounded-full transition-colors duration-200 font-medium">
-                    Get Started
-                  </span>
-                </motion.a>
+                  Get Started
+                </a>
               </div>
             </motion.div>
           )}

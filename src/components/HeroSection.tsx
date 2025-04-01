@@ -98,37 +98,20 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-8 justify-center"
           variants={itemVariants}
         >
-          <Button
-            asChild
-            size="lg"
-            className="relative inline-flex items-center justify-center px-8 py-6 overflow-hidden font-medium text-white rounded-full group"
-          >
-            <motion.a 
-              href="#services"
-              className="bg-black hover:bg-transparent transition-colors duration-500"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0, 162, 255, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-r from-black via-primary to-black rounded-full group-hover:w-full group-hover:h-56"></span>
-              <span className="relative z-10 font-medium text-base">Explore Our Products</span>
-            </motion.a>
+          <Button size="lg" className="px-8 py-6">
+            <a href="#services" className="font-medium text-base">
+              Explore Our Products
+            </a>
           </Button>
           
           <Button
-            asChild
             size="lg"
             variant="outline"
-            className="border border-gray-200 px-8 py-6 rounded-full font-medium text-base overflow-hidden"
+            className="border border-gray-200 px-8 py-6 rounded-full font-medium text-base"
           >
-            <motion.a 
-              href="#contact"
-              className="relative"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(0, 162, 255, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10">Contact Us</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
-            </motion.a>
+            <a href="#contact" className="font-medium text-base">
+              Contact Us
+            </a>
           </Button>
         </motion.div>
       </motion.div>
