@@ -13,11 +13,9 @@ const ProductDiagnosticMicroscope = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const productImages = [
-    '/lovable-uploads/19cdaa2e-ff55-43cb-a0f2-f4dbdfd0f645.png',
-    '/lovable-uploads/78de9949-8937-4fc0-acb3-b0b07cf6a5c2.png',
-    '/lovable-uploads/f32a5a75-b1a6-44b7-b92c-c67687a2d608.png',
-    '/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png',
+    '/lovable-uploads/5fea5ae6-eb14-4a0a-a943-21a680c10df9.png',
     '/lovable-uploads/929ca821-1038-477e-a778-f88afc3c5519.png',
+    '/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png',
   ];
   
   useEffect(() => {
@@ -42,7 +40,7 @@ const ProductDiagnosticMicroscope = () => {
             Back to Home
           </Link>
           
-          {/* Product intro section styled like ProductM3DOC.tsx */}
+          {/* Product intro section */}
           <section className="py-10">
             <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
               {/* Left Column - Content */}
@@ -54,60 +52,60 @@ const ProductDiagnosticMicroscope = () => {
               >
                 {/* Top badge */}
                 <div className="inline-block px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-medium mb-2">
-                  Comprehensive Diagnostic System
+                  Point of Care Device
                 </div>
                 
                 {/* Main heading */}
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                  Advanced Diagnostic Microscope
+                  In-vivo Fast Screening and Diagnosis of Oral Cancerous Epithelia
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-6">
-                  Comprehensive diagnostic system with integrated software platform
+                  A real-time point of care device for low resource settings
                 </p>
                 
                 {/* Description */}
                 <div className="space-y-4">
                   <p className="text-gray-600">
-                    Our Advanced Diagnostic Microscope combines cutting-edge hardware with powerful cloud-based software to provide a complete diagnostic solution for healthcare providers.
+                    Oral cancer is one of the 3 leading cancers, most common in male population. The survival rate over 5 years is only 50%.
                   </p>
                   <p className="text-gray-600">
-                    The system offers multi-modal analysis capabilities, instant results, and seamless data integration with existing healthcare systems.
+                    Our device provides fast, non-invasive screening and diagnosis to improve early detection and survival rates.
                   </p>
                 </div>
                 
                 {/* Features tags */}
                 <div className="flex flex-wrap gap-3 my-6">
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                    Cloud-based platform
+                    Non-contact
                   </span>
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                    Instant results
+                    Non-invasive
                   </span>
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                    Multi-modal analysis
+                    Imaging & spectroscopy
                   </span>
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                    Data integration
+                    AI/ML powered
                   </span>
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                    Portable design
+                    Multi-modality
                   </span>
                 </div>
                 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-8 pt-4">
                   <div className="text-center md:text-left">
-                    <p className="text-4xl font-bold text-gray-900">98%</p>
-                    <p className="text-gray-500 text-sm">Integration Rate</p>
+                    <p className="text-4xl font-bold text-gray-900">96.7%</p>
+                    <p className="text-gray-500 text-sm">OSCC Accuracy</p>
                   </div>
                   <div className="text-center md:text-left">
-                    <p className="text-4xl font-bold text-gray-900">10TB</p>
-                    <p className="text-gray-500 text-sm">Cloud Storage</p>
+                    <p className="text-4xl font-bold text-gray-900">96.4%</p>
+                    <p className="text-gray-500 text-sm">High Risk Accuracy</p>
                   </div>
                   <div className="text-center md:text-left">
-                    <p className="text-4xl font-bold text-gray-900">3kg</p>
-                    <p className="text-gray-500 text-sm">Lightweight</p>
+                    <p className="text-4xl font-bold text-gray-900">92.8%</p>
+                    <p className="text-gray-500 text-sm">Low Risk Accuracy</p>
                   </div>
                 </div>
                 
@@ -145,7 +143,7 @@ const ProductDiagnosticMicroscope = () => {
                         >
                           <img 
                             src={image}
-                            alt={`Advanced Diagnostic Microscope View ${index + 1}`}
+                            alt={`Device View ${index + 1}`}
                             className="max-w-full max-h-full object-contain p-8"
                           />
                         </motion.div>
@@ -163,37 +161,6 @@ const ProductDiagnosticMicroscope = () => {
                         />
                       ))}
                     </div>
-                    
-                    {/* Circular patterns */}
-                    <div className="absolute inset-0 flex items-center justify-center -z-10">
-                      <div className="w-64 h-64 border-2 border-dashed border-blue-200 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                      <div className="absolute w-48 h-48 border-2 border-dashed border-blue-300 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                      <div className="absolute w-32 h-32 border-2 border-dashed border-blue-400 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                      <div className="absolute w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Bottom floating elements */}
-                  <div className="absolute -bottom-12 -left-8">
-                    <motion.div 
-                      className="w-16 h-16 bg-blue-100 rounded-full opacity-70"
-                      animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
-                      transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                    />
-                  </div>
-                  <div className="absolute -bottom-8 left-10">
-                    <motion.div 
-                      className="w-10 h-10 bg-blue-200 rounded-full opacity-70"
-                      animate={{ y: [0, -5, 0], x: [0, -5, 0] }}
-                      transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
-                    />
-                  </div>
-                  <div className="absolute -bottom-4 left-24">
-                    <motion.div 
-                      className="w-8 h-8 bg-blue-300 rounded-full opacity-70"
-                      animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
-                      transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
-                    />
                   </div>
                 </motion.div>
               )}
@@ -211,8 +178,8 @@ const ProductDiagnosticMicroscope = () => {
                       <Microscope className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Optical System</h3>
-                      <p className="text-sm text-muted-foreground">High-resolution digital microscope with multiple magnification levels and automated focus</p>
+                      <h3 className="font-medium mb-1">Imaging System</h3>
+                      <p className="text-sm text-muted-foreground">Endoscopic imaging using Wi-Fi camera with multimodal device for comprehensive analysis</p>
                     </div>
                   </div>
                 </div>
@@ -223,8 +190,8 @@ const ProductDiagnosticMicroscope = () => {
                       <CloudCog className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Cloud Platform</h3>
-                      <p className="text-sm text-muted-foreground">Secure, HIPAA-compliant cloud software for image storage, analysis, and integration with EHR systems</p>
+                      <h3 className="font-medium mb-1">Excitation Source</h3>
+                      <p className="text-sm text-muted-foreground">Laser pointer (405nm) with illumination fiber for precise tissue analysis</p>
                     </div>
                   </div>
                 </div>
@@ -235,8 +202,8 @@ const ProductDiagnosticMicroscope = () => {
                       <Zap className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Processing Power</h3>
-                      <p className="text-sm text-muted-foreground">Edge computing with AI acceleration for real-time analysis and instant diagnostic feedback</p>
+                      <h3 className="font-medium mb-1">Spectrometer</h3>
+                      <p className="text-sm text-muted-foreground">Advanced spectral measurement capabilities for detailed tissue analysis</p>
                     </div>
                   </div>
                 </div>
@@ -253,8 +220,8 @@ const ProductDiagnosticMicroscope = () => {
                       <Shield className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Data Security</h3>
-                      <p className="text-sm text-muted-foreground">Enterprise-grade security with end-to-end encryption and compliance with healthcare data regulations</p>
+                      <h3 className="font-medium mb-1">Advanced Diagnostic Capability</h3>
+                      <p className="text-sm text-muted-foreground">Analysis of 52 OSCC, 38 high risk, 40 low risk and 130 normal cases with high accuracy</p>
                     </div>
                   </div>
                 </div>
@@ -265,8 +232,8 @@ const ProductDiagnosticMicroscope = () => {
                       <Scan className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Versatile Analysis</h3>
-                      <p className="text-sm text-muted-foreground">Multiple imaging modes for comprehensive tissue analysis across different medical applications</p>
+                      <h3 className="font-medium mb-1">Multi-Modality Approach</h3>
+                      <p className="text-sm text-muted-foreground">Superior to other devices that rely only on imaging/multispectral imaging without spectral measurement</p>
                     </div>
                   </div>
                 </div>
@@ -277,8 +244,8 @@ const ProductDiagnosticMicroscope = () => {
                       <BarChart3 className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Analytics Dashboard</h3>
-                      <p className="text-sm text-muted-foreground">Comprehensive reporting tools with historical data tracking and outcome analysis</p>
+                      <h3 className="font-medium mb-1">Point of Care Solution</h3>
+                      <p className="text-sm text-muted-foreground">Designed specifically for low resource settings where advanced medical facilities are limited</p>
                     </div>
                   </div>
                 </div>
@@ -289,7 +256,7 @@ const ProductDiagnosticMicroscope = () => {
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-6 text-center">Explore the Device in 3D</h2>
             <div className="max-w-sm mx-auto">
-              <ARViewer modelUrl="/lovable-uploads/19cdaa2e-ff55-43cb-a0f2-f4dbdfd0f645.png" />
+              <ARViewer modelUrl="/lovable-uploads/5fea5ae6-eb14-4a0a-a943-21a680c10df9.png" />
             </div>
           </div>
         </div>

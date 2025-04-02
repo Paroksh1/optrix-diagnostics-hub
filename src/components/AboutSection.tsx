@@ -22,14 +22,13 @@ const AboutSection = () => {
             
             {/* Main heading */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              Precision Meets
+              Fast Screening & Diagnosis
             </h2>
             
             {/* Description */}
             <p className="text-gray-600 text-lg">
-              Pioneering the future of oral cancer diagnostics with our M3DOC 
-              multimodal microscopic system for early, accurate, and non-
-              invasive detection.
+              Pioneering the future of oral cancer diagnostics with our in-vivo 
+              fast screening system for real-time point of care in low-resource settings.
             </p>
             
             {/* Buttons */}
@@ -38,7 +37,7 @@ const AboutSection = () => {
                 href="#services" 
                 className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium flex items-center"
               >
-                Discover Our Products
+                Discover Our Product
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
               <a 
@@ -52,12 +51,12 @@ const AboutSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-gray-900">95%</p>
+                <p className="text-4xl font-bold text-gray-900">96.7%</p>
                 <p className="text-gray-500 text-sm">Detection Accuracy</p>
               </div>
               <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-gray-900">5min</p>
-                <p className="text-gray-500 text-sm">Rapid Diagnosis</p>
+                <p className="text-4xl font-bold text-gray-900">50%</p>
+                <p className="text-gray-500 text-sm">5-Year Survival Rate</p>
               </div>
               <div className="text-center md:text-left">
                 <p className="text-4xl font-bold text-gray-900">100%</p>

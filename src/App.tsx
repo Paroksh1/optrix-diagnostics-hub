@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ProductM3DOC from "./pages/ProductM3DOC";
+// import ProductM3DOC from "./pages/ProductM3DOC";
 import ProductDiagnosticMicroscope from "./pages/ProductDiagnosticMicroscope";
 
 const queryClient = new QueryClient();
@@ -19,7 +19,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/products/m3doc" element={<ProductM3DOC />} />
+          {/* Commented out M3DOC route as requested */}
+          {/* <Route path="/products/m3doc" element={<ProductM3DOC />} /> */}
           <Route path="/products/diagnostic-microscope" element={<ProductDiagnosticMicroscope />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

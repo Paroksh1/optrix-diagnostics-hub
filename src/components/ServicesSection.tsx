@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ArrowRight, Microscope, Dna, Activity, BarChart3, Scan, TestTube, CloudCog, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -66,6 +67,7 @@ const ServicesSection = () => {
   const [activeCard, setActiveCard] = useState(0);
   
   const products = [
+    /* Commented out M3DOC product as requested
     {
       title: 'M3DOC',
       description: 'Multimodal Multispectral Microscope for Diagnosis of Oral Cancer',
@@ -80,18 +82,19 @@ const ServicesSection = () => {
       imageSrc: '/lovable-uploads/78de9949-8937-4fc0-acb3-b0b07cf6a5c2.png',
       productLink: '/products/m3doc'
     },
+    */
     {
-      title: 'Advanced Diagnostic Microscope',
-      description: 'Comprehensive diagnostic system with integrated software platform',
+      title: 'In-vivo Fast Screening and Diagnosis of Oral Cancerous Epithelia',
+      description: 'Real-time point of care device for low resource settings',
       features: [
-        'Cloud-based platform',
-        'Instant results',
-        'Multi-modal analysis',
-        'Data integration',
-        'Portable design',
-        'User-friendly interface'
+        'Non-contact & non-invasive',
+        'Based on imaging and spectroscopy',
+        'Multi-modality scanning',
+        'Easy to operate',
+        'AI/ML powered',
+        'Early stage cancer detection'
       ],
-      imageSrc: '/lovable-uploads/cea21519-6fd1-4ba0-8cdb-284f51489037.png',
+      imageSrc: '/lovable-uploads/5fea5ae6-eb14-4a0a-a943-21a680c10df9.png',
       productLink: '/products/diagnostic-microscope'
     }
   ];
@@ -99,33 +102,33 @@ const ServicesSection = () => {
   const features = [
     {
       icon: Microscope,
-      title: 'Multimodal Microscopy',
-      description: 'Advanced microscopy system with excitation light sources, spectral filters, and high-resolution camera.',
+      title: 'Multimodal Device',
+      description: 'Combines imaging with spectroscopy for comprehensive oral cancer screening and diagnosis.',
     },
     {
       icon: Activity,
-      title: 'Autofluorescence Imaging',
-      description: 'Reveals distinct molecular patterns to differentiate between healthy and malignant tissues.',
+      title: 'High Accuracy',
+      description: 'Up to 96.7% accuracy in detecting OSCC cases and 96.43% in identifying high-risk precancerous conditions.',
     },
     {
       icon: TestTube,
-      title: 'Spectral Analysis',
-      description: 'Identifies variations in fluorescence peaks of key endogenous fluorophores in cancer cells.',
+      title: 'Non-Invasive Screening',
+      description: 'Non-contact screening eliminates the need for painful biopsies in preliminary examinations.',
     },
     {
       icon: Scan,
-      title: 'Phase Imaging',
-      description: 'Highlights morphological irregularities indicative of malignancy in cellular structure.',
+      title: 'Smartphone Integration',
+      description: 'Uses smartphone-based imaging and spectroscopy for portability and accessibility.',
     },
     {
       icon: Dna,
-      title: 'Non-Invasive Detection',
-      description: 'Provides rapid and non-invasive cancer diagnostic capabilities without painful biopsies.',
+      title: 'AI/ML Powered',
+      description: 'Advanced AI algorithms provide rapid and accurate analysis of oral tissues.',
     },
     {
       icon: BarChart3,
-      title: 'Comparative Analysis',
-      description: 'Integrates molecular and morphological data for enhanced diagnostic accuracy.',
+      title: 'Point of Care Solution',
+      description: 'Specifically designed for low-resource settings where advanced medical facilities are limited.',
     },
   ];
 
@@ -145,9 +148,9 @@ const ServicesSection = () => {
         </div>
         
         {/* Products container - fixed alignment with flex */}
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-16 animate-slide-in">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-6 mb-16 animate-slide-in">
           {products.map((product, index) => (
-            <div key={index} className="w-full">
+            <div key={index} className="w-full mx-auto max-w-md">
               <ProductCard
                 title={product.title}
                 description={product.description}
@@ -166,7 +169,7 @@ const ServicesSection = () => {
             Key Technology Features
           </h2>
           <p className="text-muted-foreground">
-            Our M3DOC system combines multiple technologies to provide comprehensive diagnostic capabilities
+            Our system combines multiple technologies to provide comprehensive diagnostic capabilities
           </p>
         </div>
         
