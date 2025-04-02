@@ -4,19 +4,23 @@ import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
   const isMobile = useIsMobile();
+  const location = useLocation();
+  
+  const isProductPage = location.pathname.includes('/products/');
 
   const navLinks = [
-    { text: 'Home', href: '#home' },
-    { text: 'About', href: '#about' },
-    { text: 'Services', href: '#services' },
-    { text: 'Testimonials', href: '#testimonials' },
-    { text: 'Contact', href: '#contact' },
+    { text: 'Home', href: isProductPage ? '/#home' : '#home' },
+    { text: 'About', href: isProductPage ? '/#about' : '#about' },
+    { text: 'Services', href: isProductPage ? '/#services' : '#services' },
+    { text: 'Testimonials', href: isProductPage ? '/#testimonials' : '#testimonials' },
+    { text: 'Contact', href: isProductPage ? '/#contact' : '#contact' },
   ];
 
   // Handle scroll effect for sticky navbar
@@ -25,20 +29,22 @@ const NavBar = () => {
       const scrollPosition = window.scrollY;
       setHasScrolled(scrollPosition > 20);
       
-      // Set active link based on scroll position
-      const sections = navLinks.map(link => link.href.substring(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element && scrollPosition >= element.offsetTop - 200) {
-          setActiveLink(section);
-          break;
+      // Set active link based on scroll position (only on homepage)
+      if (!isProductPage) {
+        const sections = navLinks.map(link => link.href.substring(1));
+        for (const section of sections.reverse()) {
+          const element = document.getElementById(section);
+          if (element && scrollPosition >= element.offsetTop - 200) {
+            setActiveLink(section);
+            break;
+          }
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navLinks]);
+  }, [navLinks, isProductPage]);
 
   return (
     <header 
@@ -54,7 +60,7 @@ const NavBar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">
           {navLinks.map((link) => {
-            const isActive = activeLink === link.href.substring(1);
+            const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
             return (
               <motion.a
                 key={link.text}
@@ -64,7 +70,7 @@ const NavBar = () => {
                 }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setActiveLink(link.href.substring(1))}
+                onClick={() => setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1))}
               >
                 {link.text}
                 <span 
@@ -84,7 +90,7 @@ const NavBar = () => {
         {/* Contact Button (Desktop) */}
         <div className="hidden md:block">
           <a 
-            href="#contact" 
+            href={isProductPage ? "/#contact" : "#contact"} 
             className="bg-black text-white px-5 py-2 rounded-full font-medium text-sm"
           >
             Get Started
@@ -112,7 +118,7 @@ const NavBar = () => {
             >
               <div className="flex flex-col items-center justify-center h-full space-y-6">
                 {navLinks.map((link, i) => {
-                  const isActive = activeLink === link.href.substring(1);
+                  const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
                   return (
                     <motion.div
                       key={link.text}
@@ -127,7 +133,7 @@ const NavBar = () => {
                           isActive ? 'text-primary' : ''
                         }`}
                         onClick={() => {
-                          setActiveLink(link.href.substring(1));
+                          setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1));
                           setIsMobileMenuOpen(false);
                         }}
                         whileHover={{ scale: 1.05 }}
@@ -143,7 +149,7 @@ const NavBar = () => {
                   );
                 })}
                 <a 
-                  href="#contact" 
+                  href={isProductPage ? "/#contact" : "#contact"} 
                   className="bg-black text-white px-5 py-2 rounded-full font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

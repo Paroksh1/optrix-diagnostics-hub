@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowRight, Microscope, Dna, Activity, BarChart3, Scan, TestTube, CloudCog, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -21,8 +20,9 @@ const ProductCard = ({
   productLink: string;
 }) => {
   return (
-    <div 
-      className={`group cursor-pointer transition-all duration-500 ${isActive ? 'md:-translate-y-2' : ''}`}
+    <Link
+      to={productLink}
+      className={`group cursor-pointer transition-all duration-500 block ${isActive ? 'md:-translate-y-2' : ''}`}
       onClick={onClick}
     >
       <div className={`glass-card rounded-xl overflow-hidden h-full transition-all duration-300 border ${
@@ -43,12 +43,11 @@ const ProductCard = ({
             ))}
           </div>
           
-          <Link
-            to={productLink}
+          <div
             className={`flex items-center text-xs font-medium ${isActive ? 'text-primary' : 'text-foreground'} transition-colors duration-300`}
           >
             Learn more <ArrowRight className="ml-1 w-3 h-3" />
-          </Link>
+          </div>
         </div>
         
         <div className="h-36 overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5">
@@ -59,7 +58,7 @@ const ProductCard = ({
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
