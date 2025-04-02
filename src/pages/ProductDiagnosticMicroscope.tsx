@@ -13,9 +13,9 @@ const ProductDiagnosticMicroscope = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const productImages = [
-    '/lovable-uploads/5fea5ae6-eb14-4a0a-a943-21a680c10df9.png',
-    '/lovable-uploads/929ca821-1038-477e-a778-f88afc3c5519.png',
-    '/lovable-uploads/7a707abe-606d-4656-8096-960a1ac2e6c1.png',
+    '/lovable-uploads/2fd0417e-d946-4644-812d-4998f15c7805.png',  // Carrying case image
+    '/lovable-uploads/5826e0ae-8728-4780-8fc6-4282e133b914.png',  // Side view of handheld device
+    '/lovable-uploads/cd1dc654-cafe-413e-af35-d0a000f42960.png',  // Front view of screen device
   ];
   
   useEffect(() => {
@@ -256,7 +256,7 @@ const ProductDiagnosticMicroscope = () => {
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-6 text-center">Explore the Device in 3D</h2>
             <div className="max-w-sm mx-auto">
-              <ARViewer modelUrl="/lovable-uploads/5fea5ae6-eb14-4a0a-a943-21a680c10df9.png" />
+              <ARViewer modelUrl="/lovable-uploads/cd1dc654-cafe-413e-af35-d0a000f42960.png" />
             </div>
           </div>
         </div>

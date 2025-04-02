@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowRight, Microscope, Dna, Activity, BarChart3, Scan, TestTube, CloudCog, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -94,7 +93,7 @@ const ServicesSection = () => {
         'AI/ML powered',
         'Early stage cancer detection'
       ],
-      imageSrc: '/lovable-uploads/5fea5ae6-eb14-4a0a-a943-21a680c10df9.png',
+      imageSrc: '/lovable-uploads/2fd0417e-d946-4644-812d-4998f15c7805.png',
       productLink: '/products/diagnostic-microscope'
     }
   ];
@@ -147,7 +146,6 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        {/* Products container - fixed alignment with flex */}
         <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-6 mb-16 animate-slide-in">
           {products.map((product, index) => (
             <div key={index} className="w-full mx-auto max-w-md">
