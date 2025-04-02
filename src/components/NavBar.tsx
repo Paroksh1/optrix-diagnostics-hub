@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link as RouterLink } from 'react-router-dom';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,7 +16,7 @@ const NavBar = () => {
   const isProductPage = location.pathname.includes('/products/');
 
   const navLinks = [
-    { text: 'Home', href: isProductPage ? '/#home' : '#home' },
+    { text: 'Home', href: isProductPage ? '/' : '#home' },
     { text: 'About', href: isProductPage ? '/#about' : '#about' },
     { text: 'Services', href: isProductPage ? '/#services' : '#services' },
     { text: 'Testimonials', href: isProductPage ? '/#testimonials' : '#testimonials' },
@@ -55,7 +55,13 @@ const NavBar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Logo className="z-20" />
+        {isProductPage ? (
+          <RouterLink to="/" className="z-20">
+            <Logo />
+          </RouterLink>
+        ) : (
+          <Logo className="z-20" />
+        )}
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">

@@ -42,7 +42,7 @@ const ProductDiagnosticMicroscope = () => {
           
           {/* Product intro section */}
           <section className="py-10">
-            <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
+            <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
               {/* Left Column - Content */}
               <motion.div 
                 className="space-y-6"
@@ -63,16 +63,6 @@ const ProductDiagnosticMicroscope = () => {
                 <p className="text-xl text-muted-foreground mb-6">
                   A real-time point of care device for low resource settings
                 </p>
-                
-                {/* Description */}
-                <div className="space-y-4">
-                  <p className="text-gray-600">
-                    Oral cancer is one of the 3 leading cancers, most common in male population. The survival rate over 5 years is only 50%.
-                  </p>
-                  <p className="text-gray-600">
-                    Our device provides fast, non-invasive screening and diagnosis to improve early detection and survival rates.
-                  </p>
-                </div>
                 
                 {/* Features tags */}
                 <div className="flex flex-wrap gap-3 my-6">
@@ -120,7 +110,7 @@ const ProductDiagnosticMicroscope = () => {
                 </motion.a>
               </motion.div>
               
-              {/* Right Column - Image, conditionally rendered based on screen size */}
+              {/* Right Column - Image Carousel */}
               {!isMobile && (
                 <motion.div 
                   className="relative"
@@ -158,6 +148,7 @@ const ProductDiagnosticMicroscope = () => {
                             currentImageIndex === index ? 'bg-blue-500' : 'bg-blue-200'
                           }`}
                           onClick={() => setCurrentImageIndex(index)}
+                          aria-label={`View image ${index + 1}`}
                         />
                       ))}
                     </div>
