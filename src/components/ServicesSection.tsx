@@ -82,6 +82,51 @@ const ServicesSection = () => {
           ))}
         </div>
         
+        {/* Products Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Cutting-edge diagnostic solutions designed for healthcare professionals
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-12">
+            {products.map((product, index) => (
+              <div key={index} className="glass-card flex flex-col md:flex-row gap-6 p-6 curved-box">
+                <div className="md:w-2/5">
+                  <img 
+                    src={product.imageSrc} 
+                    alt={product.title}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
+                <div className="md:w-3/5">
+                  <h3 className="text-2xl font-bold mb-3">{product.title}</h3>
+                  <p className="text-gray-600 mb-4">{product.description}</p>
+                  
+                  <h4 className="font-semibold mb-2">Key Features:</h4>
+                  <ul className="mb-6 space-y-1">
+                    {product.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-blue-500 mt-1">•</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Link 
+                    to={product.productLink} 
+                    className="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition-colors"
+                  >
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
         <div className="mt-16 text-center">
           <a 
             href="#contact" 
