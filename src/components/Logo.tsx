@@ -14,15 +14,15 @@ const Logo = ({ className = "" }: { className?: string }) => {
       transition={{ duration: 0.5 }}
     >
       <motion.a 
-        href="#home"
+        href="/"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <motion.img 
-          src="/lovable-uploads/a83643e0-9064-401c-bc30-5f3190c88dcf.png" 
+          src="/lovable-uploads/0ce107e8-6bb0-4f44-8dea-1289fff6e0d9.png" 
           alt="Opti-Mode Diagnostics" 
-          className={`${isMobile ? 'h-8' : 'h-10'} w-auto`}
+          className={`${isMobile ? 'h-10' : 'h-12'} w-auto`}
         />
       </motion.a>
     </motion.div>
