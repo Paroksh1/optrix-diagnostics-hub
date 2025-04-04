@@ -12,7 +12,7 @@ const Footer = () => {
               <Logo />
             </div>
             <p className="text-muted-foreground mb-6 max-w-xs">
-              Transforming oral cancer detection with our innovative M3DOC diagnostic system for early, accurate, and non-invasive detection.
+              Transforming medical diagnostics with our innovative imaging and spectroscopic technologies.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200">

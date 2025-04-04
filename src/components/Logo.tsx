@@ -20,7 +20,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <motion.img 
-          src="/lovable-uploads/61af4e2a-135a-4f61-8a83-9357e42fc668.png" 
+          src="/lovable-uploads/dc78720d-6866-49ea-b414-0caab9f01a4b.png" 
           alt="Opti-Mode Diagnostics" 
           className={`${isMobile ? 'h-8' : 'h-10'} w-auto`}
         />
