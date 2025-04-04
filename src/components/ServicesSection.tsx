@@ -55,7 +55,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16">
+    <section id="services" className="py-16 bg-white relative z-10">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -70,7 +70,7 @@ const ServicesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg p-6 curved-box"
+              className="bg-white rounded-lg p-6 curved-box shadow-md"
             >
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
                 <feature.icon className="w-6 h-6 text-black" />
@@ -91,7 +91,7 @@ const ServicesSection = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12">
             {products.map((product, index) => (
               <div key={index} className="glass-card flex flex-col md:flex-row gap-6 p-6 curved-box">
                 <div className="md:w-2/5">

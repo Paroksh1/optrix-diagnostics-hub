@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+
+import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
@@ -32,7 +33,7 @@ const ScrollProgress = () => {
   );
 };
 
-// Interactive Storytelling Component
+// Simplified Interactive Storytelling Component
 const StorytellingOverlay = () => {
   const { scrollYProgress } = useScroll();
   
@@ -91,66 +92,6 @@ const StorytellingOverlay = () => {
   );
 };
 
-// Interactive molecular animation component
-const MolecularAnimation = () => {
-  return (
-    <motion.div
-      className="fixed bottom-10 left-10 z-10 hidden lg:block"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1 }}
-    >
-      <div className="relative w-32 h-32">
-        <motion.div 
-          className="absolute w-4 h-4 rounded-full bg-primary/50"
-          animate={{ 
-            x: [0, 20, 0, -20, 0], 
-            y: [0, -20, -40, -20, 0],
-            scale: [1, 1.2, 1, 0.8, 1] 
-          }}
-          transition={{ repeat: Infinity, duration: 8 }}
-        />
-        <motion.div 
-          className="absolute w-6 h-6 rounded-full bg-accent/40 left-12 top-10"
-          animate={{ 
-            x: [0, -30, 0, 30, 0], 
-            y: [0, 20, 40, 20, 0],
-            scale: [1, 0.8, 1, 1.2, 1] 
-          }}
-          transition={{ repeat: Infinity, duration: 7, delay: 0.5 }}
-        />
-        <motion.div 
-          className="absolute w-5 h-5 rounded-full bg-primary/30 left-16 top-4"
-          animate={{ 
-            x: [0, -10, -20, -10, 0], 
-            y: [0, 10, 0, -10, 0],
-            scale: [1, 1.1, 1, 0.9, 1] 
-          }}
-          transition={{ repeat: Infinity, duration: 6, delay: 1 }}
-        />
-        
-        {/* Connecting lines */}
-        <svg className="absolute inset-0 w-full h-full" opacity="0.3">
-          <motion.line 
-            x1="20" y1="20" x2="65" y2="65" 
-            stroke="currentColor" 
-            className="text-primary"
-            animate={{ x1: [20, 40, 20, 0, 20], y1: [20, 0, -20, 0, 20] }}
-            transition={{ repeat: Infinity, duration: 8 }}
-          />
-          <motion.line 
-            x1="65" y1="65" x2="80" y2="20" 
-            stroke="currentColor" 
-            className="text-accent"
-            animate={{ x2: [80, 70, 60, 70, 80], y2: [20, 30, 20, 10, 20] }}
-            transition={{ repeat: Infinity, duration: 6, delay: 1 }}
-          />
-        </svg>
-      </div>
-    </motion.div>
-  );
-};
-
 const Index = () => {
   useEffect(() => {
     // Apply the custom cursor to the body on mount
@@ -163,7 +104,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen">
       <NavBar />
       
       {/* Dynamic background that changes with scroll */}
@@ -172,10 +113,7 @@ const Index = () => {
       {/* Interactive storytelling overlay */}
       <StorytellingOverlay />
       
-      {/* Floating molecular animation */}
-      <MolecularAnimation />
-      
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <AboutSection />
         <ServicesSection />
