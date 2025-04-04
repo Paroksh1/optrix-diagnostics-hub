@@ -71,7 +71,7 @@ const NavBar = () => {
               <motion.a
                 key={link.text}
                 href={link.href}
-                className={`text-foreground transition-colors duration-200 font-medium text-base relative ${
+                className={`text-foreground transition-colors duration-200 font-medium text-base relative group ${
                   isActive ? 'text-primary' : 'hover:text-primary'
                 }`}
                 whileHover={{ y: -2 }}
@@ -80,7 +80,7 @@ const NavBar = () => {
               >
                 {link.text}
                 <span 
-                  className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-primary rounded-full transition-transform duration-300 ${
+                  className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-blue-500 rounded-full transition-transform duration-300 ${
                     isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                   style={{ 
@@ -95,34 +95,37 @@ const NavBar = () => {
         
         {/* Contact Button (Desktop) */}
         <div className="hidden md:block">
-          <a 
-            href={isProductPage ? "/#contact" : "#contact"} 
-            className="bg-black text-white px-5 py-2 rounded-full font-medium text-sm"
+          <motion.a 
+            href={isProductPage ? "/#contact" : "#contact"}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg"
           >
             Get Started
-          </a>
+          </motion.a>
         </div>
         
         {/* Mobile Menu Toggle */}
         <motion.button 
-          className="md:hidden text-foreground z-20 p-2"
+          className="md:hidden text-foreground z-20 p-2 bg-blue-50 rounded-full"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
           whileTap={{ scale: 0.9 }}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={24} className="text-blue-600" /> : <Menu size={24} className="text-blue-600" />}
         </motion.button>
         
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              className="fixed inset-0 bg-background/98 backdrop-blur-sm z-10 md:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-white/98 backdrop-blur-lg z-10 md:hidden"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="flex flex-col items-center justify-center h-full space-y-6">
+              <div className="flex flex-col items-center justify-center h-full space-y-8">
                 {navLinks.map((link, i) => {
                   const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
                   return (
@@ -135,8 +138,8 @@ const NavBar = () => {
                     >
                       <motion.a
                         href={link.href}
-                        className={`text-foreground transition-colors duration-200 text-xl font-medium ${
-                          isActive ? 'text-primary' : ''
+                        className={`text-foreground transition-colors duration-200 text-2xl font-medium ${
+                          isActive ? 'text-blue-500' : ''
                         }`}
                         onClick={() => {
                           setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1));
@@ -147,20 +150,22 @@ const NavBar = () => {
                         {link.text}
                       </motion.a>
                       <span 
-                        className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-primary rounded-full transition-transform duration-300 ${
+                        className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-blue-500 rounded-full transition-transform duration-300 ${
                           isActive ? 'scale-x-100' : 'scale-x-0'
                         }`}
                       />
                     </motion.div>
                   );
                 })}
-                <a 
+                <motion.a 
                   href={isProductPage ? "/#contact" : "#contact"} 
-                  className="bg-black text-white px-5 py-2 rounded-full font-medium"
+                  className="bg-blue-500 text-white px-8 py-3 rounded-full font-medium shadow-md hover:shadow-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Get Started
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           )}
