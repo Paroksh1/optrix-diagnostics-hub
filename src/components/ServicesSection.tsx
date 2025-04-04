@@ -70,7 +70,7 @@ const ServicesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg p-6"
+              className="bg-white rounded-lg p-6 curved-box"
             >
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
                 <feature.icon className="w-6 h-6 text-black" />

@@ -102,7 +102,7 @@ const ContactSection = () => {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all curved-box"
                       required
                     />
                   </div>
@@ -117,7 +117,7 @@ const ContactSection = () => {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all curved-box"
                       required
                     />
                   </div>
@@ -132,7 +132,7 @@ const ContactSection = () => {
                       name="company"
                       value={formState.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all curved-box"
                     />
                   </div>
                   
@@ -146,7 +146,7 @@ const ContactSection = () => {
                       value={formState.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none curved-box"
                       required
                     />
                   </div>
@@ -155,7 +155,7 @@ const ContactSection = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting || isSubmitted}
-                      className={`w-full py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center ${
+                      className={`w-full py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center curved-box ${
                         isSubmitted 
                           ? 'bg-green-600 text-white' 
                           : 'bg-primary hover:bg-primary/90 text-white'
