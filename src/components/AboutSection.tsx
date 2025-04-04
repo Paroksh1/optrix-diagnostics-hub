@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import Logo from './Logo';
 
 const AboutSection = () => {
   return (
@@ -25,7 +26,6 @@ const AboutSection = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="aspect-video bg-gray-900 relative">
-              {/* Placeholder for video - replace with actual video component when available */}
               <video 
                 className="w-full h-full object-cover"
                 poster="/lovable-uploads/2fd0417e-d946-4644-812d-4998f15c7805.png"
@@ -47,9 +47,12 @@ const AboutSection = () => {
               </div>
             </div>
             
-            <div className="bg-white p-4">
-              <h3 className="font-bold text-lg">Dr. John Doe</h3>
-              <p className="text-gray-600">Founder & Chief Scientific Officer</p>
+            <div className="bg-white p-4 flex items-center space-x-4">
+              <Logo className="h-12 w-auto" />
+              <div>
+                <h3 className="font-bold text-lg">Dr. Siddharth Mehta</h3>
+                <p className="text-gray-600">Founder & Chief Scientific Officer</p>
+              </div>
             </div>
           </motion.div>
           
