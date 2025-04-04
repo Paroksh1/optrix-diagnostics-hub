@@ -6,3 +6,19 @@
 body {
   cursor: default;
 }
+
+.bg-blue-50 {
+  background-color: #f0f7ff;
+}
+
+.bg-blue-500 {
+  background-color: #007bff;
+}
+
+.bg-blue-600 {
+  background-color: #0069d9;
+}
+
+.text-gray-600 {
+  color: #666666;
+}
