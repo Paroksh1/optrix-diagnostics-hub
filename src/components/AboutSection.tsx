@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
@@ -19,7 +18,6 @@ const AboutSection = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Founder Video */}
           <motion.div 
             className="relative rounded-2xl overflow-hidden shadow-xl"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -36,7 +34,6 @@ const AboutSection = () => {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Play button overlay */}
               <div className="absolute inset-0 flex items-center justify-center group">
                 <motion.button 
                   className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg group-hover:bg-blue-600 transition-colors"
@@ -57,24 +54,20 @@ const AboutSection = () => {
             </div>
           </motion.div>
           
-          {/* Right Column - Content */}
           <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Top badge */}
-            <div className="inline-block px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-medium mb-2">
+            <div className="inline-block px-4 py-2 bg-[#9292D8]/10 rounded-full text-[#9292D8] font-medium mb-2">
               Revolutionary Oral Cancer Detection
             </div>
             
-            {/* Main heading */}
             <h2 className="text-3xl md:text-4xl font-bold text-[#1B2A41] leading-tight">
               Our Mission
             </h2>
             
-            {/* Description */}
             <p className="text-black text-lg">
               We're dedicated to reducing oral cancer mortality through early detection. Our innovative technology 
               provides fast, accurate, and non-invasive screening for oral cancer, making diagnosis accessible 
@@ -87,7 +80,6 @@ const AboutSection = () => {
               and treated globally.
             </p>
             
-            {/* Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Button 
                 variant="default" 
@@ -110,7 +102,6 @@ const AboutSection = () => {
               </Button>
             </div>
             
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center md:text-left">
                 <p className="text-4xl font-bold text-[#1B2A41]">96.7%</p>

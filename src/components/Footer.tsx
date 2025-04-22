@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from './Logo';
 import { Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
@@ -6,7 +5,7 @@ import { Button } from './ui/button';
 
 const Footer = () => {
   return (
-    <footer className="bg-light pt-16 pb-8">
+    <footer className="bg-[#FCF8F8] pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
@@ -64,16 +63,16 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-dark-secondary">© 2023 Opti-Mode Diagnostics. All rights reserved.</p>
+          <p className="text-sm text-[#1B2A41]">© 2023 Opti-Mode Diagnostics. All rights reserved.</p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Button variant="link" className="text-dark-secondary hover:text-accent-light">
+            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8]">
               Privacy Policy
             </Button>
-            <Button variant="link" className="text-dark-secondary hover:text-accent-light">
+            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8]">
               Terms of Service
             </Button>
-            <Button variant="link" className="text-dark-secondary hover:text-accent-light">
+            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8]">
               Cookie Policy
             </Button>
           </div>

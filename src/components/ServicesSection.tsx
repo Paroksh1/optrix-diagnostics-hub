@@ -55,13 +55,13 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-light relative z-10">
+    <section id="services" className="py-16 bg-[#FCF8F8] relative z-10">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark-base">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1B2A41]">
             Key Technology Features
           </h2>
-          <p className="text-dark-secondary">
+          <p className="text-black">
             Our system combines multiple technologies to provide comprehensive diagnostic capabilities
           </p>
         </div>
@@ -70,14 +70,14 @@ const ServicesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 curved-box shadow-lg hover:shadow-xl transition-all"
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
             >
-              <div className="w-12 h-12 bg-accent-light rounded-full flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-dark-base" />
+              <div className="w-12 h-12 bg-[#9292D8] rounded-full flex items-center justify-center mb-4">
+                <feature.icon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold mb-2 text-dark-base">{feature.title}</h3>
-              <p className="text-dark-secondary">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-[#1B2A41]">{feature.title}</h3>
+              <p className="text-black">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -129,7 +129,7 @@ const ServicesSection = () => {
         <div className="mt-16 text-center">
           <a 
             href="#contact" 
-            className="bg-accent-dark hover:bg-accent-dark/90 text-light px-6 py-3 rounded-full font-medium inline-block shadow-lg hover:shadow-xl transition-all"
+            className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white px-6 py-3 rounded-full font-medium inline-block shadow-lg hover:shadow-xl transition-all"
           >
             Request Product Demo
           </a>
