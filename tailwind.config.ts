@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,17 +62,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// New color scheme
+				'dark-base': '#111111',
+				'dark-secondary': '#1B2A41',
+				'light': '#FCF8F8',
+				'light-secondary': 'rgba(252, 248, 248, 0.85)',
+				'accent-light': '#9292D8',
+				'accent-dark': '#6A1B9A',
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
 				poppins: ['Poppins', 'system-ui', 'sans-serif'],
 				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				xl: '16px',
+				'2xl': '20px',
 			},
 			keyframes: {
 				'accordion-down': {

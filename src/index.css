@@ -5,40 +5,112 @@
 
 body {
   cursor: default;
+  font-family: 'Inter', 'Poppins', 'system-ui', sans-serif;
 }
 
+/* Color palette */
+:root {
+  --dark-base: #111111;
+  --dark-secondary: #1B2A41;
+  --light: #FCF8F8;
+  --light-secondary: rgba(252, 248, 248, 0.85);
+  --accent-light: #9292D8;
+  --accent-dark: #6A1B9A;
+}
+
+/* Applying color palette */
+.bg-dark-base {
+  background-color: var(--dark-base);
+}
+
+.bg-dark-secondary {
+  background-color: var(--dark-secondary);
+}
+
+.text-light {
+  color: var(--light);
+}
+
+.text-light-secondary {
+  color: var(--light-secondary);
+}
+
+.bg-accent-light {
+  background-color: var(--accent-light);
+}
+
+.bg-accent-dark {
+  background-color: var(--accent-dark);
+}
+
+.text-accent-light {
+  color: var(--accent-light);
+}
+
+.text-accent-dark {
+  color: var(--accent-dark);
+}
+
+.border-accent-light {
+  border-color: var(--accent-light);
+}
+
+.border-accent-dark {
+  border-color: var(--accent-dark);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
+}
+
+/* Keeping original blue classes for backward compatibility */
 .bg-blue-50 {
-  background-color: #f0f7ff;
+  background-color: var(--accent-light);
 }
 
 .bg-blue-500 {
-  background-color: #007bff;
+  background-color: var(--accent-dark);
 }
 
 .bg-blue-600 {
-  background-color: #0069d9;
+  background-color: var(--accent-dark);
 }
 
 .text-gray-600 {
-  color: #666666;
+  color: var(--light-secondary);
 }
 
 /* Curved box styles */
 .curved-box {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 
 .curved-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .glass-card {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(27, 42, 65, 0.8);
   backdrop-filter: blur(8px);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(106, 27, 154, 0.2);
+  border: 1px solid rgba(146, 146, 216, 0.2);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-accent-dark text-light px-6 py-3 rounded-xl font-medium shadow-md hover:shadow-lg transition-all;
+}
+
+.btn-secondary {
+  @apply bg-accent-light text-dark-secondary px-6 py-3 rounded-xl font-medium shadow-md hover:shadow-lg transition-all;
+}
+
+/* Custom animation for hover effects */
+.hover-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-light after:transition-all after:duration-300 hover:after:w-full;
 }
