@@ -1,18 +1,19 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Logo from './Logo';
+import { Button } from './ui/button';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-blue-50/80 relative z-10">
+    <section id="about" className="py-20 bg-[#FCF8F8] relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1B2A41]">
             About Us
           </h2>
-          <p className="text-gray-600">
+          <p className="text-black">
             Pioneering early detection technology for oral cancer diagnostics
           </p>
         </div>
@@ -69,18 +70,18 @@ const AboutSection = () => {
             </div>
             
             {/* Main heading */}
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1B2A41] leading-tight">
               Our Mission
             </h2>
             
             {/* Description */}
-            <p className="text-gray-600 text-lg">
+            <p className="text-black text-lg">
               We're dedicated to reducing oral cancer mortality through early detection. Our innovative technology 
               provides fast, accurate, and non-invasive screening for oral cancer, making diagnosis accessible 
               in low-resource settings.
             </p>
             
-            <p className="text-gray-600 text-lg">
+            <p className="text-black text-lg">
               Founded by leading oncologists and biomedical engineers, our company combines cutting-edge 
               imaging technology with AI-powered diagnostics to revolutionize how oral cancer is detected 
               and treated globally.
@@ -88,34 +89,40 @@ const AboutSection = () => {
             
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
-              <a 
-                href="#services" 
-                className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium flex items-center"
+              <Button 
+                variant="default" 
+                className="bg-[#9292D8] text-white hover:bg-[#9292D8]/90 px-6 py-3 rounded-full"
+                asChild
               >
-                Discover Our Product
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-              <a 
-                href="#contact"
-                className="text-gray-700 hover:text-gray-900 px-6 py-3 transition-all duration-300 font-medium"
+                <a href="#services" className="flex items-center">
+                  Discover Our Product
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+              <Button 
+                variant="outline" 
+                className="text-[#1B2A41] hover:text-[#1B2A41]/80 px-6 py-3"
+                asChild
               >
-                Learn More
-              </a>
+                <a href="#contact">
+                  Learn More
+                </a>
+              </Button>
             </div>
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-gray-900">96.7%</p>
-                <p className="text-gray-500 text-sm">Detection Accuracy</p>
+                <p className="text-4xl font-bold text-[#1B2A41]">96.7%</p>
+                <p className="text-black text-sm">Detection Accuracy</p>
               </div>
               <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-gray-900">50%</p>
-                <p className="text-gray-500 text-sm">5-Year Survival Rate</p>
+                <p className="text-4xl font-bold text-[#1B2A41]">50%</p>
+                <p className="text-black text-sm">5-Year Survival Rate</p>
               </div>
               <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-gray-900">100%</p>
-                <p className="text-gray-500 text-sm">Non-Invasive</p>
+                <p className="text-4xl font-bold text-[#1B2A41]">100%</p>
+                <p className="text-black text-sm">Non-Invasive</p>
               </div>
             </div>
           </motion.div>
