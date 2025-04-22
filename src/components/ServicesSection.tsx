@@ -55,13 +55,13 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-dark-base relative z-10">
+    <section id="services" className="py-16 bg-light relative z-10">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-light">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark-base">
             Key Technology Features
           </h2>
-          <p className="text-light-secondary">
+          <p className="text-dark-secondary">
             Our system combines multiple technologies to provide comprehensive diagnostic capabilities
           </p>
         </div>
@@ -70,29 +70,29 @@ const ServicesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-dark-secondary rounded-xl p-6 curved-box shadow-lg hover:shadow-xl transition-all"
+              className="bg-white rounded-xl p-6 curved-box shadow-lg hover:shadow-xl transition-all"
             >
               <div className="w-12 h-12 bg-accent-light rounded-full flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-light" />
+                <feature.icon className="w-6 h-6 text-dark-base" />
               </div>
               
-              <h3 className="text-xl font-bold mb-2 text-light">{feature.title}</h3>
-              <p className="text-light-secondary">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-dark-base">{feature.title}</h3>
+              <p className="text-dark-secondary">{feature.description}</p>
             </div>
           ))}
         </div>
         
         <div className="mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-light">Our Products</h2>
-            <p className="text-light-secondary max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark-base">Our Products</h2>
+            <p className="text-dark-secondary max-w-2xl mx-auto">
               Cutting-edge diagnostic solutions designed for healthcare professionals
             </p>
           </div>
           
           <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12">
             {products.map((product, index) => (
-              <div key={index} className="glass-card flex flex-col md:flex-row gap-6 p-6 rounded-xl bg-dark-secondary border border-accent-light/20">
+              <div key={index} className="bg-white flex flex-col md:flex-row gap-6 p-6 rounded-xl border border-gray-200">
                 <div className="md:w-2/5">
                   <img 
                     src={product.imageSrc} 
@@ -101,15 +101,15 @@ const ServicesSection = () => {
                   />
                 </div>
                 <div className="md:w-3/5">
-                  <h3 className="text-2xl font-bold mb-3 text-light">{product.title}</h3>
-                  <p className="text-light-secondary mb-4">{product.description}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-dark-base">{product.title}</h3>
+                  <p className="text-dark-secondary mb-4">{product.description}</p>
                   
-                  <h4 className="font-semibold mb-2 text-light">Key Features:</h4>
+                  <h4 className="font-semibold mb-2 text-dark-base">Key Features:</h4>
                   <ul className="mb-6 space-y-1">
                     {product.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <span className="text-accent-light mt-1">•</span>
-                        <span className="text-light-secondary">{feature}</span>
+                        <span className="text-dark-secondary">{feature}</span>
                       </li>
                     ))}
                   </ul>
