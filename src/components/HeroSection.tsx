@@ -23,7 +23,7 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-white font-poppins"
+      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-[#FCF8F8] font-poppins"
     >
       {/* Subtle animated background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -58,7 +58,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.6 }}
       >
-        <span className="text-blue-600 font-medium flex items-center">
+        <span className="text-[#1B2A41] font-medium flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2">
             <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813a3.75 3.75 0 002.576-2.576l.813-2.846A.75.75 0 019 4.5z" clipRule="evenodd" />
           </svg>
@@ -77,7 +77,7 @@ const HeroSection = () => {
         animate="visible"
       >
         <motion.h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 text-center tracking-tight leading-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 text-center tracking-tight leading-tight text-[#1B2A41]"
           variants={itemVariants}
         >
           <span className="font-extrabold">Revolutionizing</span> Cancer Detection<br />
@@ -87,7 +87,7 @@ const HeroSection = () => {
         </motion.h1>
         
         <motion.p 
-          className="text-gray-600 text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed"
+          className="text-black text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed"
           variants={itemVariants}
         >
           Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
