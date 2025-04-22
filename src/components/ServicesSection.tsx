@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Microscope, Dna, Activity, BarChart3, Scan, TestTube } from 'lucide-react';
 import { Link } from 'react-router-dom';

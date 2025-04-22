@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
@@ -87,7 +88,7 @@ const AboutSection = () => {
                 asChild
               >
                 <a href="#services" className="flex items-center">
-                  Discover Our Product
+                  Explore Our Products
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -97,7 +98,7 @@ const AboutSection = () => {
                 asChild
               >
                 <a href="#contact">
-                  Learn More
+                  Contact Us
                 </a>
               </Button>
             </div>

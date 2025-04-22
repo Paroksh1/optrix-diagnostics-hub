@@ -93,7 +93,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           <Button
             variant="default"
-            className="bg-accent-light text-light hover:bg-accent-light/90"
+            className="bg-[#9292D8] text-white hover:bg-[#9292D8]/90"
             asChild
           >
             <a href={isProductPage ? "/#contact" : "#contact"}>
@@ -154,7 +154,7 @@ const NavBar = () => {
                 })}
                 <Button
                   variant="default"
-                  className="bg-accent-light text-light hover:bg-accent-light/90"
+                  className="bg-[#9292D8] text-white hover:bg-[#9292D8]/90"
                   asChild
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
