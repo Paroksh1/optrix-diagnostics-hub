@@ -7,20 +7,19 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
 const ProductDiagnosticMicroscope = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-base">
+    <div className="min-h-screen bg-light">
       <NavBar />
       
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <Link 
             to="/" 
-            className="inline-flex items-center text-accent-light hover:text-accent-light/80 transition-colors mb-8"
+            className="inline-flex items-center text-accent-dark hover:text-accent-dark/80 transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
@@ -35,37 +34,37 @@ const ProductDiagnosticMicroscope = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="inline-block px-4 py-2 bg-dark-secondary rounded-full text-accent-light font-medium">
+                <div className="inline-block px-4 py-2 bg-accent-light/10 rounded-full text-accent-dark font-medium">
                   Point of Care Device
                 </div>
                 
-                <h1 className="text-4xl lg:text-5xl font-bold text-light leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold text-dark-base leading-tight">
                   In-vivo Fast Screening and Diagnosis of Oral Cancerous Epithelia
                 </h1>
                 
-                <p className="text-xl text-light-secondary">
+                <p className="text-xl text-dark-secondary">
                   A real-time point of care device for low resource settings
                 </p>
                 
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-3 py-1 bg-dark-secondary text-accent-light rounded-full text-sm">Non-contact</span>
-                  <span className="px-3 py-1 bg-dark-secondary text-accent-light rounded-full text-sm">Non-invasive</span>
-                  <span className="px-3 py-1 bg-dark-secondary text-accent-light rounded-full text-sm">AI/ML powered</span>
-                  <span className="px-3 py-1 bg-dark-secondary text-accent-light rounded-full text-sm">Multi-modality</span>
+                  <span className="px-3 py-1 bg-accent-light/10 text-accent-dark rounded-full text-sm">Non-contact</span>
+                  <span className="px-3 py-1 bg-accent-light/10 text-accent-dark rounded-full text-sm">Non-invasive</span>
+                  <span className="px-3 py-1 bg-accent-light/10 text-accent-dark rounded-full text-sm">AI/ML powered</span>
+                  <span className="px-3 py-1 bg-accent-light/10 text-accent-dark rounded-full text-sm">Multi-modality</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-8 mt-8">
                   <div>
-                    <p className="text-3xl font-bold text-accent-light">96.7%</p>
-                    <p className="text-sm text-light-secondary">OSCC Accuracy</p>
+                    <p className="text-3xl font-bold text-accent-dark">96.7%</p>
+                    <p className="text-sm text-dark-secondary">OSCC Accuracy</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-accent-light">96.4%</p>
-                    <p className="text-sm text-light-secondary">High Risk Accuracy</p>
+                    <p className="text-3xl font-bold text-accent-dark">96.4%</p>
+                    <p className="text-sm text-dark-secondary">High Risk Accuracy</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-accent-light">92.8%</p>
-                    <p className="text-sm text-light-secondary">Low Risk Accuracy</p>
+                    <p className="text-3xl font-bold text-accent-dark">92.8%</p>
+                    <p className="text-sm text-dark-secondary">Low Risk Accuracy</p>
                   </div>
                 </div>
               </motion.div>
@@ -91,7 +90,7 @@ const ProductDiagnosticMicroscope = () => {
           <section className="mb-16">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-2xl font-bold mb-6 text-light">Technical Specifications</h2>
+                <h2 className="text-2xl font-bold mb-6 text-dark-base">Technical Specifications</h2>
                 <div className="space-y-4">
                   {[
                     {
@@ -110,14 +109,14 @@ const ProductDiagnosticMicroscope = () => {
                       description: "Advanced spectral measurement capabilities for detailed tissue analysis"
                     }
                   ].map((spec, index) => (
-                    <div key={index} className="bg-dark-secondary rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                       <div className="flex items-start">
                         <div className="w-10 h-10 rounded-full bg-accent-light/20 flex items-center justify-center mr-4">
-                          <spec.icon className="w-5 h-5 text-accent-light" />
+                          <spec.icon className="w-5 h-5 text-accent-dark" />
                         </div>
                         <div>
-                          <h3 className="font-medium mb-1 text-light">{spec.title}</h3>
-                          <p className="text-sm text-light-secondary">{spec.description}</p>
+                          <h3 className="font-medium mb-1 text-dark-base">{spec.title}</h3>
+                          <p className="text-sm text-dark-secondary">{spec.description}</p>
                         </div>
                       </div>
                     </div>
@@ -126,7 +125,7 @@ const ProductDiagnosticMicroscope = () => {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold mb-6 text-light">Key Benefits</h2>
+                <h2 className="text-2xl font-bold mb-6 text-dark-base">Key Benefits</h2>
                 <div className="space-y-4">
                   {[
                     {
@@ -145,14 +144,14 @@ const ProductDiagnosticMicroscope = () => {
                       description: "Designed specifically for low resource settings where advanced medical facilities are limited"
                     }
                   ].map((benefit, index) => (
-                    <div key={index} className="bg-dark-secondary rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                       <div className="flex items-start">
                         <div className="w-10 h-10 rounded-full bg-accent-light/20 flex items-center justify-center mr-4">
-                          <benefit.icon className="w-5 h-5 text-accent-light" />
+                          <benefit.icon className="w-5 h-5 text-accent-dark" />
                         </div>
                         <div>
-                          <h3 className="font-medium mb-1 text-light">{benefit.title}</h3>
-                          <p className="text-sm text-light-secondary">{benefit.description}</p>
+                          <h3 className="font-medium mb-1 text-dark-base">{benefit.title}</h3>
+                          <p className="text-sm text-dark-secondary">{benefit.description}</p>
                         </div>
                       </div>
                     </div>
