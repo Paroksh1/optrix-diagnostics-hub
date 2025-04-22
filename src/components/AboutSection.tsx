@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
@@ -37,7 +36,7 @@ const AboutSection = () => {
               
               <div className="absolute inset-0 flex items-center justify-center group">
                 <motion.button 
-                  className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg group-hover:bg-blue-600 transition-colors"
+                  className="w-16 h-16 bg-[#9292D8] rounded-full flex items-center justify-center text-white shadow-lg group-hover:bg-[#9292D8]/90 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
