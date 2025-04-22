@@ -2,32 +2,33 @@
 import React from 'react';
 import Logo from './Logo';
 import { Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 pt-16 pb-8">
+    <footer className="bg-light pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="mb-4 max-w-[800px]">
               <Logo />
             </div>
-            <p className="text-gray-600 mb-6 max-w-xs">
+            <p className="text-dark-secondary mb-6 max-w-xs">
               Transforming medical diagnostics with our innovative imaging and spectroscopic technologies.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors duration-200">
+              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
                 <Twitter className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors duration-200">
+              </Button>
+              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
                 <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors duration-200">
+              </Button>
+              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
                 <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors duration-200">
+              </Button>
+              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
                 <Instagram className="w-4 h-4" />
-              </a>
+              </Button>
             </div>
           </div>
           
@@ -63,12 +64,18 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-600">© 2023 Opti-Mode Diagnostics. All rights reserved.</p>
+          <p className="text-sm text-dark-secondary">© 2023 Opti-Mode Diagnostics. All rights reserved.</p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-500 transition-colors duration-200">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-500 transition-colors duration-200">Terms of Service</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-500 transition-colors duration-200">Cookie Policy</a>
+            <Button variant="link" className="text-dark-secondary hover:text-accent-light">
+              Privacy Policy
+            </Button>
+            <Button variant="link" className="text-dark-secondary hover:text-accent-light">
+              Terms of Service
+            </Button>
+            <Button variant="link" className="text-dark-secondary hover:text-accent-light">
+              Cookie Policy
+            </Button>
           </div>
         </div>
       </div>

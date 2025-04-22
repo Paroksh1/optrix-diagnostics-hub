@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
+import { Button } from './ui/button';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,13 +23,11 @@ const NavBar = () => {
     { text: 'Contact', href: isProductPage ? '/#contact' : '#contact' },
   ];
 
-  // Handle scroll effect for sticky navbar
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setHasScrolled(scrollPosition > 20);
       
-      // Set active link based on scroll position (only on homepage)
       if (!isProductPage) {
         const sections = navLinks.map(link => link.href.substring(1));
         for (const section of sections.reverse()) {
@@ -63,7 +61,6 @@ const NavBar = () => {
           <Logo className="z-20" />
         )}
         
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">
           {navLinks.map((link) => {
             const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
@@ -93,19 +90,18 @@ const NavBar = () => {
           })}
         </nav>
         
-        {/* Contact Button (Desktop) */}
         <div className="hidden md:block">
-          <motion.a 
-            href={isProductPage ? "/#contact" : "#contact"}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg"
+          <Button
+            variant="default"
+            className="bg-accent-light text-light hover:bg-accent-light/90"
+            asChild
           >
-            Get Started
-          </motion.a>
+            <a href={isProductPage ? "/#contact" : "#contact"}>
+              Get Started
+            </a>
+          </Button>
         </div>
         
-        {/* Mobile Menu Toggle */}
         <motion.button 
           className="md:hidden text-foreground z-20 p-2 bg-blue-50 rounded-full"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -115,7 +111,6 @@ const NavBar = () => {
           {isMobileMenuOpen ? <X size={24} className="text-blue-600" /> : <Menu size={24} className="text-blue-600" />}
         </motion.button>
         
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -157,15 +152,16 @@ const NavBar = () => {
                     </motion.div>
                   );
                 })}
-                <motion.a 
-                  href={isProductPage ? "/#contact" : "#contact"} 
-                  className="bg-blue-500 text-white px-8 py-3 rounded-full font-medium shadow-md hover:shadow-lg"
+                <Button
+                  variant="default"
+                  className="bg-accent-light text-light hover:bg-accent-light/90"
+                  asChild
                   onClick={() => setIsMobileMenuOpen(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
-                  Get Started
-                </motion.a>
+                  <a href={isProductPage ? "/#contact" : "#contact"}>
+                    Get Started
+                  </a>
+                </Button>
               </div>
             </motion.div>
           )}
