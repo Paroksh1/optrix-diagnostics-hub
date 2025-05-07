@@ -15,15 +15,16 @@ const Logo = ({ className = "" }: { className?: string }) => {
     >
       <motion.a 
         href="/"
-        className="flex items-center gap-3"
+        className="flex items-center gap-2"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <motion.img 
-          src="/lovable-uploads/c0decfb7-e17f-4692-96ce-1247626097d6.png" 
+          src="/lovable-uploads/95eb5a1a-2cd1-43bb-a0d8-7347cfb03165.png" 
           alt="Opti-mode Diagnostics logo" 
           className="h-10 w-auto max-w-[140px] object-contain"
+          style={{ background: 'transparent' }}
         />
         <span className="font-semibold text-lg text-gray-800">Opti-mode Diagnostics</span>
       </motion.a>
