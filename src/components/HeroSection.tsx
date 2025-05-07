@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
@@ -93,30 +94,7 @@ const HeroSection = () => {
           Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
         </motion.p>
         
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-8 justify-center"
-          variants={itemVariants}
-        >
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="px-8 py-6 border border-gray-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <a href="#services" className="font-medium text-base">
-              Explore Our Products
-            </a>
-          </Button>
-          
-          <Button
-            size="lg"
-            variant="outline"
-            className="border border-gray-200 px-8 py-6 rounded-full hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <a href="#contact" className="font-medium text-base">
-              Contact Us
-            </a>
-          </Button>
-        </motion.div>
+        {/* Buttons are removed as requested */}
       </motion.div>
 
       {/* Interactive geometric elements */}
