@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle } from 'lucide-react';
@@ -14,6 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useInterval } from '@/hooks/use-interval';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 // Image carousel items
 const carouselItems = [
@@ -355,11 +355,13 @@ const ProductLumoraScan = () => {
                     <CarouselItem key={index}>
                       <div className="p-1">
                         <div className="rounded-2xl overflow-hidden shadow-lg border border-accent-light/20">
-                          <img 
-                            src={item.image} 
-                            alt={item.caption}
-                            className="w-full h-auto object-cover aspect-video"
-                          />
+                          <div className="h-[400px] bg-white flex items-center justify-center">
+                            <img 
+                              src={item.image} 
+                              alt={item.caption}
+                              className="max-h-full max-w-full h-auto w-auto object-contain"
+                            />
+                          </div>
                           <div className="p-4 bg-white">
                             <p className="text-center font-medium text-[#1B2A41]">{item.caption}</p>
                           </div>
