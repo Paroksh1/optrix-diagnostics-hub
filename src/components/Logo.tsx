@@ -15,7 +15,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
     >
       <motion.a 
         href="/"
-        className="flex items-center gap-2"
+        className="flex items-center"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -23,7 +23,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
         <motion.img 
           src="/lovable-uploads/95eb5a1a-2cd1-43bb-a0d8-7347cfb03165.png" 
           alt="Opti-mode Diagnostics logo" 
-          className="h-12 w-auto max-w-[180px] object-contain"
+          className={`h-12 ${isMobile ? 'w-auto max-w-[140px]' : 'w-auto max-w-[200px]'} object-contain`}
           style={{ background: 'transparent' }}
         />
       </motion.a>

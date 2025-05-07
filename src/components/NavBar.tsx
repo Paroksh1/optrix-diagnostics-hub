@@ -57,15 +57,17 @@ const NavBar = () => {
       }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        {isProductPage ? (
-          <RouterLink to="/" className="z-20 ml-4">
-            <Logo />
-          </RouterLink>
-        ) : (
-          <Logo className="z-20 ml-4" />
-        )}
+        <div className="flex-shrink-0 flex items-center">
+          {isProductPage ? (
+            <RouterLink to="/" className="z-20">
+              <Logo />
+            </RouterLink>
+          ) : (
+            <Logo className="z-20" />
+          )}
+        </div>
         
-        <nav className="hidden md:flex space-x-10">
+        <nav className="hidden md:flex space-x-8 ml-6">
           {navLinks.map((link) => {
             const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
             return (
@@ -92,7 +94,7 @@ const NavBar = () => {
           })}
         </nav>
         
-        <div className="hidden md:block pr-4">
+        <div className="hidden md:block">
           <Button
             className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
             asChild
