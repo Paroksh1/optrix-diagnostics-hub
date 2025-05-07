@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
@@ -48,9 +49,12 @@ const NavBar = () => {
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
         hasScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-2' 
-          : 'bg-white/90 backdrop-blur-sm py-4'
+          ? 'bg-[rgba(250,245,255,0.95)] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
+          : 'bg-[rgba(250,245,255,0.9)] backdrop-blur-md py-4 border-b border-[#E4E2F0]'
       }`}
+      style={{
+        boxShadow: hasScrolled ? '0 4px 12px rgba(0, 0, 0, 0.06)' : '0 2px 8px rgba(0, 0, 0, 0.04)'
+      }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {isProductPage ? (
@@ -65,27 +69,25 @@ const NavBar = () => {
           {navLinks.map((link) => {
             const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
             return (
-              <motion.a
+              <motion.div
                 key={link.text}
-                href={link.href}
-                className={`text-foreground transition-colors duration-200 font-medium text-base relative group ${
-                  isActive ? 'text-primary' : 'hover:text-primary'
-                }`}
+                className="relative"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1))}
               >
-                {link.text}
-                <span 
-                  className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-blue-500 rounded-full transition-transform duration-300 ${
-                    isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                <a
+                  href={link.href}
+                  className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
+                    isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
                   }`}
-                  style={{ 
-                    transformOrigin: isActive ? 'center' : 'left',
-                    transform: isActive ? 'scaleX(1)' : 'scaleX(0)'
-                  }}
-                />
-              </motion.a>
+                  onClick={() => setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1))}
+                >
+                  {link.text}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
+                  )}
+                </a>
+              </motion.div>
             );
           })}
         </nav>
@@ -102,18 +104,18 @@ const NavBar = () => {
         </div>
         
         <motion.button 
-          className="md:hidden text-foreground z-20 p-2 bg-blue-50 rounded-full"
+          className="md:hidden text-foreground z-20 p-2 bg-[#EDE9FE] rounded-full"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
           whileTap={{ scale: 0.9 }}
         >
-          {isMobileMenuOpen ? <X size={24} className="text-blue-600" /> : <Menu size={24} className="text-blue-600" />}
+          {isMobileMenuOpen ? <X size={24} className="text-[#7C3AED]" /> : <Menu size={24} className="text-[#7C3AED]" />}
         </motion.button>
         
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              className="fixed inset-0 bg-white/98 backdrop-blur-lg z-10 md:hidden"
+              className="fixed inset-0 bg-[rgba(250,245,255,0.98)] backdrop-blur-lg z-10 md:hidden"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -130,29 +132,29 @@ const NavBar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <motion.a
+                      <a
                         href={link.href}
-                        className={`text-foreground transition-colors duration-200 text-2xl font-medium ${
-                          isActive ? 'text-blue-500' : ''
+                        className={`transition-all duration-300 text-2xl font-semibold ${
+                          isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
                         }`}
                         onClick={() => {
                           setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1));
                           setIsMobileMenuOpen(false);
                         }}
-                        whileHover={{ scale: 1.05 }}
                       >
-                        {link.text}
-                      </motion.a>
-                      <span 
-                        className={`absolute bottom-[-5px] left-0 w-full h-0.5 bg-blue-500 rounded-full transition-transform duration-300 ${
-                          isActive ? 'scale-x-100' : 'scale-x-0'
-                        }`}
-                      />
+                        {isActive ? (
+                          <span className="bg-[#EDE9FE] text-[#7C3AED] px-5 py-2 rounded-full">
+                            {link.text}
+                          </span>
+                        ) : (
+                          link.text
+                        )}
+                      </a>
                     </motion.div>
                   );
                 })}
                 <Button
-                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full mt-4"
                   asChild
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
