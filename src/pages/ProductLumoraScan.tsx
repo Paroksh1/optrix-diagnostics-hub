@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Cpu, BarChart, CheckCircle, Check, Minus } from 'lucide-react';
+import { ArrowLeft, Cpu, BarChart, CheckCircle, Check, Minus, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -199,7 +199,6 @@ const ProductLumoraScan = () => {
                 <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md">
                   <Carousel 
                     className="w-full"
-                    selectedIndex={activeSlide}
                     setApi={(api) => {
                       // Connect carousel to the activeSlide state
                       if (api) {
