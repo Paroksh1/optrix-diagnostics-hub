@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle } from 'lucide-react';
@@ -246,7 +245,7 @@ const ProductLumoraScan = () => {
                       <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium mb-1">Affordable (< Rs.500/test)</h4>
+                      <h4 className="text-lg font-medium mb-1">Affordable (less than Rs.500/test)</h4>
                       <p className="text-black">Significantly more cost-effective than competitor solutions</p>
                     </div>
                   </div>
