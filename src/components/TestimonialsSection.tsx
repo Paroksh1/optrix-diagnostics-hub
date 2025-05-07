@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
@@ -55,7 +56,7 @@ const TestimonialsSection = () => {
   }, []);
   
   return (
-    <section id="testimonials" className="bg-[#FCF8F8] py-24">
+    <section id="testimonials" className="py-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <span className="inline-block px-3 py-1 bg-[#9292D8]/10 text-[#9292D8] rounded-full text-sm font-medium mb-4">
