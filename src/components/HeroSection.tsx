@@ -1,29 +1,10 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { ChevronDown, Microscope } from 'lucide-react';
-import { useInterval } from '@/hooks/use-interval';
 
 const HeroSection = () => {
   const controls = useAnimation();
-  const [activeSlide, setActiveSlide] = useState(0);
-  
-  // Carousel items for the hero section
-  const carouselItems = [
-    {
-      image: "/lovable-uploads/f619c155-86d5-4460-bbd2-442a2821c4e0.png",
-      caption: "Front view of Lumora Scan device"
-    },
-    {
-      image: "/lovable-uploads/e0a09776-145a-4754-a74b-ed76afc4dc21.png",
-      caption: "Portable screening kit demonstration"
-    }
-  ];
-  
-  // Auto-advance carousel every 3 seconds
-  useInterval(() => {
-    setActiveSlide((prev) => (prev + 1) % carouselItems.length);
-  }, 3000);
   
   useEffect(() => {
     controls.start('visible');
@@ -89,48 +70,6 @@ const HeroSection = () => {
         >
           Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
         </motion.p>
-        
-        {/* Product Carousel */}
-        <motion.div 
-          className="max-w-lg mx-auto mb-12"
-          variants={itemVariants}
-        >
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-white shadow-md">
-              {carouselItems.map((item, index) => (
-                <div 
-                  key={index}
-                  className={`transition-all duration-500 ${activeSlide === index ? 'opacity-100 block' : 'opacity-0 hidden'}`}
-                >
-                  <div className="h-[350px] flex items-center justify-center p-4 bg-white">
-                    <img 
-                      src={item.image} 
-                      alt={item.caption}
-                      className="max-h-full max-w-full h-auto w-auto object-contain"
-                      loading={index === 0 ? "eager" : "lazy"}
-                    />
-                  </div>
-                  <div className="p-3 bg-white">
-                    <p className="text-sm text-center text-[#4A4A68]">{item.caption}</p>
-                  </div>
-                </div>
-              ))}
-              
-              <div className="absolute bottom-14 left-0 right-0 flex justify-center space-x-2">
-                {carouselItems.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      activeSlide === index ? 'bg-[#9D8DF1] w-6' : 'bg-[#9D8DF1]/30'
-                    }`}
-                    onClick={() => setActiveSlide(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </motion.div>
 
       {/* Scroll down indicator */}
