@@ -22,7 +22,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
         <img 
           src="/lovable-uploads/95eb5a1a-2cd1-43bb-a0d8-7347cfb03165.png" 
           alt="Opti-mode Diagnostics logo" 
-          className={`h-12 ${isMobile ? 'w-auto max-w-[140px]' : 'w-auto max-w-[200px]'} object-contain`}
+          className={`${className} ${isMobile ? 'max-h-10' : 'h-12'} w-auto max-w-[160px] object-contain`}
           style={{ background: 'transparent' }}
           loading="eager"
           width={isMobile ? 140 : 200}

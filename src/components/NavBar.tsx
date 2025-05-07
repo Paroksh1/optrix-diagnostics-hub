@@ -82,6 +82,18 @@ const NavBar = () => {
     }
   };
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
@@ -190,7 +202,7 @@ const NavBar = () => {
         </div>
         
         <motion.button 
-          className="md:hidden text-foreground z-20 p-2 bg-[#EDE9FE] rounded-full"
+          className="md:hidden text-foreground z-50 p-2 bg-[#EDE9FE] rounded-full"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
           whileTap={{ scale: 0.9 }}
@@ -200,98 +212,139 @@ const NavBar = () => {
         
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div 
-              className="fixed inset-0 bg-[rgba(250,245,255,0.98)] backdrop-blur-lg z-10 md:hidden"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="flex flex-col items-center justify-center h-full space-y-8">
-                {navLinks.map((link, i) => {
-                  const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
-                  
-                  // On product pages, use RouterLink for mobile menu items too
-                  if (isProductPage && link.href.startsWith('/')) {
-                    return (
-                      <motion.div
-                        key={link.text}
-                        className="relative"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                      >
-                        <RouterLink
-                          to={link.href}
-                          className={`transition-all duration-300 text-2xl font-semibold ${
-                            isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
-                          }`}
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                          }}
-                        >
-                          {isActive ? (
-                            <span className="bg-[#EDE9FE] text-[#7C3AED] px-5 py-2 rounded-full">
-                              {link.text}
-                            </span>
-                          ) : (
-                            link.text
-                          )}
+            <>
+              {/* Backdrop/Overlay */}
+              <motion.div
+                className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              
+              {/* Mobile Menu */}
+              <motion.div 
+                className="fixed inset-0 bg-[rgba(250,245,255,0.98)] backdrop-blur-lg z-40 md:hidden overflow-y-auto"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex flex-col items-center h-full py-16 px-6">
+                  {/* Logo at the top with spacing */}
+                  <div className="w-full flex justify-center mb-8 pt-4">
+                    <div className="max-w-[160px] w-full">
+                      {isProductPage ? (
+                        <RouterLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                          <Logo className="h-auto w-full" />
                         </RouterLink>
-                      </motion.div>
-                    );
-                  } else {
-                    return (
-                      <motion.div
-                        key={link.text}
-                        className="relative"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                      >
-                        <a
-                          href={link.href}
-                          className={`transition-all duration-300 text-2xl font-semibold ${
-                            isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
-                          }`}
+                      ) : (
+                        <a 
+                          href="#home" 
                           onClick={(e) => {
-                            handleNavLinkClick(e, link.href);
+                            handleNavLinkClick(e, "#home");
                             setIsMobileMenuOpen(false);
                           }}
                         >
-                          {isActive ? (
-                            <span className="bg-[#EDE9FE] text-[#7C3AED] px-5 py-2 rounded-full">
-                              {link.text}
-                            </span>
-                          ) : (
-                            link.text
-                          )}
+                          <Logo className="h-auto w-full" />
                         </a>
-                      </motion.div>
-                    );
-                  }
-                })}
-                <Button
-                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full mt-4"
-                >
-                  {isProductPage ? (
-                    <RouterLink to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                      Get Started
-                    </RouterLink>
-                  ) : (
-                    <a 
-                      href="#contact"
-                      onClick={(e) => {
-                        handleNavLinkClick(e, "#contact");
-                        setIsMobileMenuOpen(false);
-                      }}
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Navigation Links with proper spacing */}
+                  <div className="flex flex-col items-center justify-center space-y-6 w-full py-4 mb-4">
+                    {navLinks.map((link, i) => {
+                      const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
+                      
+                      // On product pages, use RouterLink for mobile menu items too
+                      if (isProductPage && link.href.startsWith('/')) {
+                        return (
+                          <motion.div
+                            key={link.text}
+                            className="relative w-full"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            <RouterLink
+                              to={link.href}
+                              className={`transition-all duration-300 text-xl font-semibold block text-center py-2 ${
+                                isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
+                              }`}
+                              onClick={() => {
+                                setIsMobileMenuOpen(false);
+                              }}
+                            >
+                              {isActive ? (
+                                <span className="bg-[#EDE9FE] text-[#7C3AED] px-6 py-3 rounded-full inline-block w-full">
+                                  {link.text}
+                                </span>
+                              ) : (
+                                link.text
+                              )}
+                            </RouterLink>
+                          </motion.div>
+                        );
+                      } else {
+                        return (
+                          <motion.div
+                            key={link.text}
+                            className="relative w-full"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            <a
+                              href={link.href}
+                              className={`transition-all duration-300 text-xl font-semibold block text-center py-2 ${
+                                isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
+                              }`}
+                              onClick={(e) => {
+                                handleNavLinkClick(e, link.href);
+                                setIsMobileMenuOpen(false);
+                              }}
+                            >
+                              {isActive ? (
+                                <span className="bg-[#EDE9FE] text-[#7C3AED] px-6 py-3 rounded-full inline-block w-full">
+                                  {link.text}
+                                </span>
+                              ) : (
+                                link.text
+                              )}
+                            </a>
+                          </motion.div>
+                        );
+                      }
+                    })}
+                  </div>
+                  
+                  {/* CTA Button with proper spacing and full width */}
+                  <div className="w-full px-4 mt-6">
+                    <Button
+                      className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full w-full py-6"
                     >
-                      Get Started
-                    </a>
-                  )}
-                </Button>
-              </div>
-            </motion.div>
+                      {isProductPage ? (
+                        <RouterLink to="/#contact" className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>
+                          Get Started
+                        </RouterLink>
+                      ) : (
+                        <a 
+                          href="#contact"
+                          className="w-full text-center"
+                          onClick={(e) => {
+                            handleNavLinkClick(e, "#contact");
+                            setIsMobileMenuOpen(false);
+                          }}
+                        >
+                          Get Started
+                        </a>
+                      )}
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
