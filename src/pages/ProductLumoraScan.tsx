@@ -67,12 +67,12 @@ const comparisonData = [
   },
   {
     feature: "Cost Per Test",
-    lumoraScan: "< ₹500",
-    oralScan: "₹1000+",
-    velScope: "₹1500+",
-    identafi: "₹1200+",
-    oralId: "₹1000+",
-    viziLite: "₹2000+"
+    lumoraScan: "< Rs.500",
+    oralScan: "Rs.1000+",
+    velScope: "Rs.1500+",
+    identafi: "Rs.1200+",
+    oralId: "Rs.1000+",
+    viziLite: "Rs.2000+"
   }
 ];
 
@@ -246,7 +246,7 @@ const ProductLumoraScan = () => {
                       <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium mb-1">Affordable (< ₹500/test)</h4>
+                      <h4 className="text-lg font-medium mb-1">Affordable (< Rs.500/test)</h4>
                       <p className="text-black">Significantly more cost-effective than competitor solutions</p>
                     </div>
                   </div>
