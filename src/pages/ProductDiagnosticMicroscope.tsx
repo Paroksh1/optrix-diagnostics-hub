@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
+// If we need to add a chart component in the future:
+// import { ChartContainer, ChartTooltipContent, ChartTooltip } from '@/components/ui/chart';
+// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
 
 const ProductDiagnosticMicroscope = () => {
   useEffect(() => {

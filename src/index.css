@@ -55,3 +55,27 @@ body {
 .hover-underline {
   @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-light after:transition-all after:duration-300 hover:after:w-full;
 }
+
+/* Chart axis styling */
+.recharts-cartesian-axis-line {
+  stroke: #ccc;
+}
+
+.recharts-text.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+}
+
+.recharts-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Fix for axis label overlap */
+.recharts-xAxis .recharts-label,
+.recharts-yAxis .recharts-label {
+  transform: translate(0, 10px);
+}
+
+.recharts-yAxis .recharts-label {
+  transform: translate(-15px, 0);
+}
