@@ -17,12 +17,16 @@ const Footer = () => {
               Transforming medical diagnostics with our innovative imaging and spectroscopic technologies.
             </p>
             <div className="flex space-x-4">
-              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
-                <Twitter className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
-                <Linkedin className="w-4 h-4" />
-              </Button>
+              <a href="https://x.com/opti_mode" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
+                  <Twitter className="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="https://www.linkedin.com/company/opti-mode-diagnostics/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
+                  <Linkedin className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
           </div>
           
