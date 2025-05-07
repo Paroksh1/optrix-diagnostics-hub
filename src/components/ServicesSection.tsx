@@ -37,10 +37,10 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-16 bg-[#F6F3FF] relative z-10">
+    <section id="services" className="py-16 bg-white relative z-10">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-12"
+          className="max-w-3xl mx-auto text-center mb-12 pt-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -54,14 +54,14 @@ const ServicesSection = () => {
           
           <motion.h2 
             variants={itemAnimation}
-            className="text-3xl md:text-4xl font-extrabold mb-4 text-[#1B2A41]"
+            className="text-3xl md:text-4xl font-semibold mb-4 text-[#1B2A41]"
           >
             Our Products
           </motion.h2>
           
           <motion.div 
             variants={itemAnimation}
-            className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full shadow-sm shadow-[#9D8DF1]/30"
+            className="w-16 h-1 bg-[#A78BFA] mx-auto rounded-full my-2 shadow-sm shadow-[#9D8DF1]/30"
           ></motion.div>
           
           <motion.p 
@@ -83,7 +83,7 @@ const ServicesSection = () => {
             <motion.div 
               key={index} 
               variants={itemAnimation}
-              className="bg-gradient-to-br from-white to-[#f7f4ff] flex flex-col md:flex-row gap-6 p-8 rounded-[1.5rem] border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300"
+              className="bg-[#FAF9FF] flex flex-col md:flex-row gap-6 p-8 rounded-[20px] border border-gray-100 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] transition-transform duration-300"
             >
               <div className="md:w-2/5 flex items-center justify-center">
                 <img 
@@ -107,11 +107,12 @@ const ServicesSection = () => {
                 </ul>
                 
                 <Button 
-                  className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full shadow-sm shadow-[#9D8DF1]/30"
+                  className="bg-gradient-to-r from-[#A78BFA] to-[#7C3AED] hover:bg-gradient-to-r hover:from-[#9D8DF1] hover:to-[#7C3AED] text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group"
                   asChild
                 >
                   <Link to={product.productLink} className="flex items-center">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    Learn More 
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </div>
