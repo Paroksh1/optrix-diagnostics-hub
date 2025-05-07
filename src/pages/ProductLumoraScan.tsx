@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle } from 'lucide-react';
@@ -66,7 +67,7 @@ const comparisonData = [
   },
   {
     feature: "Cost Per Test",
-    lumoraScan: "< Rs.500",
+    lumoraScan: "less than Rs.500",
     oralScan: "Rs.1000+",
     velScope: "Rs.1500+",
     identafi: "Rs.1200+",
@@ -348,10 +349,7 @@ const ProductLumoraScan = () => {
           <section className="mb-20">
             <h2 className="text-3xl font-bold mb-10 text-center text-[#1B2A41]">See Lumora Scan in Action</h2>
             <div className="relative max-w-4xl mx-auto">
-              <Carousel 
-                className="w-full"
-                value={{selectedIndex: activeSlide, onChange: setActiveSlide}}
-              >
+              <Carousel className="w-full">
                 <CarouselContent>
                   {carouselItems.map((item, index) => (
                     <CarouselItem key={index}>
