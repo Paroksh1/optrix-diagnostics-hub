@@ -11,29 +11,6 @@ const AboutSection = () => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
   
-  // State for counting up animation
-  const [accuracy, setAccuracy] = React.useState(0);
-  const [survival, setSurvival] = React.useState(0);
-  const [nonInvasive, setNonInvasive] = React.useState(0);
-  
-  // Start counting animation when in view
-  useInterval(() => {
-    if (isInView) {
-      if (accuracy < 97) setAccuracy(prev => Math.min(prev + 1, 97));
-      if (survival < 80) setSurvival(prev => Math.min(prev + 1, 80));
-      if (nonInvasive < 100) setNonInvasive(prev => Math.min(prev + 1, 100));
-    }
-  }, isInView && (accuracy < 97 || survival < 80 || nonInvasive < 100) ? 20 : null);
-  
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-  
   // Sequence variants for staggered animations
   const container = {
     hidden: { opacity: 0 },
@@ -163,36 +140,6 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
         </div>
-        
-        <motion.hr 
-          className="my-12 border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 0.6 }}
-        />
-        
-        {/* Key Metrics Section with counting animation */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={container}
-        >
-          <motion.div variants={item} className="p-6 rounded-xl bg-blue-50/50 shadow-sm hover:shadow-md transition-all">
-            <h3 className="text-4xl font-bold text-[#1B2A41]">{accuracy}%</h3>
-            <p className="mt-2 text-gray-700">Detection Accuracy</p>
-          </motion.div>
-          
-          <motion.div variants={item} className="p-6 rounded-xl bg-blue-50/50 shadow-sm hover:shadow-md transition-all">
-            <h3 className="text-4xl font-bold text-[#1B2A41]">{survival}%</h3>
-            <p className="mt-2 text-gray-700">Survival Rate Improvement</p>
-          </motion.div>
-          
-          <motion.div variants={item} className="p-6 rounded-xl bg-blue-50/50 shadow-sm hover:shadow-md transition-all">
-            <h3 className="text-4xl font-bold text-[#1B2A41]">{nonInvasive}%</h3>
-            <p className="mt-2 text-gray-700">Non-Invasive</p>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
