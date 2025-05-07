@@ -204,7 +204,8 @@ const NavBar = () => {
         <motion.button 
           className="md:hidden text-foreground z-50 p-2 bg-[#EDE9FE] rounded-full"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
           whileTap={{ scale: 0.9 }}
         >
           {isMobileMenuOpen ? <X size={24} className="text-[#7C3AED]" /> : <Menu size={24} className="text-[#7C3AED]" />}
@@ -213,7 +214,7 @@ const NavBar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <>
-              {/* Backdrop/Overlay */}
+              {/* Backdrop/Overlay with better opacity for contrast */}
               <motion.div
                 className="fixed inset-0 bg-black/50 z-40 md:hidden"
                 initial={{ opacity: 0 }}
@@ -222,17 +223,18 @@ const NavBar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               />
               
-              {/* Mobile Menu */}
+              {/* Mobile Menu - Improved styling */}
               <motion.div 
-                className="fixed inset-0 bg-[rgba(250,245,255,0.98)] backdrop-blur-lg z-40 md:hidden overflow-y-auto"
+                className="fixed inset-0 bg-[rgba(250,245,255,0.95)] backdrop-blur-lg z-40 md:hidden overflow-y-auto"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
+                style={{ overflowY: 'auto', minHeight: '100vh' }}
               >
-                <div className="flex flex-col items-center h-full py-16 px-6">
-                  {/* Logo at the top with spacing */}
-                  <div className="w-full flex justify-center mb-8 pt-4">
+                <div className="flex flex-col items-center min-h-screen py-8 px-6">
+                  {/* Logo at the top with improved spacing */}
+                  <div className="w-full flex justify-center mb-6 pt-4">
                     <div className="max-w-[160px] w-full">
                       {isProductPage ? (
                         <RouterLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
@@ -252,8 +254,8 @@ const NavBar = () => {
                     </div>
                   </div>
                   
-                  {/* Navigation Links with proper spacing */}
-                  <div className="flex flex-col items-center justify-center space-y-6 w-full py-4 mb-4">
+                  {/* Navigation Links with improved spacing and typography */}
+                  <div className="flex flex-col items-center justify-center space-y-6 w-full py-4 mb-6">
                     {navLinks.map((link, i) => {
                       const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
                       
@@ -269,7 +271,7 @@ const NavBar = () => {
                           >
                             <RouterLink
                               to={link.href}
-                              className={`transition-all duration-300 text-xl font-semibold block text-center py-2 ${
+                              className={`transition-all duration-300 text-xl font-semibold block text-center py-3 ${
                                 isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
                               }`}
                               onClick={() => {
@@ -297,7 +299,7 @@ const NavBar = () => {
                           >
                             <a
                               href={link.href}
-                              className={`transition-all duration-300 text-xl font-semibold block text-center py-2 ${
+                              className={`transition-all duration-300 text-xl font-semibold block text-center py-3 ${
                                 isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
                               }`}
                               onClick={(e) => {
@@ -320,9 +322,9 @@ const NavBar = () => {
                   </div>
                   
                   {/* CTA Button with proper spacing and full width */}
-                  <div className="w-full px-4 mt-6">
+                  <div className="w-full px-4 mt-8">
                     <Button
-                      className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full w-full py-6"
+                      className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full w-full py-6 font-semibold"
                     >
                       {isProductPage ? (
                         <RouterLink to="/#contact" className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>
