@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from './Logo';
 import { Twitter, Linkedin } from 'lucide-react';
@@ -39,7 +40,6 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
               <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">sidmehta927@gmail.com</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">+91 9667206444</a></li>
               <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">IIT Delhi, India</a></li>
               <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Get in Touch</a></li>
             </ul>
