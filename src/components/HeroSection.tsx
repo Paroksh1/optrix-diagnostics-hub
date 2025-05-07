@@ -1,9 +1,15 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Button } from './ui/button';
+import React, { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { ChevronDown, Microscope } from 'lucide-react';
 
 const HeroSection = () => {
+  const controls = useAnimation();
+  
+  useEffect(() => {
+    controls.start('visible');
+  }, [controls]);
+
   // Animation variants for staggered animations
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -25,96 +31,100 @@ const HeroSection = () => {
     <section 
       id="home" 
       className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-[#FCF8F8] font-poppins"
+      style={{ padding: '80px 0' }}
     >
-      {/* Subtle animated background particles */}
+      {/* Subtle animated background pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-primary/5"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 40 + 10}px`,
-              height: `${Math.random() * 40 + 10}px`,
-            }}
-            animate={{
-              x: [0, Math.random() * 50 - 25, 0],
-              y: [0, Math.random() * 50 - 25, 0],
-              opacity: [0.3, 0.7, 0.3]
-            }}
-            transition={{
-              duration: Math.random() * 10 + 15,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
+        {/* Abstract blob SVG */}
+        <svg
+          className="absolute top-0 right-0 w-2/3 h-2/3 text-[#F4F0FA]/30"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="currentColor"
+            d="M45.4,-51.2C58.1,-39.2,67.3,-24.6,70.1,-8.5C73,7.6,69.5,25.1,59.9,38.3C50.3,51.5,34.6,60.3,16.9,66.4C-0.8,72.4,-20.5,75.6,-36.3,69.3C-52.1,63,-64,47.1,-68.1,30.1C-72.1,13.1,-68.3,-5,-60.8,-20.2C-53.2,-35.4,-41.9,-47.8,-28.6,-59.6C-15.3,-71.4,0.1,-82.5,13.2,-79.3C26.3,-76.1,37.1,-58.5,45.4,-51.2Z"
+            transform="translate(100 100) scale(1.1)"
           />
-        ))}
+        </svg>
+        <svg
+          className="absolute bottom-0 left-0 w-2/3 h-2/3 text-[#E5DEFF]/20"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="currentColor"
+            d="M39.2,-48.7C52.4,-39.8,66,-29.4,71.2,-15.3C76.4,-1.1,73.3,17,64.4,31C55.5,45,40.8,55,24.8,61.9C8.8,68.7,-8.5,72.5,-24.5,68.7C-40.4,65,-55,53.6,-64.4,38.8C-73.7,24,-77.9,5.8,-73.1,-9.7C-68.4,-25.1,-54.8,-37.8,-40.8,-46.8C-26.8,-55.8,-12.4,-61.1,1,-62.3C14.5,-63.6,28.9,-62.8,39.2,-48.7Z"
+            transform="translate(100 100) scale(1.1)"
+          />
+        </svg>
       </div>
 
       {/* Badge at the top with more spacing */}
       <motion.div 
-        className="mb-24 inline-flex items-center bg-blue-50 px-4 py-2 rounded-full hover:scale-105 transition-transform"
+        className="mb-24 inline-flex items-center px-4 py-2 rounded-full hover:bg-[#E8E3FE] transition-all cursor-pointer bg-[#F2F0FF]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.6 }}
+        whileHover={{ scale: 1.03, boxShadow: "0 4px 12px rgba(108, 99, 255, 0.15)" }}
       >
-        <span className="text-[#1B2A41] font-medium flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2">
-            <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813a3.75 3.75 0 002.576-2.576l.813-2.846A.75.75 0 019 4.5z" clipRule="evenodd" />
-          </svg>
+        <span className="text-[#6C63FF] font-medium flex items-center">
+          <Microscope className="w-4 h-4 mr-2 stroke-[#6C63FF]" />
           Advanced Cancer Diagnostics
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 ml-2">
-            <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-          </svg>
         </span>
       </motion.div>
       
-      {/* Main Heading with improved typography and spacing */}
+      {/* Main Heading with improved typography and gradient */}
       <motion.div 
-        className="text-center max-w-4xl mx-auto pb-8"
+        className="text-center max-w-4xl mx-auto pb-10"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={controls}
       >
         <motion.h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 text-center tracking-tight leading-tight text-[#1B2A41]"
+          className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-10 text-center tracking-tight leading-tight"
           variants={itemVariants}
         >
-          <span className="font-extrabold">Revolutionizing</span> Cancer Detection<br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 font-extrabold">
+          <span className="text-[#1E1E2F]">Revolutionizing Cancer Detection</span><br />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6B6B] via-[#FF8E53] to-[#9D7BFF] font-extrabold">
             Through Advanced Optics
           </span>
         </motion.h1>
         
         <motion.p 
-          className="text-black text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed"
+          className="text-[#5F5F7A] text-lg md:text-xl mb-16 mx-auto leading-relaxed max-w-[700px]"
           variants={itemVariants}
         >
           Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
         </motion.p>
-        
-        {/* Buttons are removed as requested */}
       </motion.div>
 
-      {/* Interactive geometric elements */}
-      <div className="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 hidden md:block">
-        {[1, 2, 3].map((i) => (
-          <motion.div
-            key={i}
-            className="w-6 h-6 mb-4 rounded-md bg-primary/10 cursor-pointer"
-            whileHover={{ 
-              scale: 1.3, 
-              rotate: 45, 
-              backgroundColor: "rgba(0, 162, 255, 0.3)",
-              boxShadow: "0 0 10px rgba(0, 162, 255, 0.4)"
-            }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            animate={{ y: [0, 10, 0], opacity: [0.3, 0.8, 0.3] }}
-            style={{ animationDelay: `${i * 0.2}s` }}
-          />
-        ))}
-      </div>
+      {/* Scroll down indicator */}
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <motion.div
+          animate={{ 
+            y: [0, 10, 0],
+            opacity: [0.6, 1, 0.6]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            repeatType: "loop" 
+          }}
+          className="flex flex-col items-center cursor-pointer"
+          onClick={() => {
+            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <span className="text-[#A58EFF] text-sm font-medium mb-2">Scroll Down</span>
+          <ChevronDown className="text-[#A58EFF] w-6 h-6" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
