@@ -17,7 +17,7 @@ const ServicesSection = () => {
         'Affordable (less than Rs.500/test)',
         'Early stage cancer detection'
       ],
-      imageSrc: '/lovable-uploads/f619c155-86d5-4460-bbd2-442a2821c4e0.png',
+      imageSrc: '/lovable-uploads/b91f01cc-d20a-402a-9d11-d1ccfa890214.png',
       productLink: '/products/lumora-scan'
     }
   ];
@@ -71,16 +71,7 @@ const ServicesSection = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
-          <Button 
-            className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
-            asChild
-          >
-            <a href="#contact">
-              Request Product Demo
-            </a>
-          </Button>
-        </div>
+        {/* Removed the "Request Product Demo" button */}
       </div>
     </section>
   );
