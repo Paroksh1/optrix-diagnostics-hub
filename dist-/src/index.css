@@ -1,0 +1,97 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  cursor: default;
+  font-family: 'Inter', 'Poppins', 'system-ui', sans-serif;
+  background-color: var(--light);
+  color: var(--dark-base);
+}
+
+/* Color palette */
+:root {
+  --dark-base: #111111;
+  --dark-secondary: #1B2A41;
+  --light: #FCF8F8;
+  --light-secondary: rgba(252, 248, 248, 0.85);
+  --accent-light: #9292D8;
+  --accent-dark: #6A1B9A;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-[#9292D8] text-light px-6 py-3 rounded-full font-medium shadow-md transition-all hover:bg-[#9292D8]/90 hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-accent-dark text-light px-6 py-3 rounded-full font-medium shadow-md transition-all hover:bg-accent-dark/90 hover:shadow-lg;
+}
+
+/* Glass effect */
+.glass-card {
+  background-color: rgba(252, 248, 248, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(106, 27, 154, 0.1);
+  border: 1px solid rgba(146, 146, 216, 0.2);
+}
+
+/* Curved box styles */
+.curved-box {
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: var(--light);
+}
+
+.curved-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover underline animation */
+.hover-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-light after:transition-all after:duration-300 hover:after:w-full;
+}
+
+/* Chart axis styling */
+.recharts-cartesian-axis-line {
+  stroke: #ccc;
+}
+
+.recharts-text.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+}
+
+.recharts-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Enhanced fix for axis label overlap */
+.recharts-xAxis .recharts-label {
+  transform: translate(0, 20px) !important;
+}
+
+.recharts-yAxis .recharts-label {
+  transform: translate(-25px, 0) rotate(-90deg) !important;
+}
+
+/* Add padding to the chart container */
+.chart-container {
+  padding: 20px 30px 30px 10px;
+}
+
+/* Ensure axis labels have proper spacing */
+.recharts-wrapper {
+  margin: 10px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+/* Make sure tick values don't overlap */
+.recharts-cartesian-axis-tick {
+  font-size: 10px;
+}
