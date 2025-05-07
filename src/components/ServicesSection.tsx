@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Microscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
+import { motion } from 'framer-motion';
 
 const ServicesSection = () => {
   const products = [
@@ -22,26 +23,73 @@ const ServicesSection = () => {
     }
   ];
 
+  const containerAnimation = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3 }
+    }
+  };
+
+  const itemAnimation = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <section id="services" className="py-16 bg-[#FCF8F8] relative z-10">
+    <section id="services" className="py-16 bg-[#F6F3FF] relative z-10">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1B2A41]">
+        <motion.div 
+          className="max-w-3xl mx-auto text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerAnimation}
+        >
+          <motion.div variants={itemAnimation} className="inline-flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center">
+              <Microscope className="w-5 h-5 text-[#9D8DF1]" />
+            </div>
+          </motion.div>
+          
+          <motion.h2 
+            variants={itemAnimation}
+            className="text-3xl md:text-4xl font-extrabold mb-4 text-[#1B2A41]"
+          >
             Our Products
-          </h2>
-          <p className="text-black">
+          </motion.h2>
+          
+          <motion.div 
+            variants={itemAnimation}
+            className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full shadow-sm shadow-[#9D8DF1]/30"
+          ></motion.div>
+          
+          <motion.p 
+            variants={itemAnimation}
+            className="text-black mt-4"
+          >
             Cutting-edge diagnostic solutions designed for healthcare professionals
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         
-        <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerAnimation}
+          className="grid md:grid-cols-1 lg:grid-cols-1 gap-12"
+        >
           {products.map((product, index) => (
-            <div key={index} className="bg-white flex flex-col md:flex-row gap-6 p-6 rounded-xl border border-gray-200">
-              <div className="md:w-2/5">
+            <motion.div 
+              key={index} 
+              variants={itemAnimation}
+              className="bg-gradient-to-br from-white to-[#f7f4ff] flex flex-col md:flex-row gap-6 p-8 rounded-[1.5rem] border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300"
+            >
+              <div className="md:w-2/5 flex items-center justify-center">
                 <img 
                   src={product.imageSrc} 
                   alt={product.title}
-                  className="w-full h-auto rounded-xl shadow-lg"
+                  className="w-full h-auto rounded-xl shadow-md"
                 />
               </div>
               <div className="md:w-3/5">
@@ -52,14 +100,14 @@ const ServicesSection = () => {
                 <ul className="mb-6 space-y-1">
                   {product.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-accent-light mt-1">•</span>
+                      <span className="text-[#9D8DF1] mt-1">•</span>
                       <span className="text-dark-secondary">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <Button 
-                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+                  className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full shadow-sm shadow-[#9D8DF1]/30"
                   asChild
                 >
                   <Link to={product.productLink} className="flex items-center">
@@ -67,9 +115,9 @@ const ServicesSection = () => {
                   </Link>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
