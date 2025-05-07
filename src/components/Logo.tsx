@@ -25,6 +25,8 @@ const Logo = ({ className = "" }: { className?: string }) => {
           className={`h-12 ${isMobile ? 'w-auto max-w-[140px]' : 'w-auto max-w-[200px]'} object-contain`}
           style={{ background: 'transparent' }}
           loading="eager"
+          width={isMobile ? 140 : 200}
+          height={48}
         />
       </motion.div>
     </motion.div>

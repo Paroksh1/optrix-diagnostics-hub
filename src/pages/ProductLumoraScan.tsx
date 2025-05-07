@@ -5,13 +5,6 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { useInterval } from '@/hooks/use-interval';
 import { 
   Card,
@@ -197,36 +190,26 @@ const ProductLumoraScan = () => {
                 className="flex items-center justify-center"
               >
                 <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md">
-                  <Carousel 
-                    className="w-full"
-                    setApi={(api) => {
-                      // Connect carousel to the activeSlide state
-                      if (api) {
-                        api.on("select", () => {
-                          setActiveSlide(api.selectedScrollSnap());
-                        });
-                      }
-                    }}
-                  >
-                    <CarouselContent>
-                      {carouselItems.map((item, index) => (
-                        <CarouselItem key={index}>
-                          <div className="p-1">
-                            <div className="h-[350px] bg-white flex items-center justify-center">
-                              <img 
-                                src={item.image} 
-                                alt={item.caption}
-                                className="max-h-full max-w-full h-auto w-auto object-contain"
-                                loading={index === 0 ? "eager" : "lazy"}
-                              />
-                            </div>
-                            <div className="p-3 bg-white">
-                              <p className="text-sm text-[#4A4A68]">{item.caption}</p>
-                            </div>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
+                  <div className="relative">
+                    {carouselItems.map((item, index) => (
+                      <div 
+                        key={index}
+                        className={`transition-all duration-500 ${activeSlide === index ? 'opacity-100 block' : 'opacity-0 hidden'}`}
+                      >
+                        <div className="h-[350px] flex items-center justify-center p-4 bg-white">
+                          <img 
+                            src={item.image} 
+                            alt={item.caption}
+                            className="max-h-full max-w-full h-auto w-auto object-contain"
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                        </div>
+                        <div className="p-3 bg-white">
+                          <p className="text-sm text-center text-[#4A4A68]">{item.caption}</p>
+                        </div>
+                      </div>
+                    ))}
+                    
                     <div className="absolute bottom-16 left-0 right-0 flex justify-center space-x-2">
                       {carouselItems.map((_, index) => (
                         <button
@@ -239,7 +222,7 @@ const ProductLumoraScan = () => {
                         />
                       ))}
                     </div>
-                  </Carousel>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -617,65 +600,7 @@ const ProductLumoraScan = () => {
             </div>
           </motion.section>
 
-          {/* 5. Product Image Gallery */}
-          <motion.section 
-            className="mb-24"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-3 text-[#1A1E2E]">See Lumora Scan in Action</h2>
-              <div className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full"></div>
-            </div>
-            
-            <div className="relative max-w-4xl mx-auto">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {carouselItems.map((item, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10">
-                          <div className="h-[350px] bg-white flex items-center justify-center">
-                            <img 
-                              src={item.image} 
-                              alt={item.caption}
-                              className="max-h-full max-w-full h-auto w-auto object-contain"
-                              loading={index === 0 ? "eager" : "lazy"}
-                            />
-                          </div>
-                          <div className="p-3 bg-white">
-                            <p className="text-sm text-[#4A4A68]">{item.caption}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="md:-left-12 lg:-left-16 bg-white text-[#9D8DF1] border-[#9D8DF1]/20 hover:bg-[#9D8DF1] hover:text-white" />
-                <CarouselNext className="md:-right-12 lg:-right-16 bg-white text-[#9D8DF1] border-[#9D8DF1]/20 hover:bg-[#9D8DF1] hover:text-white" />
-              </Carousel>
-
-              <div className="mt-6 flex justify-center space-x-2">
-                {carouselItems.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      activeSlide === index ? 'bg-[#9D8DF1] w-6' : 'bg-[#9D8DF1]/30'
-                    }`}
-                    onClick={() => setActiveSlide(index)}
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.section>
-
-          {/* 6. Final CTA Section */}
-          
-
-          
-          {/* Fixed CTA button */}
+          {/* 6. Fixed CTA Section */}
           <div className="fixed bottom-8 right-8 z-10 md:block hidden">
             <Button
               className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full shadow-lg px-6"
