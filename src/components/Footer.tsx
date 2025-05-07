@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Logo from './Logo';
-import { Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Twitter, Linkedin } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Footer = () => {
@@ -22,12 +22,6 @@ const Footer = () => {
               </Button>
               <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
                 <Linkedin className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
-                <Facebook className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
-                <Instagram className="w-4 h-4" />
               </Button>
             </div>
           </div>
@@ -54,7 +48,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-[#1B2A41]">© 2023 Opti-Mode Diagnostics. All rights reserved.</p>
+          <p className="text-sm text-[#1B2A41]">© 2025 Opti-Mode Diagnostics. All rights reserved.</p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
