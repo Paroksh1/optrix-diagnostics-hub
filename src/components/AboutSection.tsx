@@ -14,7 +14,7 @@ const AboutSection = () => {
             About Us
           </h2>
           <p className="text-black">
-            Pioneering early detection technology for oral cancer diagnostics
+            Opti-Mode Diagnostics proudly introduces Lumora Scan: India's first advanced-optics system for early-stage cancer detection
           </p>
         </div>
         
@@ -62,23 +62,30 @@ const AboutSection = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-block px-4 py-2 bg-[#9292D8]/10 rounded-full text-[#9292D8] font-medium mb-2">
-              Revolutionary Oral Cancer Detection
+              Where innovation meets life-saving precision
             </div>
             
             <h2 className="text-3xl md:text-4xl font-bold text-[#1B2A41] leading-tight">
-              Our Mission
+              Our Technology
             </h2>
             
             <p className="text-black text-lg">
-              We're dedicated to reducing oral cancer mortality through early detection. Our innovative technology 
-              provides fast, accurate, and non-invasive screening for oral cancer, making diagnosis accessible 
-              in low-resource settings.
+              Opti-Mode Diagnostics proudly introduces Lumora Scan: India's first advanced-optics system for 
+              early-stage cancer detection — where innovation meets life-saving precision.
             </p>
             
+            <h3 className="text-xl font-semibold text-[#1B2A41]">Our Collaborations</h3>
+            
             <p className="text-black text-lg">
-              Founded by leading oncologists and biomedical engineers, our company combines cutting-edge 
-              imaging technology with AI-powered diagnostics to revolutionize how oral cancer is detected 
-              and treated globally.
+              Our breakthrough technology is developed in collaboration with leading experts from 
+              institutions like AIIMS, IIT Delhi, and Max Healthcare.
+            </p>
+            
+            <h3 className="text-xl font-semibold text-[#1B2A41]">Backed by Innovation</h3>
+            
+            <p className="text-black text-lg">
+              Our vision is backed by BIRAC and Foundation for Innovation and Technology Transfer (FITT), 
+              empowering us to bring cutting-edge diagnostics to underserved regions.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
