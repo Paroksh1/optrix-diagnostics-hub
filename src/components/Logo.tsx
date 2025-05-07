@@ -23,10 +23,9 @@ const Logo = ({ className = "" }: { className?: string }) => {
         <motion.img 
           src="/lovable-uploads/95eb5a1a-2cd1-43bb-a0d8-7347cfb03165.png" 
           alt="Opti-mode Diagnostics logo" 
-          className="h-10 w-auto max-w-[140px] object-contain"
+          className="h-12 w-auto max-w-[180px] object-contain"
           style={{ background: 'transparent' }}
         />
-        <span className="font-semibold text-lg text-gray-800">Opti-mode Diagnostics</span>
       </motion.a>
     </motion.div>
   );
