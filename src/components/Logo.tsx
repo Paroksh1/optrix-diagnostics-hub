@@ -13,8 +13,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.a 
-        href="/"
+      <motion.div
         className="flex items-center"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
@@ -26,7 +25,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
           className={`h-12 ${isMobile ? 'w-auto max-w-[140px]' : 'w-auto max-w-[200px]'} object-contain`}
           style={{ background: 'transparent' }}
         />
-      </motion.a>
+      </motion.div>
     </motion.div>
   );
 };

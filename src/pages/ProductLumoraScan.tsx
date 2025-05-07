@@ -148,7 +148,7 @@ const ProductLumoraScan = () => {
             </Link>
           </Button>
           
-          {/* 1. Hero Section */}
+          {/* 1. Hero Section with carousel */}
           <motion.section 
             className="mb-24"
             initial="hidden"
@@ -197,16 +197,46 @@ const ProductLumoraScan = () => {
                 className="flex items-center justify-center"
               >
                 <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md">
-                  <div className="flex items-center justify-center p-6">
-                    <img 
-                      src={carouselItems[0].image}
-                      alt="AI-powered oral cancer detection device - Lumora Scan"
-                      className="max-h-[400px] w-auto object-contain"
-                    />
-                  </div>
-                  <div className="p-3 text-center bg-white">
-                    <p className="text-sm text-[#4A4A68]">Front view of the Lumora Scan device</p>
-                  </div>
+                  <Carousel className="w-full" setApi={(api) => {
+                    // Update activeSlide when carousel changes
+                    api?.on("select", () => {
+                      const currentIndex = api.selectedScrollSnap();
+                      setActiveSlide(currentIndex);
+                    });
+                  }}>
+                    <CarouselContent>
+                      {carouselItems.map((item, index) => (
+                        <CarouselItem key={index}>
+                          <div className="p-1">
+                            <div className="h-[350px] bg-white flex items-center justify-center">
+                              <img 
+                                src={item.image} 
+                                alt={item.caption}
+                                className="max-h-full max-w-full h-auto w-auto object-contain"
+                              />
+                            </div>
+                            <div className="p-3 bg-white">
+                              <p className="text-sm text-[#4A4A68]">{item.caption}</p>
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="absolute bottom-16 left-0 right-0 flex justify-center space-x-2">
+                      {carouselItems.map((_, index) => (
+                        <button
+                          key={index}
+                          className={`w-3 h-3 rounded-full transition-all ${
+                            activeSlide === index ? 'bg-[#9D8DF1] w-6' : 'bg-[#9D8DF1]/30'
+                          }`}
+                          onClick={() => {
+                            setActiveSlide(index);
+                            // This will be implemented when we get the carousel API
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </Carousel>
                 </div>
               </motion.div>
             </div>
@@ -611,8 +641,8 @@ const ProductLumoraScan = () => {
                               className="max-h-full max-w-full h-auto w-auto object-contain"
                             />
                           </div>
-                          <div className="p-4 bg-white">
-                            <p className="text-center font-medium text-[#1A1E2E]">{item.caption}</p>
+                          <div className="p-3 bg-white">
+                            <p className="text-sm text-[#4A4A68]">{item.caption}</p>
                           </div>
                         </div>
                       </div>

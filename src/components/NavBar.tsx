@@ -45,6 +45,37 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navLinks, isProductPage]);
 
+  // Handle smooth scrolling for hash links
+  const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    // Only handle hash links
+    if (href.includes('#') && !href.startsWith('/')) {
+      e.preventDefault();
+      
+      // Extract the section id from the href
+      const sectionId = href.substring(href.indexOf('#') + 1);
+      const section = document.getElementById(sectionId);
+      
+      if (section) {
+        // Use smooth scrolling
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Update the URL without refreshing the page
+        window.history.pushState(null, '', href);
+        
+        // Update active link
+        setActiveLink(sectionId);
+      }
+      
+      // Close mobile menu if open
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
+
   return (
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
@@ -63,7 +94,9 @@ const NavBar = () => {
               <Logo />
             </RouterLink>
           ) : (
-            <Logo className="z-20" />
+            <a href="#home" onClick={(e) => handleNavLinkClick(e, '#home')} className="z-20">
+              <Logo />
+            </a>
           )}
         </div>
         
@@ -77,32 +110,67 @@ const NavBar = () => {
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <a
-                  href={link.href}
-                  className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
-                    isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
-                  }`}
-                  onClick={() => setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1))}
-                >
-                  {link.text}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
-                  )}
-                </a>
+                {isProductPage && link.href.startsWith('/#') ? (
+                  <RouterLink
+                    to={link.href.substring(1)}
+                    className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
+                      isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
+                    }`}
+                    onClick={() => setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1))}
+                  >
+                    {link.text}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
+                    )}
+                  </RouterLink>
+                ) : (
+                  <a
+                    href={link.href}
+                    className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
+                      isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
+                    }`}
+                    onClick={(e) => handleNavLinkClick(e, link.href)}
+                  >
+                    {link.text}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
+                    )}
+                  </a>
+                )}
               </motion.div>
             );
           })}
         </nav>
         
         <div className="hidden md:block">
-          <Button
-            className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
-            asChild
-          >
-            <a href={isProductPage ? "/#contact" : "#contact"}>
-              Get Started
-            </a>
-          </Button>
+          {isProductPage ? (
+            <Button
+              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+              asChild
+            >
+              <RouterLink to="/#contact">
+                Get Started
+              </RouterLink>
+            </Button>
+          ) : (
+            <Button
+              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+              onClick={(e) => {
+                const section = document.getElementById('contact');
+                if (section) {
+                  e.preventDefault();
+                  section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                  window.history.pushState(null, '', '#contact');
+                  setActiveLink('contact');
+                }
+              }}
+            >
+              <a href="#contact">Get Started</a>
+            </Button>
+          )}
         </div>
         
         <motion.button 
@@ -134,35 +202,67 @@ const NavBar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <a
-                        href={link.href}
-                        className={`transition-all duration-300 text-2xl font-semibold ${
-                          isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
-                        }`}
-                        onClick={() => {
-                          setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1));
-                          setIsMobileMenuOpen(false);
-                        }}
-                      >
-                        {isActive ? (
-                          <span className="bg-[#EDE9FE] text-[#7C3AED] px-5 py-2 rounded-full">
-                            {link.text}
-                          </span>
-                        ) : (
-                          link.text
-                        )}
-                      </a>
+                      {isProductPage && link.href.startsWith('/#') ? (
+                        <RouterLink
+                          to={link.href.substring(1)}
+                          className={`transition-all duration-300 text-2xl font-semibold ${
+                            isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
+                          }`}
+                          onClick={() => {
+                            setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1));
+                            setIsMobileMenuOpen(false);
+                          }}
+                        >
+                          {isActive ? (
+                            <span className="bg-[#EDE9FE] text-[#7C3AED] px-5 py-2 rounded-full">
+                              {link.text}
+                            </span>
+                          ) : (
+                            link.text
+                          )}
+                        </RouterLink>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className={`transition-all duration-300 text-2xl font-semibold ${
+                            isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
+                          }`}
+                          onClick={(e) => {
+                            handleNavLinkClick(e, link.href);
+                            setIsMobileMenuOpen(false);
+                          }}
+                        >
+                          {isActive ? (
+                            <span className="bg-[#EDE9FE] text-[#7C3AED] px-5 py-2 rounded-full">
+                              {link.text}
+                            </span>
+                          ) : (
+                            link.text
+                          )}
+                        </a>
+                      )}
                     </motion.div>
                   );
                 })}
                 <Button
                   className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full mt-4"
                   asChild
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <a href={isProductPage ? "/#contact" : "#contact"}>
-                    Get Started
-                  </a>
+                  {isProductPage ? (
+                    <RouterLink to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                      Get Started
+                    </RouterLink>
+                  ) : (
+                    <a 
+                      href="#contact"
+                      onClick={(e) => {
+                        handleNavLinkClick(e, "#contact");
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      Get Started
+                    </a>
+                  )}
                 </Button>
               </div>
             </motion.div>
