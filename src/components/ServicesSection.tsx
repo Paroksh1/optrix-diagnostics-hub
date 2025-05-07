@@ -70,8 +70,6 @@ const ServicesSection = () => {
             </div>
           ))}
         </div>
-        
-        {/* Removed the "Request Product Demo" button */}
       </div>
     </section>
   );
