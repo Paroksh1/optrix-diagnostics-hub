@@ -185,15 +185,19 @@ const ProductLumoraScan = () => {
 
               <motion.div
                 variants={fadeIn}
-                className="relative"
+                className="flex items-center justify-center"
               >
-                <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10">
-                  <img 
-                    src={carouselItems[0].image}
-                    alt="Lumora Scan Device"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/10 to-transparent"></div>
+                <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md">
+                  <div className="flex items-center justify-center p-6">
+                    <img 
+                      src={carouselItems[0].image}
+                      alt="AI-powered oral cancer detection device - Lumora Scan"
+                      className="max-h-[400px] w-auto object-contain"
+                    />
+                  </div>
+                  <div className="p-3 text-center bg-white">
+                    <p className="text-sm text-[#4A4A68]">Front view of the Lumora Scan device</p>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -675,4 +679,3 @@ const ProductLumoraScan = () => {
 };
 
 export default ProductLumoraScan;
-
