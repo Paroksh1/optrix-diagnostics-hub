@@ -47,7 +47,13 @@ const NavBar = () => {
 
   // Handle smooth scrolling for hash links
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    // Only handle hash links
+    if (isProductPage && href.startsWith('/#')) {
+      // Don't prevent default here - let RouterLink handle navigation to home page with hash
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    
+    // Only handle hash links within the same page
     if (href.includes('#') && !href.startsWith('/')) {
       e.preventDefault();
       
@@ -103,27 +109,37 @@ const NavBar = () => {
         <nav className="hidden md:flex space-x-8 ml-6">
           {navLinks.map((link) => {
             const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
-            return (
-              <motion.div
-                key={link.text}
-                className="relative"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {isProductPage && link.href.startsWith('/#') ? (
+            
+            // On product pages, use RouterLink to navigate to homepage sections
+            if (isProductPage && link.href.startsWith('/')) {
+              return (
+                <motion.div
+                  key={link.text}
+                  className="relative"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <RouterLink
-                    to={link.href.substring(1)}
+                    to={link.href}
                     className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
                       isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
                     }`}
-                    onClick={() => setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1))}
                   >
                     {link.text}
                     {isActive && (
                       <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
                     )}
                   </RouterLink>
-                ) : (
+                </motion.div>
+              );
+            } else {
+              return (
+                <motion.div
+                  key={link.text}
+                  className="relative"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <a
                     href={link.href}
                     className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
@@ -136,9 +152,9 @@ const NavBar = () => {
                       <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
                     )}
                   </a>
-                )}
-              </motion.div>
-            );
+                </motion.div>
+              );
+            }
           })}
         </nav>
         
@@ -194,22 +210,23 @@ const NavBar = () => {
               <div className="flex flex-col items-center justify-center h-full space-y-8">
                 {navLinks.map((link, i) => {
                   const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
-                  return (
-                    <motion.div
-                      key={link.text}
-                      className="relative"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      {isProductPage && link.href.startsWith('/#') ? (
+                  
+                  // On product pages, use RouterLink for mobile menu items too
+                  if (isProductPage && link.href.startsWith('/')) {
+                    return (
+                      <motion.div
+                        key={link.text}
+                        className="relative"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                      >
                         <RouterLink
-                          to={link.href.substring(1)}
+                          to={link.href}
                           className={`transition-all duration-300 text-2xl font-semibold ${
                             isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
                           }`}
                           onClick={() => {
-                            setActiveLink(link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1));
                             setIsMobileMenuOpen(false);
                           }}
                         >
@@ -221,7 +238,17 @@ const NavBar = () => {
                             link.text
                           )}
                         </RouterLink>
-                      ) : (
+                      </motion.div>
+                    );
+                  } else {
+                    return (
+                      <motion.div
+                        key={link.text}
+                        className="relative"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                      >
                         <a
                           href={link.href}
                           className={`transition-all duration-300 text-2xl font-semibold ${
@@ -240,13 +267,12 @@ const NavBar = () => {
                             link.text
                           )}
                         </a>
-                      )}
-                    </motion.div>
-                  );
+                      </motion.div>
+                    );
+                  }
                 })}
                 <Button
                   className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full mt-4"
-                  asChild
                 >
                   {isProductPage ? (
                     <RouterLink to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>

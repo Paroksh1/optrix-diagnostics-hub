@@ -11,7 +11,7 @@ const Logo = ({ className = "" }: { className?: string }) => {
       className={`flex items-center ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <motion.div
         className="flex items-center"
@@ -19,11 +19,12 @@ const Logo = ({ className = "" }: { className?: string }) => {
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
-        <motion.img 
+        <img 
           src="/lovable-uploads/95eb5a1a-2cd1-43bb-a0d8-7347cfb03165.png" 
           alt="Opti-mode Diagnostics logo" 
           className={`h-12 ${isMobile ? 'w-auto max-w-[140px]' : 'w-auto max-w-[200px]'} object-contain`}
           style={{ background: 'transparent' }}
+          loading="eager"
         />
       </motion.div>
     </motion.div>

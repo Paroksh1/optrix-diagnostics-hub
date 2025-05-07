@@ -90,7 +90,7 @@ const ServicesSection = () => {
                   src={product.imageSrc} 
                   alt={product.title}
                   className="w-full h-auto rounded-xl shadow-md"
-                  loading="lazy" // Add lazy loading for better performance
+                  loading="lazy"
                 />
               </div>
               <div className="md:w-3/5">

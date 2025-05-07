@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle, Check, Minus } from 'lucide-react';
+import { ArrowLeft, Cpu, BarChart, CheckCircle, Check, Minus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -197,13 +197,18 @@ const ProductLumoraScan = () => {
                 className="flex items-center justify-center"
               >
                 <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md">
-                  <Carousel className="w-full" setApi={(api) => {
-                    // Update activeSlide when carousel changes
-                    api?.on("select", () => {
-                      const currentIndex = api.selectedScrollSnap();
-                      setActiveSlide(currentIndex);
-                    });
-                  }}>
+                  <Carousel 
+                    className="w-full"
+                    selectedIndex={activeSlide}
+                    setApi={(api) => {
+                      // Connect carousel to the activeSlide state
+                      if (api) {
+                        api.on("select", () => {
+                          setActiveSlide(api.selectedScrollSnap());
+                        });
+                      }
+                    }}
+                  >
                     <CarouselContent>
                       {carouselItems.map((item, index) => (
                         <CarouselItem key={index}>
@@ -213,6 +218,7 @@ const ProductLumoraScan = () => {
                                 src={item.image} 
                                 alt={item.caption}
                                 className="max-h-full max-w-full h-auto w-auto object-contain"
+                                loading={index === 0 ? "eager" : "lazy"}
                               />
                             </div>
                             <div className="p-3 bg-white">
@@ -229,10 +235,8 @@ const ProductLumoraScan = () => {
                           className={`w-3 h-3 rounded-full transition-all ${
                             activeSlide === index ? 'bg-[#9D8DF1] w-6' : 'bg-[#9D8DF1]/30'
                           }`}
-                          onClick={() => {
-                            setActiveSlide(index);
-                            // This will be implemented when we get the carousel API
-                          }}
+                          onClick={() => setActiveSlide(index)}
+                          aria-label={`Go to slide ${index + 1}`}
                         />
                       ))}
                     </div>
@@ -639,6 +643,7 @@ const ProductLumoraScan = () => {
                               src={item.image} 
                               alt={item.caption}
                               className="max-h-full max-w-full h-auto w-auto object-contain"
+                              loading={index === 0 ? "eager" : "lazy"}
                             />
                           </div>
                           <div className="p-3 bg-white">
