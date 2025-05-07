@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle, Check, Minus } from 'lucide-react';
@@ -100,6 +99,16 @@ const statCaptions = {
   aucScore: "Indicates excellent model prediction performance"
 };
 
+// CSS styles for gradient text
+const gradientTextStyle = {
+  background: 'linear-gradient(90deg, #A18CD1, #FBC2EB)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  backgroundClip: 'text',
+  fontWeight: 700,
+  letterSpacing: '0.5px',
+};
+
 const ProductLumoraScan = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   
@@ -161,11 +170,11 @@ const ProductLumoraScan = () => {
                   Revolutionary Diagnostics
                 </div>
                 
-                <h1 className="text-4xl lg:text-5xl font-bold text-[#1A1E2E] leading-tight">
-                  Introducing Lumora Scan
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+                  <span className="text-[#1A1E2E]">Introducing Lumora Scan</span>
                 </h1>
                 
-                <p className="text-xl lg:text-2xl text-[#1A1E2E] font-medium">
+                <p className="text-xl lg:text-2xl font-medium" style={gradientTextStyle}>
                   Non-Invasive, AI-Powered Early Detection for Oral Cancer
                 </p>
                 
@@ -629,26 +638,8 @@ const ProductLumoraScan = () => {
           </motion.section>
 
           {/* 6. Final CTA Section */}
-          <motion.section 
-            className="bg-[#F8F7FD] rounded-2xl p-10 text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-          >
-            <h2 className="text-3xl font-bold mb-4 text-[#1A1E2E]">Want to enable early detection and save lives?</h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto text-[#4A4A68] leading-relaxed">
-              Contact us today to learn how Lumora Scan can fit into your workflow.
-            </p>
-            <Button
-              className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full text-lg px-8 py-6 h-auto"
-              asChild
-            >
-              <Link to="/contact">
-                Get Started
-              </Link>
-            </Button>
-          </motion.section>
+          
+
           
           {/* Fixed CTA button */}
           <div className="fixed bottom-8 right-8 z-10 md:block hidden">
