@@ -50,7 +50,7 @@ const NavBar = () => {
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
         hasScrolled 
           ? 'bg-[rgba(250,245,255,0.95)] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
-          : 'bg-[rgba(250,245,255,0.9)] backdrop-blur-md py-4 border-b border-[#E4E2F0]'
+          : 'bg-[rgba(250,245,255,0.9)] backdrop-blur-md py-3 border-b border-[#E4E2F0]'
       }`}
       style={{
         boxShadow: hasScrolled ? '0 4px 12px rgba(0, 0, 0, 0.06)' : '0 2px 8px rgba(0, 0, 0, 0.04)'
@@ -58,11 +58,11 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {isProductPage ? (
-          <RouterLink to="/" className="z-20">
+          <RouterLink to="/" className="z-20 ml-4">
             <Logo />
           </RouterLink>
         ) : (
-          <Logo className="z-20" />
+          <Logo className="z-20 ml-4" />
         )}
         
         <nav className="hidden md:flex space-x-10">
@@ -92,7 +92,7 @@ const NavBar = () => {
           })}
         </nav>
         
-        <div className="hidden md:block">
+        <div className="hidden md:block pr-4">
           <Button
             className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
             asChild
