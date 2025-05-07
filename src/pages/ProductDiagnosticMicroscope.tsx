@@ -1,9 +1,11 @@
+
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CloudCog, Shield, Zap, Scan, Microscope, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import { Button } from '@/components/ui/button';
 
 const ProductDiagnosticMicroscope = () => {
   useEffect(() => {
@@ -16,13 +18,16 @@ const ProductDiagnosticMicroscope = () => {
       
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-[#1B2A41] hover:text-[#1B2A41]/80 transition-colors mb-8"
+          <Button 
+            variant="ghost"
+            className="rounded-full hover:bg-[#9292D8]/10 text-[#1B2A41] hover:text-[#1B2A41] mb-8"
+            asChild
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
+            <Link to="/" className="inline-flex items-center">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Link>
+          </Button>
           
           {/* Hero Section */}
           <section className="mb-16">
@@ -161,12 +166,14 @@ const ProductDiagnosticMicroscope = () => {
           </section>
 
           <div className="text-center">
-            <a 
-              href="#contact" 
-              className="inline-flex items-center bg-[#1B2A41] hover:bg-[#1B2A41]/90 text-white px-6 py-3 rounded-full font-medium transition-colors shadow-lg hover:shadow-xl"
+            <Button 
+              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+              asChild
             >
-              Request Product Demo
-            </a>
+              <a href="#contact">
+                Request Product Demo
+              </a>
+            </Button>
           </div>
         </div>
       </main>

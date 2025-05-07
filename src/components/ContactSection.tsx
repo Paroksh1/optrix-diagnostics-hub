@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
+import { Button } from './ui/button';
 
 const ContactSection = () => {
   const [formState, setFormState] = useState({
@@ -152,13 +153,13 @@ const ContactSection = () => {
                   </div>
                   
                   <div>
-                    <button
+                    <Button
                       type="submit"
                       disabled={isSubmitting || isSubmitted}
-                      className={`w-full py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center curved-box ${
+                      className={`w-full py-3 px-6 rounded-full transition-all duration-300 ${
                         isSubmitted 
                           ? 'bg-green-600 text-white' 
-                          : 'bg-primary hover:bg-primary/90 text-white'
+                          : 'bg-[#9292D8] hover:bg-[#9292D8]/90 text-white'
                       }`}
                     >
                       {isSubmitting ? (
@@ -174,7 +175,7 @@ const ContactSection = () => {
                           Send Message
                         </>
                       )}
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </form>

@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { ArrowRight, Microscope, Dna, Activity, BarChart3, Scan, TestTube } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
 
 const ServicesSection = () => {
   const features = [
@@ -113,12 +115,14 @@ const ServicesSection = () => {
                     ))}
                   </ul>
                   
-                  <Link 
-                    to={product.productLink} 
-                    className="inline-flex items-center bg-accent-dark hover:bg-accent-dark/90 text-light px-4 py-2 rounded-full transition-colors"
+                  <Button 
+                    className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+                    asChild
                   >
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                    <Link to={product.productLink} className="flex items-center">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             ))}
@@ -126,12 +130,14 @@ const ServicesSection = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <a 
-            href="#contact" 
-            className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white px-6 py-3 rounded-full font-medium inline-block shadow-lg hover:shadow-xl transition-all"
+          <Button 
+            className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+            asChild
           >
-            Request Product Demo
-          </a>
+            <a href="#contact">
+              Request Product Demo
+            </a>
+          </Button>
         </div>
       </div>
     </section>

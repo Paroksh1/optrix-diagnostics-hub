@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
@@ -82,8 +83,7 @@ const AboutSection = () => {
             
             <div className="flex flex-wrap gap-4 pt-4">
               <Button 
-                variant="default" 
-                className="bg-[#9292D8] text-white hover:bg-[#9292D8]/90 px-6 py-3 rounded-full"
+                className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
                 asChild
               >
                 <a href="#services" className="flex items-center">
@@ -93,7 +93,7 @@ const AboutSection = () => {
               </Button>
               <Button 
                 variant="outline" 
-                className="text-[#1B2A41] hover:text-[#1B2A41]/80 px-6 py-3"
+                className="rounded-full border-[#9292D8] text-[#1B2A41] hover:bg-[#9292D8] hover:text-white"
                 asChild
               >
                 <a href="#contact">

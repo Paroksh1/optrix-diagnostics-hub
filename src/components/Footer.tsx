@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from './Logo';
 import { Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
@@ -16,16 +17,16 @@ const Footer = () => {
               Transforming medical diagnostics with our innovative imaging and spectroscopic technologies.
             </p>
             <div className="flex space-x-4">
-              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
+              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
                 <Twitter className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
+              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
                 <Linkedin className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
+              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
                 <Facebook className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="icon" className="bg-white hover:bg-accent-light hover:text-light">
+              <Button variant="outline" size="icon" className="rounded-full bg-white hover:bg-[#9292D8] hover:text-white border-[#9292D8]">
                 <Instagram className="w-4 h-4" />
               </Button>
             </div>
@@ -34,30 +35,30 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Company</h3>
             <ul className="space-y-3">
-              <li><a href="#about" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">About</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Careers</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">News</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Partners</a></li>
+              <li><a href="#about" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">About</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Careers</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">News</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Partners</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-bold text-lg mb-4">Technology</h3>
             <ul className="space-y-3">
-              <li><a href="#services" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Multimodal Microscopy</a></li>
-              <li><a href="#services" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Autofluorescence Imaging</a></li>
-              <li><a href="#services" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Spectral Analysis</a></li>
-              <li><a href="#services" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Phase Imaging</a></li>
+              <li><a href="#services" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Multimodal Microscopy</a></li>
+              <li><a href="#services" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Autofluorescence Imaging</a></li>
+              <li><a href="#services" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Spectral Analysis</a></li>
+              <li><a href="#services" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Phase Imaging</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li><a href="#contact" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">sidmehta927@gmail.com</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">+91 9667206444</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">IIT Delhi, India</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-blue-500 transition-colors duration-200">Get in Touch</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">sidmehta927@gmail.com</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">+91 9667206444</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">IIT Delhi, India</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Get in Touch</a></li>
             </ul>
           </div>
         </div>
@@ -66,13 +67,13 @@ const Footer = () => {
           <p className="text-sm text-[#1B2A41]">© 2023 Opti-Mode Diagnostics. All rights reserved.</p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8]">
+            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
               Privacy Policy
             </Button>
-            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8]">
+            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
               Terms of Service
             </Button>
-            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8]">
+            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
               Cookie Policy
             </Button>
           </div>
