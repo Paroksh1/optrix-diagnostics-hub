@@ -1,6 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Smartphone, Cpu, BarChart, CheckCircle, Check, Minus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -13,7 +14,23 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useInterval } from '@/hooks/use-interval';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { 
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle, 
+} from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 // Image carousel items
 const carouselItems = [
@@ -76,6 +93,13 @@ const comparisonData = [
   }
 ];
 
+// Caption data for stats
+const statCaptions = {
+  clinicalTrials: "Tested across major medical institutions for reliability",
+  accuracy: "Enables early intervention and higher treatment success rate",
+  aucScore: "Indicates excellent model prediction performance"
+};
+
 const ProductLumoraScan = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   
@@ -88,15 +112,25 @@ const ProductLumoraScan = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FCF8F8]">
       <NavBar />
       
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <Button 
             variant="ghost"
-            className="rounded-full hover:bg-[#9292D8]/10 text-[#1B2A41] hover:text-[#1B2A41] mb-8"
+            className="rounded-full hover:bg-[#9D8DF1]/10 text-[#1A1E2E] hover:text-[#1A1E2E] mb-8"
             asChild
           >
             <Link to="/" className="inline-flex items-center">
@@ -106,32 +140,41 @@ const ProductLumoraScan = () => {
           </Button>
           
           {/* 1. Hero Section */}
-          <section className="mb-20">
+          <motion.section 
+            className="mb-24"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
+          >
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div 
                 className="space-y-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                variants={fadeIn}
               >
-                <div className="inline-block px-4 py-2 bg-accent-light/10 rounded-full text-[#1B2A41] font-medium">
+                <div className="inline-block px-4 py-2 bg-[#F2F0FF] rounded-full text-[#9D8DF1] font-medium">
                   Revolutionary Diagnostics
                 </div>
                 
-                <h1 className="text-4xl lg:text-5xl font-bold text-[#1B2A41] leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold text-[#1A1E2E] leading-tight">
                   Introducing Lumora Scan
                 </h1>
                 
-                <p className="text-xl lg:text-2xl text-black font-medium">
+                <p className="text-xl lg:text-2xl text-[#1A1E2E] font-medium">
                   Non-Invasive, AI-Powered Early Detection for Oral Cancer
                 </p>
                 
-                <p className="text-lg text-black">
+                <p className="text-lg text-[#4A4A68] leading-relaxed">
                   A portable, AI-driven spectroscopy device that detects early-stage oral cancer quickly, without pain or invasive procedures.
                 </p>
                 
                 <Button 
-                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+                  className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full"
                   asChild
                 >
                   <Link to="/contact">
@@ -141,221 +184,414 @@ const ProductLumoraScan = () => {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+                variants={fadeIn}
                 className="relative"
               >
-                <div className="rounded-2xl overflow-hidden shadow-xl border border-accent-light/20">
+                <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10">
                   <img 
                     src={carouselItems[0].image}
                     alt="Lumora Scan Device"
                     className="w-full h-auto"
                   />
+                  <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/10 to-transparent"></div>
                 </div>
               </motion.div>
             </div>
-          </section>
+          </motion.section>
 
-          {/* 2. How It Works vs Key Benefits */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold mb-10 text-center text-[#1B2A41]">How It Works & Key Benefits</h2>
+          {/* 2. How It Works & Key Benefits */}
+          <motion.section 
+            className="mb-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
+          >
+            <motion.div 
+              variants={fadeIn}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl font-bold mb-3 text-[#1A1E2E]">How It Works & Key Benefits</h2>
+              <div className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full"></div>
+            </motion.div>
+            
             <div className="grid md:grid-cols-2 gap-8">
               {/* How It Works */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold mb-6 text-[#1B2A41]">How It Works</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <Smartphone className="w-6 h-6 text-[#1B2A41]" />
+              <motion.div variants={fadeIn}>
+                <Card className="h-full bg-white rounded-2xl border-[#9D8DF1]/10 hover:border-[#9D8DF1]/30 transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-[#1A1E2E]">How It Works</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <Smartphone className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Smartphone Imaging</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Advanced camera system connects with smartphones for high-quality oral imagery</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Smartphone Imaging</h4>
-                      <p className="text-black">Advanced camera system connects with smartphones for high-quality oral imagery</p>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <Cpu className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Raman Spectroscopy</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Analyzes tissue at the molecular level to detect cancerous changes invisible to the eye</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <Cpu className="w-6 h-6 text-[#1B2A41]" />
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <BarChart className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Real-time ML Predictions</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Processes data instantly through our proprietary AI algorithm</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Raman Spectroscopy</h4>
-                      <p className="text-black">Analyzes tissue at the molecular level to detect cancerous changes invisible to the eye</p>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <CheckCircle className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Instant Results</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Delivers clear cancerous vs. non-cancerous determination within seconds</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <BarChart className="w-6 h-6 text-[#1B2A41]" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Real-time ML Predictions</h4>
-                      <p className="text-black">Processes data instantly through our proprietary AI algorithm</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Instant Results</h4>
-                      <p className="text-black">Delivers clear cancerous vs. non-cancerous determination within seconds</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
               
               {/* Key Benefits */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold mb-6 text-[#1B2A41]">Key Benefits</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
+              <motion.div variants={fadeIn}>
+                <Card className="h-full bg-white rounded-2xl border-[#9D8DF1]/10 hover:border-[#9D8DF1]/30 transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-[#1A1E2E]">Key Benefits</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <CheckCircle className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Non-invasive (non-contact)</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">No tissue removal or direct contact required, providing a pain-free experience</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Non-invasive (non-contact)</h4>
-                      <p className="text-black">No tissue removal or direct contact required, providing a pain-free experience</p>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <CheckCircle className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Multi-modality</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Combines imaging and spectroscopy for comprehensive diagnosis</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <CheckCircle className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">~97% Accuracy</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Extensively tested with industry-leading detection rates</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Multi-modality</h4>
-                      <p className="text-black">Combines imaging and spectroscopy for comprehensive diagnosis</p>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-4 shrink-0">
+                        <CheckCircle className="w-6 h-6 text-[#9D8DF1]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 text-[#1A1E2E]">Affordable (less than Rs.500/test)</h4>
+                        <p className="text-[#4A4A68] leading-relaxed">Significantly more cost-effective than competitor solutions</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">~97% Accuracy</h4>
-                      <p className="text-black">Extensively tested with industry-leading detection rates</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-accent-light/20 flex items-center justify-center mr-4 shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#1B2A41]" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Affordable (less than Rs.500/test)</h4>
-                      <p className="text-black">Significantly more cost-effective than competitor solutions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
-          </section>
+          </motion.section>
 
           {/* 3. Progress & Validation */}
-          <section className="mb-20">
-            <div className="bg-white rounded-2xl p-10 shadow-lg">
-              <h2 className="text-3xl font-bold mb-10 text-center text-[#1B2A41]">Progress & Validation</h2>
-              
-              <div className="grid md:grid-cols-2 gap-12">
-                <div>
-                  <div className="mb-8 space-y-6">
-                    <div className="flex items-center">
-                      <div className="w-16 h-16 rounded-full bg-accent-light/20 flex items-center justify-center mr-6">
-                        <span className="text-2xl font-bold text-[#1B2A41]">500+</span>
+          <motion.section 
+            className="mb-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
+          >
+            <motion.div 
+              variants={fadeIn}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl font-bold mb-3 text-[#1A1E2E]">Progress & Validation</h2>
+              <div className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full"></div>
+            </motion.div>
+            
+            <Card className="bg-white rounded-2xl border-[#9D8DF1]/10">
+              <CardContent className="p-10">
+                <div className="grid md:grid-cols-2 gap-12">
+                  <motion.div variants={fadeIn}>
+                    <div className="mb-8 space-y-8">
+                      <div className="flex items-center">
+                        <div className="w-16 h-16 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-6">
+                          <span className="text-2xl font-bold text-[#9D8DF1]">500+</span>
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-medium text-[#1A1E2E]">Clinical Trials</h4>
+                          <p className="text-[#4A4A68] leading-relaxed">{statCaptions.clinicalTrials}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-xl font-medium">Clinical Trials</h4>
-                        <p className="text-black">Conducted at AIIMS Delhi and Max Institute</p>
+                      
+                      <div className="flex items-center">
+                        <div className="w-16 h-16 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-6">
+                          <span className="text-2xl font-bold text-[#9D8DF1]">97%</span>
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-medium text-[#1A1E2E]">Accuracy Rate</h4>
+                          <p className="text-[#4A4A68] leading-relaxed">{statCaptions.accuracy}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <div className="w-16 h-16 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center mr-6">
+                          <span className="text-2xl font-bold text-[#9D8DF1]">0.97</span>
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-medium text-[#1A1E2E]">AUC Score</h4>
+                          <p className="text-[#4A4A68] leading-relaxed">{statCaptions.aucScore}</p>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="flex items-center">
-                      <div className="w-16 h-16 rounded-full bg-accent-light/20 flex items-center justify-center mr-6">
-                        <span className="text-2xl font-bold text-[#1B2A41]">97%</span>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className="flex items-center justify-center"
+                    variants={fadeIn}
+                  >
+                    <div className="rounded-xl overflow-hidden border border-[#9D8DF1]/10 w-full max-w-md p-6 bg-white">
+                      <h4 className="text-center font-medium mb-4 text-[#1A1E2E]">ROC Curve Analysis</h4>
+                      <div className="aspect-square bg-[#F8F7FD] relative rounded-lg overflow-hidden flex justify-center items-center">
+                        <svg
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 100 100"
+                          className="p-4"
+                        >
+                          {/* Simple ROC curve visualization */}
+                          <defs>
+                            <linearGradient id="rocGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                              <stop offset="0%" stopColor="#9D8DF1" stopOpacity="0.2" />
+                              <stop offset="100%" stopColor="#9D8DF1" />
+                            </linearGradient>
+                          </defs>
+                          
+                          {/* Grid lines */}
+                          <line x1="10" y1="90" x2="90" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="10" y1="70" x2="90" y2="70" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="10" y1="50" x2="90" y2="50" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="10" y1="30" x2="90" y2="30" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="10" y1="10" x2="90" y2="10" stroke="#E5E7EB" strokeWidth="0.5" />
+                          
+                          <line x1="10" y1="10" x2="10" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="30" y1="10" x2="30" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="50" y1="10" x2="50" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="70" y1="10" x2="70" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
+                          <line x1="90" y1="10" x2="90" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
+                          
+                          {/* Diagonal */}
+                          <line x1="10" y1="90" x2="90" y2="10" stroke="#E5E7EB" strokeWidth="1" strokeDasharray="2,2" />
+                          
+                          {/* ROC curve (example) */}
+                          <path 
+                            d="M10,90 Q20,40 40,25 T90,10" 
+                            fill="none" 
+                            stroke="#9D8DF1" 
+                            strokeWidth="2" 
+                          />
+                          
+                          {/* Fill under curve */}
+                          <path 
+                            d="M10,90 Q20,40 40,25 T90,10 V90 Z" 
+                            fill="url(#rocGradient)" 
+                            opacity="0.3" 
+                          />
+                          
+                          {/* Labels */}
+                          <text x="50" y="98" textAnchor="middle" fontSize="8" fill="#4A4A68">False Positive Rate</text>
+                          <text x="5" y="50" textAnchor="middle" fontSize="8" fill="#4A4A68" transform="rotate(-90, 5, 50)">True Positive Rate</text>
+                          <text x="70" y="25" textAnchor="middle" fontSize="8" fill="#1A1E2E" fontWeight="bold">AUC = 0.97</text>
+                        </svg>
                       </div>
-                      <div>
-                        <h4 className="text-xl font-medium">Accuracy Rate</h4>
-                        <p className="text-black">In detecting early-stage oral cancer</p>
-                      </div>
+                      <p className="text-xs text-center mt-4 text-[#4A4A68]">Receiver Operating Characteristic curve showing the diagnostic ability of Lumora Scan</p>
                     </div>
-                    
-                    <div className="flex items-center">
-                      <div className="w-16 h-16 rounded-full bg-accent-light/20 flex items-center justify-center mr-6">
-                        <span className="text-2xl font-bold text-[#1B2A41]">0.97</span>
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-medium">AUC Score</h4>
-                        <p className="text-black">Area Under Curve in ROC analysis</p>
-                      </div>
-                    </div>
-                  </div>
+                  </motion.div>
                 </div>
-                
-                <div className="flex items-center justify-center">
-                  {/* Placeholder for ROC Curve - normally would be an actual chart */}
-                  <div className="rounded-xl overflow-hidden border border-accent-light/20 w-full max-w-md p-6 bg-white">
-                    <h4 className="text-center font-medium mb-2">ROC Curve Analysis</h4>
-                    <div className="aspect-square bg-slate-100 relative rounded-lg overflow-hidden flex justify-center items-center">
-                      <p className="text-black text-center p-8">
-                        AUC = 0.97<br/>
-                        (Chart showing superior detection capabilities compared to traditional methods)
-                      </p>
-                    </div>
-                    <p className="text-xs text-center mt-2 text-black">Receiver Operating Characteristic curve showing the diagnostic ability of Lumora Scan</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+              </CardContent>
+            </Card>
+          </motion.section>
 
           {/* 4. Competitor Comparison Table */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold mb-10 text-center text-[#1B2A41]">Competitor Comparison</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white rounded-2xl overflow-hidden shadow-lg">
-                <thead>
-                  <tr className="bg-accent-light/20 text-[#1B2A41]">
-                    <th className="py-4 px-6 text-left">Feature</th>
-                    <th className="py-4 px-6 text-left font-bold">Lumora Scan</th>
-                    <th className="py-4 px-6 text-left">OralScan</th>
-                    <th className="py-4 px-6 text-left">Velscope</th>
-                    <th className="py-4 px-6 text-left">Identafi</th>
-                    <th className="py-4 px-6 text-left">Oral ID</th>
-                    <th className="py-4 px-6 text-left">Vizi Lite</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonData.map((row, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                      <td className="py-4 px-6 font-medium">{row.feature}</td>
-                      <td className="py-4 px-6 font-bold text-[#9292D8]">{row.lumoraScan}</td>
-                      <td className="py-4 px-6">{row.oralScan}</td>
-                      <td className="py-4 px-6">{row.velScope}</td>
-                      <td className="py-4 px-6">{row.identafi}</td>
-                      <td className="py-4 px-6">{row.oralId}</td>
-                      <td className="py-4 px-6">{row.viziLite}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          <motion.section 
+            className="mb-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeIn}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-3 text-[#1A1E2E]">Competitor Comparison</h2>
+              <div className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full"></div>
             </div>
-          </section>
+            
+            <div className="overflow-x-auto">
+              <Table className="w-full bg-white rounded-2xl overflow-hidden">
+                <TableHeader className="bg-[#F8F7FD] sticky top-0">
+                  <TableRow>
+                    <TableHead className="py-4 px-6 text-left text-[#1A1E2E] font-medium">Feature</TableHead>
+                    <TableHead className="py-4 px-6 text-left bg-[#9D8DF1]/10 text-[#1A1E2E] font-bold">Lumora Scan</TableHead>
+                    <TableHead className="py-4 px-6 text-left text-[#1A1E2E] font-medium">OralScan</TableHead>
+                    <TableHead className="py-4 px-6 text-left text-[#1A1E2E] font-medium">Velscope</TableHead>
+                    <TableHead className="py-4 px-6 text-left text-[#1A1E2E] font-medium">Identafi</TableHead>
+                    <TableHead className="py-4 px-6 text-left text-[#1A1E2E] font-medium">Oral ID</TableHead>
+                    <TableHead className="py-4 px-6 text-left text-[#1A1E2E] font-medium">Vizi Lite</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {comparisonData.map((row, index) => (
+                    <TableRow key={index} className={`hover:bg-[#F8F7FD] transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
+                      <TableCell className="py-4 px-6 font-medium text-[#1A1E2E]">{row.feature}</TableCell>
+                      <TableCell className="py-4 px-6 font-semibold text-[#9D8DF1] bg-[#9D8DF1]/5">
+                        {row.feature === "Non-invasive" || row.feature === "Real-time Results" ? 
+                          <div className="flex items-center">
+                            <Check className="mr-1 h-5 w-5 text-[#9D8DF1]" />
+                            <span>Yes</span>
+                          </div> : 
+                          row.lumoraScan
+                        }
+                      </TableCell>
+                      <TableCell className="py-4 px-6 text-[#4A4A68]">
+                        {row.feature === "Non-invasive" ? 
+                          <div className="flex items-center">
+                            <Check className="mr-1 h-5 w-5 text-[#9D8DF1]/70" />
+                            <span>Yes</span>
+                          </div> : 
+                          (row.feature === "Real-time Results" ? 
+                            <div className="flex items-center">
+                              <Minus className="mr-1 h-5 w-5 text-gray-400" />
+                              <span>No</span>
+                            </div> : 
+                            row.oralScan
+                          )
+                        }
+                      </TableCell>
+                      {/* Repeat the pattern for other columns */}
+                      <TableCell className="py-4 px-6 text-[#4A4A68]">
+                        {row.feature === "Non-invasive" ? 
+                          <div className="flex items-center">
+                            <Check className="mr-1 h-5 w-5 text-[#9D8DF1]/70" />
+                            <span>Yes</span>
+                          </div> : 
+                          (row.feature === "Real-time Results" ? 
+                            <div className="flex items-center">
+                              <Minus className="mr-1 h-5 w-5 text-gray-400" />
+                              <span>No</span>
+                            </div> : 
+                            row.velScope
+                          )
+                        }
+                      </TableCell>
+                      <TableCell className="py-4 px-6 text-[#4A4A68]">
+                        {row.feature === "Non-invasive" ? 
+                          <div className="flex items-center">
+                            <Check className="mr-1 h-5 w-5 text-[#9D8DF1]/70" />
+                            <span>Yes</span>
+                          </div> : 
+                          (row.feature === "Real-time Results" ? 
+                            <div className="flex items-center">
+                              <Minus className="mr-1 h-5 w-5 text-gray-400" />
+                              <span>No</span>
+                            </div> : 
+                            row.identafi
+                          )
+                        }
+                      </TableCell>
+                      <TableCell className="py-4 px-6 text-[#4A4A68]">
+                        {row.feature === "Non-invasive" ? 
+                          <div className="flex items-center">
+                            <Check className="mr-1 h-5 w-5 text-[#9D8DF1]/70" />
+                            <span>Yes</span>
+                          </div> : 
+                          (row.feature === "Real-time Results" ? 
+                            <div className="flex items-center">
+                              <Minus className="mr-1 h-5 w-5 text-gray-400" />
+                              <span>No</span>
+                            </div> : 
+                            row.oralId
+                          )
+                        }
+                      </TableCell>
+                      <TableCell className="py-4 px-6 text-[#4A4A68]">
+                        {row.feature === "Non-invasive" ? 
+                          <div className="flex items-center">
+                            <Minus className="mr-1 h-5 w-5 text-gray-400" />
+                            <span>No</span>
+                          </div> : 
+                          (row.feature === "Real-time Results" ? 
+                            <div className="flex items-center">
+                              <Minus className="mr-1 h-5 w-5 text-gray-400" />
+                              <span>No</span>
+                            </div> : 
+                            row.viziLite
+                          )
+                        }
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </motion.section>
 
           {/* 5. Product Image Gallery */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold mb-10 text-center text-[#1B2A41]">See Lumora Scan in Action</h2>
+          <motion.section 
+            className="mb-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeIn}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-3 text-[#1A1E2E]">See Lumora Scan in Action</h2>
+              <div className="w-24 h-1 bg-[#9D8DF1] mx-auto rounded-full"></div>
+            </div>
+            
             <div className="relative max-w-4xl mx-auto">
               <Carousel className="w-full">
                 <CarouselContent>
                   {carouselItems.map((item, index) => (
                     <CarouselItem key={index}>
                       <div className="p-1">
-                        <div className="rounded-2xl overflow-hidden shadow-lg border border-accent-light/20">
-                          <div className="h-[400px] bg-white flex items-center justify-center">
+                        <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10">
+                          <div className="h-[350px] bg-white flex items-center justify-center">
                             <img 
                               src={item.image} 
                               alt={item.caption}
@@ -363,46 +599,73 @@ const ProductLumoraScan = () => {
                             />
                           </div>
                           <div className="p-4 bg-white">
-                            <p className="text-center font-medium text-[#1B2A41]">{item.caption}</p>
+                            <p className="text-center font-medium text-[#1A1E2E]">{item.caption}</p>
                           </div>
                         </div>
                       </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="md:-left-12 lg:-left-16" />
-                <CarouselNext className="md:-right-12 lg:-right-16" />
+                <CarouselPrevious className="md:-left-12 lg:-left-16 bg-white text-[#9D8DF1] border-[#9D8DF1]/20 hover:bg-[#9D8DF1] hover:text-white" />
+                <CarouselNext className="md:-right-12 lg:-right-16 bg-white text-[#9D8DF1] border-[#9D8DF1]/20 hover:bg-[#9D8DF1] hover:text-white" />
               </Carousel>
 
-              <div className="mt-4 flex justify-center space-x-2">
+              <div className="mt-6 flex justify-center space-x-2">
                 {carouselItems.map((_, index) => (
                   <button
                     key={index}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      activeSlide === index ? 'bg-[#9292D8] w-6' : 'bg-slate-300'
+                      activeSlide === index ? 'bg-[#9D8DF1] w-6' : 'bg-[#9D8DF1]/30'
                     }`}
                     onClick={() => setActiveSlide(index)}
                   />
                 ))}
               </div>
             </div>
-          </section>
+          </motion.section>
 
           {/* 6. Final CTA Section */}
-          <section className="bg-accent-light/10 rounded-2xl p-10 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-[#1B2A41]">Want to enable early detection and save lives?</h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto">
+          <motion.section 
+            className="bg-[#F8F7FD] rounded-2xl p-10 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeIn}
+          >
+            <h2 className="text-3xl font-bold mb-4 text-[#1A1E2E]">Want to enable early detection and save lives?</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto text-[#4A4A68] leading-relaxed">
               Contact us today to learn how Lumora Scan can fit into your workflow.
             </p>
             <Button
-              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full text-lg px-8 py-6 h-auto"
+              className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full text-lg px-8 py-6 h-auto"
               asChild
             >
               <Link to="/contact">
                 Get Started
               </Link>
             </Button>
-          </section>
+          </motion.section>
+          
+          {/* Fixed CTA button */}
+          <div className="fixed bottom-8 right-8 z-10 md:block hidden">
+            <Button
+              className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full shadow-lg px-6"
+              asChild
+            >
+              <Link to="/contact">
+                Book a Demo
+              </Link>
+            </Button>
+          </div>
+          
+          {/* SEO Meta Content (Hidden) */}
+          <div className="hidden">
+            <h2>Oral cancer detection</h2>
+            <h2>AI-powered diagnostics</h2>
+            <h2>Non-invasive spectroscopy</h2>
+            <h2>Lumora Scan</h2>
+            <h2>AIIMS Delhi clinical trials</h2>
+          </div>
         </div>
       </main>
       
@@ -412,3 +675,4 @@ const ProductLumoraScan = () => {
 };
 
 export default ProductLumoraScan;
+
