@@ -183,7 +183,7 @@ const ProductLumoraScan = () => {
                 </p>
                 
                 <Button 
-                  className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full"
+                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
                   asChild
                 >
                   <Link to="/contact">
@@ -644,7 +644,7 @@ const ProductLumoraScan = () => {
           {/* Fixed CTA button */}
           <div className="fixed bottom-8 right-8 z-10 md:block hidden">
             <Button
-              className="bg-[#9D8DF1] hover:bg-[#9D8DF1]/90 text-white rounded-full shadow-lg px-6"
+              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full shadow-lg px-6"
               asChild
             >
               <Link to="/contact">

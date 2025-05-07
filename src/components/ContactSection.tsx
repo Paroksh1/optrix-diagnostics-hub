@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
+import { Mail, MapPin, Send, Check } from 'lucide-react';
 import { Button } from './ui/button';
 
 const ContactSection = () => {
@@ -23,7 +23,21 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Create mailto link with form data
+    const subject = `Contact Form: ${formState.name} from ${formState.company || 'Unknown Organization'}`;
+    const body = `Name: ${formState.name}
+Email: ${formState.email}
+Company: ${formState.company}
+
+Message:
+${formState.message}`;
+
+    const mailtoLink = `mailto:sidmehta927@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success state after a short delay
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -37,8 +51,8 @@ const ContactSection = () => {
           company: '',
           message: '',
         });
-      }, 5000);
-    }, 1500);
+      }, 3000);
+    }, 1000);
   };
   
   return (
@@ -64,16 +78,6 @@ const ContactSection = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="font-medium">sidmehta927@gmail.com</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">+91 9667206444</p>
                 </div>
               </div>
               

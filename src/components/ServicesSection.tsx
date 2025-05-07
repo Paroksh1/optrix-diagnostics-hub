@@ -107,7 +107,7 @@ const ServicesSection = () => {
                 </ul>
                 
                 <Button 
-                  className="bg-gradient-to-r from-[#A78BFA] to-[#7C3AED] hover:bg-gradient-to-r hover:from-[#9D8DF1] hover:to-[#7C3AED] text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group"
+                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group"
                   asChild
                 >
                   <Link to={product.productLink} className="flex items-center">
