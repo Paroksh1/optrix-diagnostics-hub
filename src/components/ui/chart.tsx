@@ -51,13 +51,13 @@ const ChartContainer = React.forwardRef<
         data-chart={chartId}
         ref={ref}
         className={cn(
-          "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none [&_.recharts-xAxis_.recharts-cartesian-axis-tick-value]:text-[12px] [&_.recharts-yAxis_.recharts-cartesian-axis-tick-value]:text-[12px] [&_.recharts-label]:text-[12px] [&_.recharts-text]:text-[12px]",
+          "flex aspect-video justify-center text-xs chart-container [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none [&_.recharts-xAxis_.recharts-cartesian-axis-tick-value]:text-[12px] [&_.recharts-yAxis_.recharts-cartesian-axis-tick-value]:text-[12px] [&_.recharts-label]:text-[12px] [&_.recharts-text]:text-[12px]",
           className
         )}
         {...props}
       >
         <ChartStyle id={chartId} config={config} />
-        <RechartsPrimitive.ResponsiveContainer>
+        <RechartsPrimitive.ResponsiveContainer width="100%" height="100%" margin={{ top: 20, right: 30, left: 30, bottom: 30 }}>
           {children}
         </RechartsPrimitive.ResponsiveContainer>
       </div>

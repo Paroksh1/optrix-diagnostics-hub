@@ -70,12 +70,28 @@ body {
   font-weight: 500;
 }
 
-/* Fix for axis label overlap */
-.recharts-xAxis .recharts-label,
-.recharts-yAxis .recharts-label {
-  transform: translate(0, 10px);
+/* Enhanced fix for axis label overlap */
+.recharts-xAxis .recharts-label {
+  transform: translate(0, 20px) !important;
 }
 
 .recharts-yAxis .recharts-label {
-  transform: translate(-15px, 0);
+  transform: translate(-25px, 0) rotate(-90deg) !important;
+}
+
+/* Add padding to the chart container */
+.chart-container {
+  padding: 20px 30px 30px 10px;
+}
+
+/* Ensure axis labels have proper spacing */
+.recharts-wrapper {
+  margin: 10px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+/* Make sure tick values don't overlap */
+.recharts-cartesian-axis-tick {
+  font-size: 10px;
 }
