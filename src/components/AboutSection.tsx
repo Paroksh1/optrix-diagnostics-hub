@@ -41,7 +41,7 @@ const AboutSection = () => {
               <iframe 
                 width="100%" 
                 height="100%" 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                src="https://www.youtube.com/watch?v=gIHT0BE83bM&t=2s" 
                 title="Product Video" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -55,13 +55,13 @@ const AboutSection = () => {
                 <div className="w-14 h-14 rounded-full bg-blue-100 overflow-hidden">
                   <img 
                     src="/placeholder.svg" 
-                    alt="Dr. Siddharth Mehta" 
+                    alt="Siddharth Mehta" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">Dr. Siddharth Mehta</h4>
-                  <p className="text-sm text-gray-600">Founder & Chief Medical Officer</p>
+                  <h4 className="font-bold text-lg">Siddharth Mehta</h4>
+                  <p className="text-sm text-gray-600">Co Founder & Director</p>
                 </div>
               </div>
               <div className="mt-3">
