@@ -41,7 +41,7 @@ const AboutSection = () => {
               <iframe 
                 width="100%" 
                 height="100%" 
-                src="https://www.youtube.com/watch?v=gIHT0BE83bM&t=2s" 
+                src="https://youtu.be/gIHT0BE83bM?si=xAF1i1AdgwXDUf4j" 
                 title="Product Video" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
