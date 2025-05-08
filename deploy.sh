@@ -20,6 +20,10 @@ rm -rf /tmp/deploy-temp
 mkdir /tmp/deploy-temp
 cp -r dist/* /tmp/deploy-temp
 
+echo "Commiting build files to main..."
+git add .
+git commit -m "Auto: Build files"
+
 echo "🌿 Switching to master..."
 git checkout master
 
