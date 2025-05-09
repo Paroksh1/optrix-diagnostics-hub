@@ -50,26 +50,7 @@ const AboutSection = () => {
               ></iframe>
             </div>
             
-            <div className="mt-6 bg-white rounded-xl p-5 shadow-md border border-gray-100 hover:border-accent-light/30 transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-blue-100 overflow-hidden">
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="Siddharth Mehta" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg">Siddharth Mehta</h4>
-                  <p className="text-sm text-gray-600">Co Founder & Director</p>
-                </div>
-              </div>
-              <div className="mt-3">
-                <p className="text-sm italic text-gray-700 leading-relaxed">
-                  "Our mission is to democratize cancer diagnostics and bring early detection capabilities to every corner of the world."
-                </p>
-              </div>
-            </div>
+            
           </div>
           
           {/* Content section - Right side */}
