@@ -4,27 +4,21 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "Opti-Mode Diagnostics has transformed our clinical workflow. Their AI-powered solutions have reduced our diagnostic time by 40% while improving accuracy.",
-    author: "Dr. Sarah Johnson",
-    role: "Chief of Pathology, Metro General Hospital",
+    quote: "Oral cancer signs are often missed in early check-ups. Integrating Opti-Mode into our practice has helped us flag high-risk patients early. It's practical, affordable, and incredibly impactful for preventive care.",
+    author: "Dr. Anjali Sharma",
+    role: "Section Head, Asian Hospital",
     rating: 5
   },
   {
     quote: "The precision and reliability of Opti-Mode's genetic sequencing platform has been instrumental in our research. It's truly best-in-class technology.",
-    author: "Prof. Michael Chen",
-    role: "Director, Institute of Genomic Medicine",
+    author: "Mrs. Supriya Mehta Verma",
+    role: "Scientist C, IUAC, New Delhi",
     rating: 5
   },
   {
-    quote: "Implementing Opti-Mode's diagnostic suite has been one of our best decisions. The integration was seamless, and the results have exceeded our expectations.",
-    author: "Emma Rodriguez",
-    role: "Healthcare Operations Director, Pinnacle Medical",
-    rating: 5
-  },
-  {
-    quote: "As a rural healthcare provider, Opti-Mode's remote diagnostic tools have been game-changing, allowing us to provide specialized care previously unavailable to our patients.",
-    author: "Dr. James Wilson",
-    role: "Medical Director, Heartland Health",
+    quote: "We lose far too many lives to oral cancer simply because it's caught too late. A tool like Opti-Mode, if made accessible, can shift the narrative toward early detection and better outcomes—especially in underserved regions",
+    author: "Dr Kanchan Saxena",
+    role: "HOI, AIRAE, Amity University Noida",
     rating: 5
   }
 ];

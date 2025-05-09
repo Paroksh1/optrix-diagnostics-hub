@@ -19,7 +19,7 @@ const NavBar = () => {
   const navLinks = [
     { text: 'Home', href: isProductPage ? '/' : '#home' },
     { text: 'About', href: isProductPage ? '/#about' : '#about' },
-    { text: 'Services', href: isProductPage ? '/#services' : '#services' },
+    { text: 'Products', href: isProductPage ? '/#services' : '#services' },
     { text: 'Testimonials', href: isProductPage ? '/#testimonials' : '#testimonials' },
     { text: 'Contact', href: isProductPage ? '/#contact' : '#contact' },
   ];
