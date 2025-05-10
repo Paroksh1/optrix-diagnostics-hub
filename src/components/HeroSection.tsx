@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { ChevronDown, Microscope } from 'lucide-react';
 
 import AnimatedContent from './AnimatedContent';
-import "public/lovable-uploads/OMD Primary Brandmark All Black (1).png";
+import IMAGE from "public/lovable-uploads/OMD Primary Brandmark All Black (1).png";
 
 
 const HeroSection = () => {
@@ -68,7 +68,7 @@ const HeroSection = () => {
 
         <motion.div >
         <img
-          src="././public/lovable-uploads/OMD Primary Brandmark All Black (1).png"
+          src={IMAGE}
           alt="Opti-mode Diagnostics logo"
           className="h-400 w-auto max-w-[500px] object-contain mb-10">
         </img>
