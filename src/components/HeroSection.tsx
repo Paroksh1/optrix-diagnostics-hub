@@ -3,6 +3,10 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { ChevronDown, Microscope } from 'lucide-react';
 
+import AnimatedContent from './AnimatedContent'
+
+
+
 const HeroSection = () => {
   const controls = useAnimation();
   
@@ -30,10 +34,10 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-[#FAFAFA] font-poppins"
+      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-[#ffffff] font-poppins"
       style={{ padding: '80px 0' }}
     >
-      {/* Badge at the top with more spacing */}
+      {/* Badge at the top with more spacing
       <motion.div 
         className="mb-24 inline-flex items-center px-4 py-2 rounded-full hover:bg-[#E8E3FE] transition-all cursor-pointer bg-[#F2F0FF]"
         initial={{ opacity: 0, y: -20 }}
@@ -45,9 +49,35 @@ const HeroSection = () => {
           <Microscope className="w-4 h-4 mr-2 stroke-[#7F56D9]" />
           Advanced Cancer Diagnostics
         </span>
-      </motion.div>
+      </motion.div> */}
+
       
       {/* Main Heading with improved typography and gradient */}
+
+      <AnimatedContent
+      distance={150}
+      direction="horizontal"
+      reverse={false}
+      config={{ tension: 80, friction: 20 }}
+      initialOpacity={0.2}
+      animateOpacity
+      scale={1.1}
+      threshold={0.2}
+      >
+        {/* <div>Content to Animate</div> */}
+
+        <motion.div >
+        <img
+          src="././public/lovable-uploads/OMD Primary Brandmark All Black (1).png"
+          alt="Opti-mode Diagnostics logo"
+          className="h-400 w-auto max-w-[500px] object-contain mb-10">
+        </img>
+      </motion.div>
+
+      </AnimatedContent>
+
+      
+
       <motion.div 
         className="text-center max-w-4xl mx-auto pb-10"
         variants={containerVariants}
@@ -65,15 +95,37 @@ const HeroSection = () => {
         </motion.h1>
         
         <motion.p 
-          className="text-[#5F5F7A] text-lg md:text-xl mb-16 mx-auto leading-relaxed max-w-[700px]"
+          className="text-[#5F5F7A] text-lg md:text-xl mb-16 mx-auto leading-relaxed max-w-[700px] font-mono"
           variants={itemVariants}
         >
           Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
         </motion.p>
       </motion.div>
 
+      {/* Call to Action Button */}
+      <motion.button
+        className='bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-white rounded-xl px-6 py-3'
+        onClick={(e) => {
+          const section = document.getElementById('contact');
+          if (section) {
+            e.preventDefault();
+            section.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            window.history.pushState(null, '', '#contact');
+          }
+        }}
+        >
+          <a href="#contact">Get Started</a>
+        </motion.button>
+
+        
+
+      
+
       {/* Scroll down indicator */}
-      <motion.div 
+      {/* <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -97,7 +149,8 @@ const HeroSection = () => {
           <span className="text-[#A58EFF] text-sm font-medium mb-2">Scroll Down</span>
           <ChevronDown className="text-[#A58EFF] w-6 h-6" />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
+      
     </section>
   );
 };

@@ -19,7 +19,7 @@ const NavBar = () => {
   const navLinks = [
     { text: 'Home', href: isProductPage ? '/' : '#home' },
     { text: 'About', href: isProductPage ? '/#about' : '#about' },
-    { text: 'Products', href: isProductPage ? '/#services' : '#services' },
+    { text: 'Products', href: isProductPage ? '/#products' : '#products'},
     { text: 'Testimonials', href: isProductPage ? '/#testimonials' : '#testimonials' },
     { text: 'Contact', href: isProductPage ? '/#contact' : '#contact' },
   ];
@@ -98,8 +98,8 @@ const NavBar = () => {
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
         hasScrolled 
-          ? 'bg-[rgba(250,245,255,0.95)] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
-          : 'bg-[rgba(250,245,255,0.9)] backdrop-blur-md py-3 border-b border-[#E4E2F0]'
+          ? 'bg-[#fffff] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
+          : 'bg-[#fffff] backdrop-blur-md py-3 border-b border-[#E4E2F0]'
       }`}
       style={{
         boxShadow: hasScrolled ? '0 4px 12px rgba(0, 0, 0, 0.06)' : '0 2px 8px rgba(0, 0, 0, 0.04)'
@@ -173,7 +173,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           {isProductPage ? (
             <Button
-              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+              className="bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9]text-white rounded-full"
               asChild
             >
               <RouterLink to="/#contact">
@@ -182,7 +182,7 @@ const NavBar = () => {
             </Button>
           ) : (
             <Button
-              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full"
+              className="bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-white rounded-full"
               onClick={(e) => {
                 const section = document.getElementById('contact');
                 if (section) {
@@ -225,7 +225,7 @@ const NavBar = () => {
               
               {/* Mobile Menu - Improved styling */}
               <motion.div 
-                className="fixed inset-0 bg-[rgba(250,245,255,0.95)] backdrop-blur-lg z-40 md:hidden overflow-y-auto"
+                className="fixed inset-0 bg-[#ffffff] backdrop-blur-lg z-40 md:hidden overflow-y-auto"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -324,7 +324,7 @@ const NavBar = () => {
                   {/* CTA Button with proper spacing and full width */}
                   <div className="w-full px-4 mt-8">
                     <Button
-                      className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full w-full py-6 font-semibold"
+                      className="bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-white rounded-full w-full py-6 font-semibold"
                     >
                       {isProductPage ? (
                         <RouterLink to="/#contact" className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>

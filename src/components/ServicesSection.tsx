@@ -37,7 +37,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-16 bg-white relative z-10 -mt-16">
+    <section id="products" className="py-16 bg-white relative z-10 -mt-16">
       <div className="container mx-auto px-4">
         <motion.div 
           className="max-w-3xl mx-auto text-center mb-12 pt-8"

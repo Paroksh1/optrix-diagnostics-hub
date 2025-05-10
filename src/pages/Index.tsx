@@ -3,11 +3,11 @@ import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import AboutSec from '../components/AboutSec';
 
 // ScrollProgress component that changes background gradient based on scroll position
 const ScrollProgress = () => {
@@ -115,7 +115,7 @@ const Index = () => {
       
       <main className="relative z-10">
         <HeroSection />
-        <AboutSection />
+        <AboutSec />
         <ServicesSection />
         <TestimonialsSection />
         <ContactSection />
