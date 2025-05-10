@@ -4,7 +4,8 @@ import { motion, useAnimation } from 'framer-motion';
 import { ChevronDown, Microscope } from 'lucide-react';
 
 import AnimatedContent from './AnimatedContent';
-import IMAGE from "public/lovable-uploads/OMD Primary Brandmark All Black (1).png";
+import { a } from '@react-spring/web';
+
 
 
 const HeroSection = () => {
@@ -25,6 +26,9 @@ const HeroSection = () => {
       }
     }
   };
+  const logo = [{
+    imageSrc: "/lovable-uploads/OMD Primary Brandmark All Black (1).png",
+    alt: "Opti-mode Diagnostics logo",}];
   
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -66,14 +70,14 @@ const HeroSection = () => {
       >
         {/* <div>Content to Animate</div> */}
 
-        <motion.div >
-        <img
-          src={IMAGE}
-          alt="Opti-mode Diagnostics logo"
-          className="h-400 w-auto max-w-[500px] object-contain mb-10">
-        </img>
-      </motion.div>
+        {logo.map((logo, index) => (
+          <motion.div>
 
+          <img src={logo.imageSrc} alt="Opti-mode Diagnostics logo" className="h-400 w-auto max-w-[500px] object-contain mb-10"/>
+
+          </motion.div>
+        )
+        )}
       </AnimatedContent>
 
       
