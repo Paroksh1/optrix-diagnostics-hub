@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { ChevronDown, Microscope } from 'lucide-react';
 
 import AnimatedContent from './AnimatedContent'
-
+import "public/lovable-uploads/OMD Primary Brandmark All Black (1).png"
 
 
 const HeroSection = () => {
