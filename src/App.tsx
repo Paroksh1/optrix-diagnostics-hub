@@ -25,9 +25,9 @@ const App = () => (
           {/* <Route path="/products/m3doc" element={<ProductM3DOC />} /> */}
           <Route path="/products/diagnostic-microscope" element={<ProductDiagnosticMicroscope />} />
           <Route path="/products/lumora-scan" element={<ProductLumoraScan />} />
-          <Route path="/about" element={<About />} />
+          <Route path="about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<About />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
