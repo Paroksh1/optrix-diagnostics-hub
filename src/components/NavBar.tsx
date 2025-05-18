@@ -21,7 +21,6 @@ const NavBar = () => {
     { text: 'Home', href: '/' },
     { text: 'About', href: '/about' },
     { text: 'Products', href: '#products', dropdown: true },
-    { text: 'Testimonials', href: '#testimonials' },
     { text: 'Contact', href: '#contact' },
   ];
 
@@ -76,7 +75,25 @@ const NavBar = () => {
 
   // Handle navigation
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    e.preventDefault();
     setIsMobileMenuOpen(false);
+    
+    // If it's not a hash link, don't try to scroll
+    if (!href.startsWith('#')) {
+      return;
+    }
+    
+    // If we're on the home page, scroll to the section
+    if (location.pathname === '/') {
+      const targetId = href.substring(1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to the home page with the hash
+      window.location.href = '/' + href;
+    }
   };
 
   // Prevent body scrolling when mobile menu is open
@@ -427,7 +444,26 @@ const NavBar = () => {
                                 isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
                               }`}
                               onClick={(e) => {
-                                handleNavLinkClick(e, link.href);
+                                e.preventDefault();
+                                if (link.href === "#contact") {
+                                  if (location.pathname === '/') {
+                                    // If on home page, scroll to contact section
+                                    const section = document.getElementById('contact');
+                                    if (section) {
+                                      section.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                      });
+                                      window.history.pushState(null, '', '#contact');
+                                      setActiveLink('contact');
+                                    }
+                                  } else {
+                                    // If on another page, navigate to home page contact section
+                                    window.location.href = '/#contact';
+                                  }
+                                } else {
+                                  handleNavLinkClick(e, link.href);
+                                }
                                 setIsMobileMenuOpen(false);
                               }}
                             >

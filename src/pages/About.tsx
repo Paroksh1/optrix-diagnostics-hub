@@ -187,9 +187,9 @@ const About: React.FC = () => {
                 className="bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 hover:scale-105"
                 asChild
               >
-                <Link to="/products" className="flex items-center">
+                <a href="#journey" className="flex items-center">
                   Explore Our Journey
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
@@ -254,7 +254,7 @@ const About: React.FC = () => {
 
 
         {/* Our Journey */}
-        <section className="py-24 bg-[#F8F9FB]">
+        <section id="journey" className="py-24 bg-[#F8F9FB]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Timeline />
           </div>
@@ -274,7 +274,7 @@ const About: React.FC = () => {
                 className="bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4"
                 asChild
               >
-                <Link to="/contact-form" className="flex items-center">
+                <Link to="/#contact" className="flex items-center">
                   Contact Us
                 </Link>
               </Button>
