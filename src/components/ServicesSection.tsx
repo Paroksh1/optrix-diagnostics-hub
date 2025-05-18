@@ -37,10 +37,10 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="products" className="py-16 bg-white relative z-10 -mt-16">
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-16 bg-white relative z-10">
+      <div className="max-w-6xl mx-auto px-4">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-12 pt-8"
+          className="text-center mb-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -52,23 +52,32 @@ const ServicesSection = () => {
             </div>
           </motion.div>
           
+          <motion.div 
+            variants={itemAnimation}
+            className="inline-flex items-center justify-center mb-8"
+          >
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#9B5DE5]/20 to-[#B69DF8]/20 flex items-center justify-center">
+              <Microscope className="w-8 h-8 text-[#9B5DE5]" />
+            </div>
+          </motion.div>
+          
           <motion.h2 
             variants={itemAnimation}
-            className="text-3xl md:text-4xl font-semibold mb-4 text-[#1B2A41]"
+            className="text-5xl font-bold mb-4 text-[#1B2A41]"
           >
-            Our Products
+            Explore Our Breakthrough Innovations
           </motion.h2>
           
           <motion.div 
             variants={itemAnimation}
-            className="w-16 h-1 bg-[#A78BFA] mx-auto rounded-full my-2 shadow-sm shadow-[#9D8DF1]/30"
+            className="w-12 h-1 bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] mx-auto rounded-full my-2 shadow-sm shadow-[#9B5DE5]/30"
           ></motion.div>
           
           <motion.p 
             variants={itemAnimation}
-            className="text-black mt-4"
+            className="text-lg text-gray-600 max-w-3xl mx-auto mt-4"
           >
-            Cutting-edge diagnostic solutions designed for healthcare professionals
+            From early cancer detection to non-invasive diagnostics — discover the future of healthcare, designed with and for clinicians.
           </motion.p>
         </motion.div>
         
@@ -83,32 +92,32 @@ const ServicesSection = () => {
             <motion.div 
               key={index} 
               variants={itemAnimation}
-              className="bg-[#FAF9FF] flex flex-col md:flex-row gap-6 p-8 rounded-[20px] border border-gray-100 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] transition-transform duration-300"
+              className="bg-[#FAF9FF] flex flex-col md:flex-row gap-8 p-10 rounded-[20px] border border-gray-100 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] transition-transform duration-300"
             >
               <div className="md:w-2/5 flex items-center justify-center">
                 <img 
                   src={product.imageSrc} 
                   alt={product.title}
-                  className="w-full h-auto rounded-xl shadow-md"
+                  className="w-full h-auto rounded-xl shadow-sm"
                   loading="lazy"
                 />
               </div>
               <div className="md:w-3/5">
-                <h3 className="text-2xl font-bold mb-3 text-dark-base">{product.title}</h3>
-                <p className="text-dark-secondary mb-4">{product.description}</p>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-dark-base">{product.title}</h3>
+                <p className="text-dark-secondary mb-6">{product.description}</p>
                 
-                <h4 className="font-semibold mb-2 text-dark-base">Key Features:</h4>
-                <ul className="mb-6 space-y-1">
+                <h4 className="font-semibold mb-4 text-dark-base">Key Features:</h4>
+                <ul className="mb-8 space-y-3">
                   {product.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-[#9D8DF1] mt-1">•</span>
-                      <span className="text-dark-secondary">{feature}</span>
+                    <li key={idx} className="text-dark-secondary">
+                      <span className="mr-2">•</span>
+                      {feature}
                     </li>
                   ))}
                 </ul>
                 
                 <Button 
-                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group"
+                  className="bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
                   asChild
                 >
                   <Link to={product.productLink} className="flex items-center">

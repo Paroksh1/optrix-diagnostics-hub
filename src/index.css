@@ -3,11 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   cursor: default;
   font-family: 'Inter', 'Poppins', 'system-ui', sans-serif;
   background-color: var(--light);
   color: var(--dark-base);
+  scroll-padding-top: 100px;
+}
+
+/* Ensure sections have proper scroll margin */
+section {
+  scroll-margin-top: 100px;
 }
 
 /* Color palette */

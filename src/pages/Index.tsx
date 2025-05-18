@@ -7,7 +7,6 @@ import ServicesSection from '../components/ServicesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-import AboutSec from '../components/AboutSec';
 
 // ScrollProgress component that changes background gradient based on scroll position
 const ScrollProgress = () => {
@@ -115,7 +114,6 @@ const Index = () => {
       
       <main className="relative z-10">
         <HeroSection />
-        <AboutSec />
         <ServicesSection />
         <TestimonialsSection />
         <ContactSection />

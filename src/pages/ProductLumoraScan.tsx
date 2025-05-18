@@ -144,7 +144,7 @@ const ProductLumoraScan = () => {
           
           {/* 1. Hero Section with carousel */}
           <motion.section 
-            className="mb-16 md:mb-24"
+            className="hero-section mb-16 md:mb-24"
             initial="hidden"
             animate="visible"
             variants={{
@@ -164,33 +164,35 @@ const ProductLumoraScan = () => {
                   Revolutionary Diagnostics
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                <h1 className="h1-responsive text-center lg:text-left">
                   <span className="text-[#1A1E2E]">Introducing Lumora Scan</span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl font-medium" style={gradientTextStyle}>
+                <p className="h2-responsive text-center lg:text-left" style={gradientTextStyle}>
                   Non-Invasive, AI-Powered Early Detection for Oral Cancer
                 </p>
                 
-                <p className="text-base md:text-lg text-[#4A4A68] leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p className="p-responsive text-center lg:text-left">
                   A portable, AI-driven spectroscopy device that detects early-stage oral cancer quickly, without pain or invasive procedures.
                 </p>
                 
-                <Button 
-                  className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full w-full sm:w-auto py-3 px-6"
-                  asChild
-                >
-                  <Link to="/contact">
-                    Learn More
-                  </Link>
-                </Button>
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+                  <Button 
+                    className="bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full btn-responsive hover:shadow-xl transition-all duration-300"
+                    asChild
+                  >
+                    <Link to="/contact">
+                      Learn More
+                    </Link>
+                  </Button>
+                </div>
               </motion.div>
 
               <motion.div
                 variants={fadeIn}
                 className="flex items-center justify-center order-1 lg:order-2"
               >
-                <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md">
+                <div className="rounded-2xl overflow-hidden border border-[#9D8DF1]/10 bg-[#F8F8FA] w-full max-w-md card-responsive">
                   <div className="relative">
                     {carouselItems.map((item, index) => (
                       <div 
@@ -216,7 +218,7 @@ const ProductLumoraScan = () => {
                         <button
                           key={index}
                           className={`w-3 h-3 rounded-full transition-all ${
-                            activeSlide === index ? 'bg-[#9D8DF1] w-6' : 'bg-[#9D8DF1]/30'
+                            activeSlide === index ? 'bg-[#9B5DE5]' : 'bg-[#9B5DE5]/30'
                           }`}
                           onClick={() => setActiveSlide(index)}
                           aria-label={`Go to slide ${index + 1}`}
@@ -606,17 +608,7 @@ const ProductLumoraScan = () => {
             </div>
           </motion.section>
 
-          {/* 6. Fixed CTA Section */}
-          <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-10">
-            <Button
-              className="bg-[#9292D8] hover:bg-[#9292D8]/90 text-white rounded-full shadow-lg px-4 py-3 md:px-6"
-              asChild
-            >
-              <Link to="/contact">
-                Book a Demo
-              </Link>
-            </Button>
-          </div>
+
           
           {/* SEO Meta Content (Hidden) */}
           <div className="hidden">

@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
@@ -11,18 +10,48 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const dropdownRef = React.createRef<HTMLDivElement>();
   const isMobile = useIsMobile();
   const location = useLocation();
   
   const isProductPage = location.pathname.includes('/products/');
 
   const navLinks = [
-    { text: 'Home', href: isProductPage ? '/' : '#home' },
-    { text: 'About', href: isProductPage ? '/#about' : '#about' },
-    { text: 'Products', href: isProductPage ? '/#products' : '#products'},
-    { text: 'Testimonials', href: isProductPage ? '/#testimonials' : '#testimonials' },
-    { text: 'Contact', href: isProductPage ? '/#contact' : '#contact' },
+    { text: 'Home', href: '/' },
+    { text: 'About', href: '/about' },
+    { text: 'Products', href: '#products', dropdown: true },
+    { text: 'Testimonials', href: '#testimonials' },
+    { text: 'Contact', href: '#contact' },
   ];
+
+  const productDropdownItems = [
+    { text: 'Lumora Scan', href: '/products/lumora-scan' }
+  ];
+
+  // Close dropdown when pressing Esc
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isProductsDropdownOpen) {
+        setIsProductsDropdownOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isProductsDropdownOpen]);
+
+  // Close dropdown on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isProductsDropdownOpen) {
+        setIsProductsDropdownOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isProductsDropdownOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,41 +74,9 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navLinks, isProductPage]);
 
-  // Handle smooth scrolling for hash links
+  // Handle navigation
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    if (isProductPage && href.startsWith('/#')) {
-      // Don't prevent default here - let RouterLink handle navigation to home page with hash
-      setIsMobileMenuOpen(false);
-      return;
-    }
-    
-    // Only handle hash links within the same page
-    if (href.includes('#') && !href.startsWith('/')) {
-      e.preventDefault();
-      
-      // Extract the section id from the href
-      const sectionId = href.substring(href.indexOf('#') + 1);
-      const section = document.getElementById(sectionId);
-      
-      if (section) {
-        // Use smooth scrolling
-        section.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        
-        // Update the URL without refreshing the page
-        window.history.pushState(null, '', href);
-        
-        // Update active link
-        setActiveLink(sectionId);
-      }
-      
-      // Close mobile menu if open
-      if (isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
-    }
+    setIsMobileMenuOpen(false);
   };
 
   // Prevent body scrolling when mobile menu is open
@@ -98,8 +95,8 @@ const NavBar = () => {
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
         hasScrolled 
-          ? 'bg-[#fffff] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
-          : 'bg-[#fffff] backdrop-blur-md py-3 border-b border-[#E4E2F0]'
+          ? 'bg-[#F8F9FB] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
+          : 'bg-[#F8F9FB] backdrop-blur-md py-3 border-b border-[#E4E2F0]'
       }`}
       style={{
         boxShadow: hasScrolled ? '0 4px 12px rgba(0, 0, 0, 0.06)' : '0 2px 8px rgba(0, 0, 0, 0.04)'
@@ -122,51 +119,118 @@ const NavBar = () => {
           {navLinks.map((link) => {
             const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
             
-            // On product pages, use RouterLink to navigate to homepage sections
-            if (isProductPage && link.href.startsWith('/')) {
+            // Handle dropdown menu for Products
+            if (link.text === 'Products') {
               return (
                 <motion.div
                   key={link.text}
-                  className="relative"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <RouterLink
-                    to={link.href}
-                    className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
-                      isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
-                    }`}
-                  >
-                    {link.text}
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
-                    )}
-                  </RouterLink>
-                </motion.div>
-              );
-            } else {
-              return (
-                <motion.div
-                  key={link.text}
-                  className="relative"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="relative group"
+                  onMouseEnter={() => {
+                    if (!isMobile) {
+                      setIsProductsDropdownOpen(true);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (!isMobile) {
+                      setIsProductsDropdownOpen(false);
+                    }
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (isMobile) {
+                      setIsProductsDropdownOpen(!isProductsDropdownOpen);
+                    }
+                  }}
+                  ref={dropdownRef}
                 >
                   <a
                     href={link.href}
                     className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
                       isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
                     }`}
-                    onClick={(e) => handleNavLinkClick(e, link.href)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (link.href.startsWith('#')) {
+                        const targetId = link.href.replace('#', '');
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      } else {
+                        window.location.href = link.href;
+                      }
+                      handleNavLinkClick(e, link.href);
+                    }}
                   >
                     {link.text}
                     {isActive && (
                       <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
                     )}
                   </a>
+                  
+                  <AnimatePresence>
+                    {isProductsDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        className="absolute left-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-[#E4E2F0] py-2"
+                        role="menu"
+                        aria-expanded={isProductsDropdownOpen}
+                      >
+                        {productDropdownItems.map((item) => (
+                          <RouterLink
+                            key={item.text}
+                            to={item.href}
+                            className="block px-4 py-2 text-[#111827] hover:bg-[#F8F9FB] transition-all duration-200"
+                            role="menuitem"
+                            tabIndex={0}
+                            onClick={() => setIsProductsDropdownOpen(false)}
+                          >
+                            {item.text}
+                          </RouterLink>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               );
             }
+            
+            // Handle other links
+            return (
+              <motion.div
+                key={link.text}
+                className="relative"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <a
+                  href={link.href}
+                  className={`text-[#111827] transition-all duration-300 font-semibold text-base relative ${
+                    isActive ? 'text-[#7C3AED]' : 'hover:text-[#7C3AED]'
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (link.href.startsWith('#')) {
+                      const targetId = link.href.replace('#', '');
+                      const element = document.getElementById(targetId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    } else {
+                      window.location.href = link.href;
+                    }
+                    handleNavLinkClick(e, link.href);
+                  }}
+                >
+                  {link.text}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7C3AED] rounded-full" />
+                  )}
+                </a>
+              </motion.div>
+            );
           })}
         </nav>
         
@@ -259,6 +323,66 @@ const NavBar = () => {
                     {navLinks.map((link, i) => {
                       const isActive = activeLink === link.href.substring(link.href.includes('#') ? link.href.lastIndexOf('#') + 1 : 1);
                       
+                      if (link.text === 'Products') {
+                        return (
+                          <motion.div
+                            key={link.text}
+                            className="relative w-full"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsProductsDropdownOpen(!isProductsDropdownOpen);
+                              }}
+                              className={`transition-all duration-300 text-xl font-semibold block text-center py-3 w-full ${
+                                isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
+                              } flex items-center justify-center gap-2`}
+                            >
+                              {link.text}
+                              <svg
+                                className={`w-5 h-5 transition-transform duration-300 ${
+                                  isProductsDropdownOpen ? 'rotate-180' : ''
+                                }`}
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                              >
+                                <path d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </button>
+                            
+                            <AnimatePresence>
+                              {isProductsDropdownOpen && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: 'auto' }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  className="mt-2 space-y-2"
+                                >
+                                  {productDropdownItems.map((item) => (
+                                    <RouterLink
+                                      key={item.text}
+                                      to={item.href}
+                                      className="block px-8 py-3 text-[#111827] hover:bg-[#F8F9FB] transition-all duration-200 rounded-lg text-lg"
+                                      onClick={() => {
+                                        setIsMobileMenuOpen(false);
+                                        setIsProductsDropdownOpen(false);
+                                      }}
+                                    >
+                                      {item.text}
+                                    </RouterLink>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </motion.div>
+                        );
+                      }
+
                       // On product pages, use RouterLink for mobile menu items too
                       if (isProductPage && link.href.startsWith('/')) {
                         return (

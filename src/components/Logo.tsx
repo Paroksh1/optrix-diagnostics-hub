@@ -20,10 +20,9 @@ const Logo = ({ className = "" }: { className?: string }) => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <img 
-          src="/lovable-uploads/95eb5a1a-2cd1-43bb-a0d8-7347cfb03165.png" 
+          src="/lovable-uploads/OMD Primary Brandmark All Black (1).png" 
           alt="Opti-mode Diagnostics logo" 
           className={`${className} ${isMobile ? 'max-h-10' : 'h-12'} w-auto max-w-[160px] object-contain`}
-          style={{ background: 'transparent' }}
           loading="eager"
           width={isMobile ? 140 : 200}
           height={48}

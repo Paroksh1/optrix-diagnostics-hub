@@ -119,14 +119,15 @@ const ProductM3DOC = () => {
                 </div>
                 
                 {/* Button */}
-                <motion.a 
-                  href="#contact"
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full inline-flex items-center transition-all"
+                  type="button"
+                  onClick={() => window.location.href = '#contact'}
+                  className="mt-6 px-8 py-4 bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Request a Demo
-                </motion.a>
+                </motion.button>
               </motion.div>
               
               {/* Right Column - Image, conditionally rendered based on screen size */}
@@ -164,7 +165,7 @@ const ProductM3DOC = () => {
                         <button
                           key={index}
                           className={`w-2 h-2 rounded-full transition-colors ${
-                            currentImageIndex === index ? 'bg-blue-500' : 'bg-blue-200'
+                            currentImageIndex === index ? 'bg-[#9B5DE5]' : 'bg-[#9B5DE5]/20'
                           }`}
                           onClick={() => setCurrentImageIndex(index)}
                         />
