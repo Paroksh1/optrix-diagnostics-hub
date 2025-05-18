@@ -51,9 +51,9 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="relative py-24 bg-[#F7F9FC]" ref={ref}>
-      <div className="absolute inset-0 opacity-5">
+      {/* <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="#0A0E2A" opacity="0.02" />
+          <path d="M0,0 L100,0 L100,100 L0, Z" fill="#0A0E2A" opacity="0.02" />
         </svg>
       </div>
 
@@ -61,7 +61,7 @@ const ContactSection = () => {
         <svg className="h-full w-full text-gray-100" viewBox="0 0 1440 320">
           <path fill="currentColor" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,138.7C672,128,768,128,864,133.3C960,139,1056,149,1152,160C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
