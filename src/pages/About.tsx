@@ -55,7 +55,7 @@ const About: React.FC = () => {
                 asChild
               >
                 <Link to="/products/lumora-scan" className="flex items-center">
-                  Explore Our Solutions
+                  Explore Our Solutions...
                 </Link>
               </Button>
             </div>
