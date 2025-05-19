@@ -85,23 +85,23 @@ const HeroSection = () => {
           initial="hidden"
           animate={controls}
         >
-          <motion.h1 
+          {/* <motion.h1 
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug break-words whitespace-normal text-balance mb-6"
             variants={itemVariants}
           >
             <span className="block text-[#1E1E2F]">Opti-mode</span>
             <span className="block text-[#1E1E2F]">Diagnostics</span>
-          </motion.h1>
+          </motion.h1> */}
           
-          <motion.h2 
-            className="text-lg sm:text-xl font-semibold text-gray-800 mb-4"
+          <motion.h1 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug break-words whitespace-normal text-balance mb-6"
             variants={itemVariants}
           >
             Revolutionizing Cancer Detection <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9]">
               Through Advanced Optics
             </span>
-          </motion.h2>
+          </motion.h1>
           
           <motion.p 
             className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8"
