@@ -5,6 +5,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
 import { Button } from './ui/button';
+import { text } from 'stream/consumers';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,6 +23,7 @@ const NavBar = () => {
     { text: 'About', href: '/about' },
     { text: 'Products', href: '#products', dropdown: true },
     { text: 'Contact', href: '#contact' },
+    { text: 'Blog', href: '/blog' },
   ];
 
   const productDropdownItems = [
