@@ -22,7 +22,7 @@ const NavBar = () => {
     { text: 'Home', href: '/' },
     { text: 'About', href: '/about' },
     { text: 'Products', href: '#products', dropdown: true },
-    { text: 'Contact', href: '#contact' },
+    { text: 'Contact.', href: '#contact' },
   ];
 
   const productDropdownItems = [
