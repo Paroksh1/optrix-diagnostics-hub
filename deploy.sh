@@ -5,7 +5,6 @@ set -e
 
 echo "🔄 Switching to main branch..."
 git checkout main
-git pull origin main
 
 echo "✅ Committing all changes in main..."
 git add .
