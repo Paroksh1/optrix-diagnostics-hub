@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Microscope } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { motion } from 'framer-motion';
@@ -37,47 +37,34 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="products" className="py-16 bg-white relative z-10">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="products" className="py-16 md:py-24 bg-white relative z-10">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerAnimation}
         >
-          <motion.div variants={itemAnimation} className="inline-flex items-center justify-center mb-4">
-            <div className="w-10 h-10 rounded-full bg-[#9D8DF1]/10 flex items-center justify-center">
-              <Microscope className="w-5 h-5 text-[#9D8DF1]" />
-            </div>
-          </motion.div>
-          
-          <motion.div 
+          <motion.span 
             variants={itemAnimation}
-            className="inline-flex items-center justify-center mb-8"
+            className="inline-block px-3 py-1 bg-[#9292D8]/10 text-[#9292D8] rounded-full text-sm font-medium mb-4"
           >
-            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#9B5DE5]/20 to-[#B69DF8]/20 flex items-center justify-center">
-              <Microscope className="w-8 h-8 text-[#9B5DE5]" />
-            </div>
-          </motion.div>
+            Our Flagship Product
+          </motion.span>
           
           <motion.h2 
             variants={itemAnimation}
-            className="text-5xl font-bold mb-4 text-[#1B2A41]"
+            className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1B2A41]"
           >
-            Explore Our Breakthrough Innovations
+            Revolutionizing Early Cancer Detection
           </motion.h2>
-          
-          <motion.div 
-            variants={itemAnimation}
-            className="w-12 h-1 bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] mx-auto rounded-full my-2 shadow-sm shadow-[#9B5DE5]/30"
-          ></motion.div>
           
           <motion.p 
             variants={itemAnimation}
-            className="text-lg text-gray-600 max-w-3xl mx-auto mt-4"
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
           >
-            From early cancer detection to non-invasive diagnostics — discover the future of healthcare, designed with and for clinicians.
+            Discover the future of healthcare with our cutting-edge diagnostic solutions designed for accuracy and accessibility.
           </motion.p>
         </motion.div>
         
@@ -86,45 +73,66 @@ const ServicesSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerAnimation}
-          className="grid md:grid-cols-1 lg:grid-cols-1 gap-12"
+          className="max-w-6xl mx-auto"
         >
           {products.map((product, index) => (
             <motion.div 
               key={index} 
               variants={itemAnimation}
-              className="bg-[#FAF9FF] flex flex-col md:flex-row gap-8 p-10 rounded-[20px] border border-gray-100 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:translate-y-[-4px] transition-transform duration-300"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row"
             >
-              <div className="md:w-2/5 flex items-center justify-center">
-                <img 
-                  src={product.imageSrc} 
-                  alt={product.title}
-                  className="w-full h-auto rounded-xl shadow-sm"
-                  loading="lazy"
-                />
+              {/* Image Section */}
+              <div className="lg:w-1/2 p-8 md:p-12 flex items-center justify-center bg-gradient-to-br from-[#F9F7FF] to-[#F0EBFF]">
+                <div className="relative w-full max-w-md">
+                  <img 
+                    src={product.imageSrc} 
+                    alt={product.title}
+                    className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <div className="md:w-3/5">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-dark-base">{product.title}</h3>
-                <p className="text-dark-secondary mb-6">{product.description}</p>
+              
+              {/* Content Section */}
+              <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <div className="mb-2">
+                  <span className="inline-block px-3 py-1 bg-[#9292D8]/10 text-[#9292D8] rounded-full text-sm font-medium">
+                    Featured Product
+                  </span>
+                </div>
                 
-                <h4 className="font-semibold mb-4 text-dark-base">Key Features:</h4>
-                <ul className="mb-8 space-y-3">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#1B2A41]">
+                  {product.title}
+                </h3>
+                
+                <p className="text-lg text-gray-600 mb-6">
+                  {product.description}
+                </p>
+                
+                <h4 className="font-semibold text-lg mb-3 text-[#1B2A41]">
+                  Key Features:
+                </h4>
+                
+                <ul className="space-y-2.5 mb-8">
                   {product.features.map((feature, idx) => (
-                    <li key={idx} className="text-dark-secondary">
-                      <span className="mr-2">•</span>
-                      {feature}
+                    <li key={idx} className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-[#9292D8] mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
-                <Button 
-                  className="bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
-                  asChild
-                >
-                  <Link to={product.productLink} className="flex items-center">
-                    Learn More 
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </Button>
+                <div className="mt-auto">
+                  <Button 
+                    className="bg-[#9292D8] hover:bg-[#7B7BC8] text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 group"
+                    asChild
+                  >
+                    <Link to={product.productLink} className="inline-flex items-center">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ))}

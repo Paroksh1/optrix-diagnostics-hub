@@ -155,30 +155,30 @@ const ProductLumoraScan = () => {
               }
             }}
           >
-            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center px-6 sm:px-12">
               <motion.div 
-                className="space-y-4 md:space-y-6 order-2 lg:order-1 text-center lg:text-left"
+                className="space-y-4 order-2 lg:order-1 text-center lg:text-left max-w-4xl mx-auto w-full"
                 variants={fadeIn}
               >
-                <div className="inline-block px-4 py-2 bg-[#F2F0FF] rounded-full text-[#9D8DF1] font-medium mx-auto lg:mx-0">
+                <span className="inline-block bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-1 rounded-full mb-3">
                   Revolutionary Diagnostics
-                </div>
+                </span>
                 
-                <h1 className="h1-responsive text-center lg:text-left">
-                  <span className="text-[#1A1E2E]">Introducing Lumora Scan</span>
+                <h1 className="text-2xl sm:text-3xl font-bold text-navy-900 mt-4 mb-2">
+                  Introducing Lumora Scan
                 </h1>
                 
-                <p className="h2-responsive text-center lg:text-left" style={gradientTextStyle}>
+                <p className="text-base sm:text-lg font-medium text-purple-600 mb-2">
                   Non-Invasive, AI-Powered Early Detection for Oral Cancer
                 </p>
                 
-                <p className="p-responsive text-center lg:text-left">
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
                   A portable, AI-driven spectroscopy device that detects early-stage oral cancer quickly, without pain or invasive procedures.
                 </p>
                 
-                <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+                <div className="pt-4">
                   <Button 
-                    className="bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] text-white rounded-full btn-responsive hover:shadow-xl transition-all duration-300"
+                    className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full transition"
                     asChild
                   >
                     <Link to="/contact">

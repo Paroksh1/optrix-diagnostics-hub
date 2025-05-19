@@ -38,8 +38,7 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-4 relative bg-[#ffffff] font-poppins"
-      style={{ padding: '80px 0' }}
+      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px-4 relative bg-[#ffffff] font-poppins overflow-x-hidden"
     >
       {/* Badge at the top with more spacing
       <motion.div 
@@ -58,71 +57,78 @@ const HeroSection = () => {
       
       {/* Main Heading with improved typography and gradient */}
 
-      <AnimatedContent
-      distance={150}
-      direction="horizontal"
-      reverse={false}
-      config={{ tension: 80, friction: 20 }}
-      initialOpacity={0.2}
-      animateOpacity
-      scale={1.1}
-      threshold={0.2}
-      >
-        {/* <div>Content to Animate</div> */}
+      <div className="max-w-screen-sm mx-auto px-4 text-center">
+        <AnimatedContent
+          distance={150}
+          direction="horizontal"
+          reverse={false}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0.2}
+          animateOpacity
+          scale={1.1}
+          threshold={0.2}
+        >
+          {logo.map((logo, index) => (
+            <motion.div key={index}>
+              <img 
+                src={logo.imageSrc} 
+                alt="Opti-mode Diagnostics logo" 
+                className="h-auto w-full max-w-[400px] mx-auto object-contain mb-8"
+              />
+            </motion.div>
+          ))}
+        </AnimatedContent>
 
-        {logo.map((logo, index) => (
-          <motion.div>
+        <motion.div 
+          className="w-full text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+        >
+          <motion.h1 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug break-words whitespace-normal text-balance mb-6"
+            variants={itemVariants}
+          >
+            <span className="block text-[#1E1E2F]">Opti-mode</span>
+            <span className="block text-[#1E1E2F]">Diagnostics</span>
+          </motion.h1>
+          
+          <motion.h2 
+            className="text-lg sm:text-xl font-semibold text-gray-800 mb-4"
+            variants={itemVariants}
+          >
+            Revolutionizing Cancer Detection <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9]">
+              Through Advanced Optics
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8"
+            variants={itemVariants}
+          >
+            Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
+          </motion.p>
+        </motion.div>
 
-          <img src={logo.imageSrc} alt="Opti-mode Diagnostics logo" className="h-400 w-auto max-w-[500px] object-contain mb-10"/>
-
-          </motion.div>
-        )
-        )}
-      </AnimatedContent>
-
-      
-
-      <motion.div 
-        className="text-center max-w-4xl mx-auto pb-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-      >
-        <motion.h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-10 text-center tracking-tight leading-tight"
+        <motion.button
+          className="w-full sm:w-auto px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-semibold transition"
           variants={itemVariants}
+          onClick={(e) => {
+            const section = document.getElementById('contact');
+            if (section) {
+              e.preventDefault();
+              section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+              window.history.pushState(null, '', '#contact');
+            }
+          }}
         >
-          <span className="text-[#1E1E2F]">Revolutionizing Cancer Detection</span><br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] font-extrabold">
-            Through Advanced Optics
-          </span>
-        </motion.h1>
-        
-        <motion.p 
-          className="text-[#5F5F7A] text-lg md:text-xl mb-16 mx-auto leading-relaxed max-w-[700px] font-mono"
-          variants={itemVariants}
-        >
-          Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
-        </motion.p>
-      </motion.div>
-
-      {/* Call to Action Button */}
-      <motion.button
-        className='bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-white rounded-xl px-6 py-3'
-        onClick={(e) => {
-          const section = document.getElementById('contact');
-          if (section) {
-            e.preventDefault();
-            section.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-            window.history.pushState(null, '', '#contact');
-          }
-        }}
-        >
-          <a href="#contact">Get Started</a>
+          <a href="#contact" className="inline-block w-full">Get Started</a>
         </motion.button>
+      </div>
 
         
 

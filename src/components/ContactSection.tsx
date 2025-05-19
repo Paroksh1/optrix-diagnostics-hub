@@ -93,7 +93,7 @@ const ContactSection = () => {
                   <Copy className="h-4 w-4 text-white" onClick={() => navigator.clipboard.writeText('optimode.diagnostics@gmail.com')} />
                 </motion.div>
               </motion.div>
-              <p className="text-gray-700 break-words">optimode.diagnostics@gmail.com</p>
+              <p className="text-gray-700 break-words">info@optimode.io</p>
             </div>
 
             <div className="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative">

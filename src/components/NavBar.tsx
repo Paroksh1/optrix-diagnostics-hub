@@ -401,8 +401,8 @@ const NavBar = () => {
                         );
                       }
 
-                      // On product pages, use RouterLink for mobile menu items too
-                      if (isProductPage && link.href.startsWith('/')) {
+                      // For internal links, use RouterLink
+                      if (link.href.startsWith('/')) {
                         return (
                           <motion.div
                             key={link.text}
@@ -439,31 +439,28 @@ const NavBar = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                           >
-                            <a
-                              href={link.href}
+                            <RouterLink
+                              to={link.href === '#home' ? '/' : link.href}
                               className={`transition-all duration-300 text-xl font-semibold block text-center py-3 ${
                                 isActive ? 'text-[#7C3AED]' : 'text-[#111827] hover:text-[#7C3AED]'
                               }`}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                if (link.href === "#contact") {
+                              onClick={() => {
+                                if (link.href.startsWith('#')) {
+                                  // For hash links, handle scrolling
                                   if (location.pathname === '/') {
-                                    // If on home page, scroll to contact section
-                                    const section = document.getElementById('contact');
+                                    const section = document.getElementById(link.href.substring(1));
                                     if (section) {
                                       section.scrollIntoView({
                                         behavior: 'smooth',
                                         block: 'start'
                                       });
-                                      window.history.pushState(null, '', '#contact');
-                                      setActiveLink('contact');
+                                      window.history.pushState(null, '', link.href);
+                                      setActiveLink(link.href.substring(1));
                                     }
                                   } else {
-                                    // If on another page, navigate to home page contact section
-                                    window.location.href = '/#contact';
+                                    // If not on home page, navigate to home page with hash
+                                    window.location.href = `/${link.href}`;
                                   }
-                                } else {
-                                  handleNavLinkClick(e, link.href);
                                 }
                                 setIsMobileMenuOpen(false);
                               }}
@@ -475,7 +472,7 @@ const NavBar = () => {
                               ) : (
                                 link.text
                               )}
-                            </a>
+                            </RouterLink>
                           </motion.div>
                         );
                       }

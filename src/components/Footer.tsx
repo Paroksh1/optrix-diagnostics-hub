@@ -43,27 +43,15 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">sidmehta927@gmail.com</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">info@optimode.io</a></li>
               <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">IIT Delhi, India</a></li>
               <li><a href="#contact" className="text-gray-600 hover:text-[#9292D8] transition-colors duration-200">Get in Touch</a></li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-[#1B2A41]">© 2025 Opti-Mode Diagnostics. All rights reserved.</p>
-          
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
-              Privacy Policy
-            </Button>
-            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
-              Terms of Service
-            </Button>
-            <Button variant="link" className="text-[#1B2A41] hover:text-[#9292D8] rounded-full">
-              Cookie Policy
-            </Button>
-          </div>
+        <div className="border-t border-gray-200 mt-12 pt-8">
+          <p className="text-sm text-[#1B2A41] text-center md:text-left">© 2025 Opti-Mode Diagnostics. All rights reserved.</p>
         </div>
       </div>
     </footer>
