@@ -38,7 +38,7 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px-4 relative bg-[#ffffff] font-poppins overflow-x-hidden"
+      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px relative bg-[#ffffff] font-poppins overflow-x-hidden"
     >
       {/* Badge at the top with more spacing
       <motion.div 
@@ -57,7 +57,7 @@ const HeroSection = () => {
       
       {/* Main Heading with improved typography and gradient */}
 
-      <div className="max-w-screen-sm mx-auto px-4 text-center">
+      <div className="max-w-screen mx-auto px-4 text-center">
         <AnimatedContent
           distance={150}
           direction="horizontal"
