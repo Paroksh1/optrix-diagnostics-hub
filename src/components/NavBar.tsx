@@ -255,7 +255,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           {isProductPage ? (
             <Button
-              className="bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9]text-white rounded-full"
+              className="bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-white rounded-full"
               asChild
             >
               <RouterLink to="/#contact">
