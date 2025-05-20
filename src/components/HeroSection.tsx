@@ -99,7 +99,7 @@ const HeroSection = () => {
           >
             Revolutionizing Cancer Detection <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9]">
-              Through Advanced Optics
+              Through Advanced Photonics
             </span>
           </motion.h1>
           
