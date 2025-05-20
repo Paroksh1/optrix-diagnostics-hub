@@ -48,7 +48,7 @@ const ServicesSection = () => {
         >
           <motion.span 
             variants={itemAnimation}
-            className="inline-block px-3 py-1 bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-[#9292D8] rounded-full text-sm font-medium mb-4"
+            className="inline-block px-3 py-1 bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-[#ffffff] rounded-full text-sm font-medium mb-4"
           >
             Our Flagship Product
           </motion.span>
@@ -96,7 +96,7 @@ const ServicesSection = () => {
               {/* Content Section */}
               <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                 <div className="mb-2">
-                  <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-[#9292D8] rounded-full text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-[#ffffff] rounded-full text-sm font-medium">
                     Featured Product
                   </span>
                 </div>
