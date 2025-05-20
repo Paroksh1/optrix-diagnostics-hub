@@ -105,3 +105,39 @@ section {
 .recharts-cartesian-axis-tick {
   font-size: 10px;
 }
+
+
+.main-login-section{
+    position: relative;
+    padding: 90px 0px;
+    background: linear-gradient(180deg, #ebdaff 0%, #ffffff 78.61%);
+    overflow: hidden; /* prevent image overflow */
+}
+
+/* bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] */
+.main-login-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../public/assets/BgLeftGrid.png') no-repeat top left;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Right Image */
+.main-login-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url('../../public/assets/BgRightGrid.png') no-repeat top right;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}

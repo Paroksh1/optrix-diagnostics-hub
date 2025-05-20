@@ -38,7 +38,7 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px relative bg-[#ffffff] font-poppins overflow-x-hidden"
+      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px relative bg-[#ffffff] font-poppins overflow-x-hidden main-login-section"
     >
       {/* Badge at the top with more spacing
       <motion.div 
@@ -94,21 +94,26 @@ const HeroSection = () => {
           </motion.h1> */}
           
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug break-words whitespace-normal text-balance mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug break-words whitespace-normal text-balance"
             variants={itemVariants}
           >
             Revolutionizing Cancer Detection <br />
+          </motion.h1>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug break-words whitespace-normal text-balance mt-5"
+            variants={itemVariants}>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9]">
               Through Advanced Photonics
             </span>
-          </motion.h1>
+          </motion.h2>
+            
           
-          <motion.p 
-            className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8"
+          <motion.h5 
+            className="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-8 mt-5"
             variants={itemVariants}
           >
             Pioneering breakthrough optical technologies for early cancer detection and precise diagnostics
-          </motion.p>
+          </motion.h5>
         </motion.div>
 
         <motion.button

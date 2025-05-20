@@ -112,13 +112,13 @@ const NavBar = () => {
   return (
     <header 
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
-        hasScrolled 
-          ? 'bg-[#F8F9FB] backdrop-blur-lg shadow-md py-2 border-b border-[#E4E2F0]' 
-          : 'bg-[#F8F9FB] backdrop-blur-md py-3 border-b border-[#E4E2F0]'
-      }`}
-      style={{
-        boxShadow: hasScrolled ? '0 4px 12px rgba(0, 0, 0, 0.06)' : '0 2px 8px rgba(0, 0, 0, 0.04)'
-      }}
+      hasScrolled 
+        ? 'bg-white/90 backdrop-blur-md shadow-md py-2 border-b border-[#E4E2F0]' 
+        : 'bg-transparent py-3'
+    }`}
+    style={{
+      boxShadow: hasScrolled ? '0 4px 12px rgba(0, 0, 0, 0.06)' : 'none'
+    }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex-shrink-0 flex items-center">
