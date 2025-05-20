@@ -30,6 +30,14 @@ const HeroSection = () => {
     imageSrc: "/lovable-uploads/OMD Primary Brandmark All Black (1).png",
     alt: "Opti-mode Diagnostics logo",}];
   
+  const bg_left_grid = [{
+    imageSrc: "/assets/BgLeftGrid.png",
+    alt: " ",}];
+
+  const bg_right_grid = [{
+    imageSrc: "/assets/BgRightGrid.png",
+    alt: " ",}];
+  
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -53,6 +61,10 @@ const HeroSection = () => {
           Advanced Cancer Diagnostics
         </span>
       </motion.div> */}
+      <div className="absolute top-0 left-0 opacity-20 max-w-[300px] z-0">
+        <img src="/assets/BgLeftGrid.png" alt=""/>
+        <img src="/assets/BgRightGrid.png" alt=""/>
+      </div>
 
       
       {/* Main Heading with improved typography and gradient */}
