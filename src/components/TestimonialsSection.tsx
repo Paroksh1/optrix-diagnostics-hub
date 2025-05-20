@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="py-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-          <span className="inline-block px-3 py-1 bg-[#9292D8]/10 text-[#9292D8] rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] text-[#9292D8] rounded-full text-sm font-medium mb-4">
             Client Stories
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4 text-[#1B2A41]">
@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
             </div>
             
             <div className="absolute -bottom-5 -right-5 w-16 h-16 bg-[#9292D8]/10 rounded-full flex items-center justify-center">
-              <div className="w-10 h-10 bg-[#9292D8] rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] rounded-full flex items-center justify-center">
                 <div className="w-6 h-6 text-white">"</div>
               </div>
             </div>
@@ -93,7 +93,7 @@ const TestimonialsSection = () => {
               <button
                 key={index}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  current === index ? 'bg-[#9292D8] scale-125' : 'bg-[#9292D8]/30'
+                  current === index ? 'bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] scale-125' : 'bg-[#9292D8]/30'
                 }`}
                 onClick={() => {
                   if (isAnimating) return;

@@ -112,7 +112,7 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.button
-          className="w-full sm:w-auto px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-semibold transition"
+          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-[#9F7AEA] to-[#7F56D9] hover:bg-purple-700 text-white font-semibold transition"
           variants={itemVariants}
           onClick={(e) => {
             const section = document.getElementById('contact');
