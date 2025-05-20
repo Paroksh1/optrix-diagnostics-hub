@@ -14,7 +14,7 @@ const ContactSection = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    formData.append("access_key", "aa282f5c-f438-48da-aceb-2864014cc590");
+    formData.append("access_key", "9251e827-d406-4aca-ad3c-a015aa2dcb3a");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -90,7 +90,7 @@ const ContactSection = () => {
                   whileHover={{ opacity: 1, scale: 1 }}
                   className="absolute -right-2 -top-2 bg-[#B69DF8] rounded-full p-1.5 flex items-center justify-center"
                 >
-                  <Copy className="h-4 w-4 text-white" onClick={() => navigator.clipboard.writeText('optimode.diagnostics@gmail.com')} />
+                  <Copy className="h-4 w-4 text-white" onClick={() => navigator.clipboard.writeText('info@optimode.io')} />
                 </motion.div>
               </motion.div>
               <p className="text-gray-700 break-words">info@optimode.io</p>
