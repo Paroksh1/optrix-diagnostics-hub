@@ -117,10 +117,10 @@ const ContactSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="absolute left-4 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">Your Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
                 <div className="relative">
                   <input type="text" id="name" name="name" required className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#B69DF8] focus:border-[#B69DF8] transition-all duration-200 peer placeholder-transparent" placeholder=" " />
-                  <label htmlFor="name" className="absolute left-4 top-3 text-gray-400 text-sm transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-focus:text-sm peer-focus:top-2 peer-focus:-translate-y-1/2">Your Name</label>
+                  {/* <label htmlFor="name" className="absolute left-4 top-3 text-gray-400 text-sm transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-focus:text-sm peer-focus:top-2 peer-focus:-translate-y-1/2">Your Name</label> */}
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ const ContactSection = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                 <div className="relative">
                   <input type="email" id="email" name="email" required className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#B69DF8] focus:border-[#B69DF8] transition-all duration-200 peer placeholder-transparent" placeholder=" " />
-                  <label htmlFor="email" className="absolute left-4 top-3 text-gray-400 text-sm transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-focus:text-sm peer-focus:top-2 peer-focus:-translate-y-1/2">Email Address</label>
+                  {/* <label htmlFor="email" className="absolute left-4 top-3 text-gray-400 text-sm transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-focus:text-sm peer-focus:top-2 peer-focus:-translate-y-1/2">Email Address</label> */}
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ const ContactSection = () => {
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
               <div className="relative">
                 <textarea id="message" name="message" rows={5} required minLength={10} className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#B69DF8] focus:border-[#B69DF8] transition-all duration-200 peer placeholder-transparent" placeholder=" " />
-                <label htmlFor="message" className="absolute left-4 top-3 text-gray-400 text-sm transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-focus:text-sm peer-focus:top-2 peer-focus:-translate-y-1/2">Your Message</label>
+                {/* <label htmlFor="message" className="absolute left-4 top-3 text-gray-400 text-sm transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-focus:text-sm peer-focus:top-2 peer-focus:-translate-y-1/2">Your Message</label> */}
               </div>
             </div>
 
