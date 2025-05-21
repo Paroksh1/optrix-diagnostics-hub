@@ -46,7 +46,7 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px relative bg-[#ffffff] font-poppins overflow-x-hidden main-login-section"
+      className="min-h-screen w-full flex flex-col justify-center items-center pt-24 pb-16 px relative bg-[#ffffff] font-poppins overflow-x-hidden py-[90px] bg-gradient-to-b from-[#ebdaff] to-[#ffffff] overflow-hidden"
     >
       {/* Badge at the top with more spacing
       <motion.div 
@@ -61,9 +61,9 @@ const HeroSection = () => {
           Advanced Cancer Diagnostics
         </span>
       </motion.div> */}
-      <div className="absolute top-0 left-0 opacity-20 max-w-[300px] z-0">
-        <img src="/assets/BgLeftGrid.png" alt=""/>
-        <img src="/assets/BgRightGrid.png" alt=""/>
+      <div className="">
+        <img src="/assets/BgLeftGrid.png" alt="" className='absolute top-0 left-0 opacity-70 bg-no-repeat bg-left-to bg-contain w-full h-full pointer-events-none max-w-[300px] z-0'/>
+        <img src="/assets/BgRightGrid.png" alt="" className='absolute top-0 right-0 opacity-70 bg-no-repeat bg-left-to bg-contain w-full h-full pointer-events-none max-w-[300px] z-0'/>
       </div>
 
       

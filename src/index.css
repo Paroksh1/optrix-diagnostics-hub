@@ -107,15 +107,15 @@ section {
 }
 
 
-.main-login-section{
+/* .main-login-section{
     position: relative;
     padding: 90px 0px;
     background: linear-gradient(180deg, #ebdaff 0%, #ffffff 78.61%);
-    overflow: hidden; /* prevent image overflow */
-}
+    overflow: hidden; 
+} */
 
 /* bg-gradient-to-r from-[#9B5DE5] to-[#B69DF8] */
-.main-login-section::before {
+/* .main-login-section::before {
     content: "";
     position: absolute;
     top: 0;
@@ -126,10 +126,10 @@ section {
     height: 100%;
     z-index: 0;
     pointer-events: none;
-}
+} */
 
 /* Right Image */
-.main-login-section::after {
+/* .main-login-section::after {
     content: "";
     position: absolute;
     top: 0;
@@ -140,4 +140,4 @@ section {
     height: 100%;
     z-index: 0;
     pointer-events: none;
-}
+} */
