@@ -3,24 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const testimonials = [
-  {
-    quote: "Oral cancer signs are often missed in early check-ups. Integrating Opti-Mode into our practice has helped us flag high-risk patients early. It's practical, affordable, and incredibly impactful for preventive care.",
-    author: "Dr. Anjali Sharma",
-    role: "Section Head, Asian Hospital",
-    rating: 5
-  },
-  {
-    quote: "The precision and reliability of Opti-Mode's genetic sequencing platform has been instrumental in our research. It's truly best-in-class technology.",
-    author: "Mrs. Supriya Mehta Verma",
-    role: "Scientist C, IUAC, New Delhi",
-    rating: 5
-  },
-  {
-    quote: "We lose far too many lives to oral cancer simply because it's caught too late. A tool like Opti-Mode, if made accessible, can shift the narrative toward early detection and better outcomes—especially in underserved regions",
-    author: "Dr Kanchan Saxena",
-    role: "HOI, AIRAE, Amity University Noida",
-    rating: 5
-  }
+  
 ];
 
 const TestimonialsSection = () => {
