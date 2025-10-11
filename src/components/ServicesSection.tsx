@@ -18,7 +18,7 @@ const ServicesSection = () => {
         'Affordable (less than Rs.500/test)',
         'Early stage cancer detection'
       ],
-      imageSrc: '/lovable-uploads/b91f01cc-d20a-402a-9d11-d1ccfa890214.png',
+      imageSrc: '/lovable-uploads/prod1_Lumora.png',
       productLink: '/products/lumora-scan'
     }
   ];
@@ -79,10 +79,10 @@ const ServicesSection = () => {
             <motion.div 
               key={index} 
               variants={itemAnimation}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row border-2 border-[#D1D5DB] hover:border-[#9F7AEA] transition-colors duration-300"
             >
               {/* Image Section */}
-              <div className="lg:w-1/2 p-8 md:p-12 flex items-center justify-center bg-gradient-to-br from-[#F9F7FF] to-[#F0EBFF]">
+              <div className="lg:w-1/2 p-8 md:p-12 flex items-center justify-center bg-gradient-to-br from-[#F9F7FF] to-[#F0EBFF] border-r-2 border-[#E5E7EB] lg:border-r-2 lg:border-b-0 border-b-2">
                 <div className="relative w-full max-w-md">
                   <img 
                     src={product.imageSrc} 

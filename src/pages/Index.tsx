@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
-import TestimonialsSection from '../components/TestimonialsSection';
+// import TestimonialsSection from '../components/TestimonialsSection';   
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
@@ -115,7 +115,6 @@ const Index = () => {
       <main className="relative z-10">
         <HeroSection />
         <ServicesSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       

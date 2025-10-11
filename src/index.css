@@ -10,7 +10,7 @@ html {
 body {
   cursor: default;
   font-family: 'Inter', 'Poppins', 'system-ui', sans-serif;
-  background-color: var(--light);
+  background-color: #EAFBFF;
   color: var(--dark-base);
   scroll-padding-top: 100px;
 }

@@ -26,6 +26,12 @@ const About: React.FC = () => {
       role: "Co-Founder and Director",
       description: "Building the technology that powers our mission to make healthcare accessible to all.",
       image: "/assets/images/team/siddharth-mehta.jpg"
+    },
+    {
+      name: "Dr. Kanchan Saxena",
+      role: "Cheif Executive Officer",
+      description: "Leading the company in all its operations.",
+      image: "/assets/images/team/kanchan-saxena.jpeg"
     }
   ];
 
@@ -221,7 +227,7 @@ const About: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 max-w-[350px] mx-auto"
+                  className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 max-w-[350px] mx-auto border-2 border-[#E4E2F0] hover:border-[#9F7AEA]"
                 >
                   <div className="relative w-20 h-20 mx-auto mb-6">
                     <div className="w-20 h-20 rounded-full overflow-hidden">

@@ -57,10 +57,12 @@ const ContactSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
-          className="w-full sm:w-1/2 lg:max-w-md mx-auto text-center sm:text-left"
+          className="w-full sm:w-1/2 lg:max-w-md mx-auto text-center"
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-[#0A0E2A] rounded-full mb-8 shadow-2xl">
-            <Mail className="h-10 w-10 text-[#B69DF8]" />
+          <div className="flex justify-center w-full mb-8">
+            <div className="w-20 h-20 bg-[#0A0E2A] rounded-full shadow-2xl flex items-center justify-center">
+              <Mail className="h-10 w-10 text-[#B69DF8]" />
+            </div>
           </div>
           <h2 className="text-2xl font-bold text-[#0A0E2A] mb-4">Get in Touch with Opti-mode Diagnostics</h2>
           <p className="text-lg text-gray-600 mb-8">
@@ -68,28 +70,35 @@ const ContactSection = () => {
           </p>
 
           <div className="w-full grid grid-cols-1 gap-6 text-center sm:text-left">
-            <div className="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative">
+            <div className="p-6 bg-white rounded-xl border-2 border-[#E5E7EB] hover:border-[#9F7AEA] transition-all duration-300 relative shadow-lg hover:shadow-xl">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center justify-center relative"
               >
-                <Globe className="h-6 w-6 text-[#0A0E2A] mb-2" />
+                <div className="p-3 bg-[#F5F3FF] rounded-full mb-4">
+                  <Globe className="h-6 w-6 text-[#7F56D9]" />
+                </div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileHover={{ opacity: 1, scale: 1 }}
-                  className="absolute -right-2 -top-2 bg-[#B69DF8] rounded-full p-1.5 flex items-center justify-center"
+                  className="absolute -right-2 -top-2 bg-[#7F56D9] rounded-full p-1.5 flex items-center justify-center border-2 border-white shadow-md"
                 >
-                  <Copy className="h-4 w-4 text-white" onClick={() => navigator.clipboard.writeText('info@optimode.io')} />
+                  <Copy className="h-4 w-4 text-white" onClick={() => {
+                    navigator.clipboard.writeText('info@optimode.io');
+                    toast.success('Email copied to clipboard!');
+                  }} />
                 </motion.div>
               </motion.div>
-              <p className="text-gray-700 whitespace-nowrap text-sm sm:text-base">info@optimode.io</p>
+              <p className="text-gray-700 whitespace-nowrap text-sm sm:text-base font-medium text-center">info@optimode.io</p>
             </div>
 
-            <div className="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative">
+            <div className="p-6 bg-white rounded-xl border-2 border-[#E5E7EB] hover:border-[#9F7AEA] transition-all duration-300 relative shadow-lg hover:shadow-xl">
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
-                <MapIcon className="h-6 w-6 text-[#0A0E2A] mb-2" />
+                <div className="p-3 bg-[#F5F3FF] rounded-full mb-4">
+                  <MapIcon className="h-6 w-6 text-[#7F56D9]" />
+                </div>
               </motion.div>
-              <p className="text-gray-700 text-sm sm:text-base">Lab no 3, Second Floor, Synergy Building, IIT Delhi, New Delhi</p>
+              <p className="text-gray-700 text-sm sm:text-base font-medium">Research & Innovation Park, FITT, IIT Delhi, New Delhi</p>
             </div>
           </div>
         </motion.div>
@@ -100,7 +109,7 @@ const ContactSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="w-full sm:w-1/2 max-w-lg mx-auto"
         >
-          <form onSubmit={onSubmit} className="w-full min-w-[300px] max-w-md mx-auto space-y-6 bg-white p-6 sm:p-8 rounded-2xl shadow-xl">
+          <form onSubmit={onSubmit} className="w-full min-w-[300px] max-w-md mx-auto space-y-6 bg-white p-8 sm:p-10 rounded-2xl shadow-xl border-2 border-[#E5E7EB] hover:border-[#9F7AEA] transition-colors duration-300">
             {/* Optional Subject */}
             <input type="hidden" name="subject" value="New Contact Submission from Opti-mode Diagnostics Site" />
 
@@ -157,7 +166,7 @@ const ContactSection = () => {
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }} 
                 type="submit" 
-                className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-[#7C3AED] to-[#8B5CF6] text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300 mx-auto block"
+                className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-[#7F56D9] to-[#9F7AEA] text-white rounded-lg font-medium shadow-md hover:shadow-lg hover:shadow-[#9F7AEA]/30 transition-all duration-300 mx-auto block border-2 border-transparent hover:border-white/20"
               >
                 Send Message
               </motion.button>

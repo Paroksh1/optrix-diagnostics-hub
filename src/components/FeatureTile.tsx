@@ -18,10 +18,10 @@ const FeatureTile: React.FC<FeatureTileProps> = ({
 }) => {
   return (
     <div className={cn(
-      "relative overflow-hidden rounded-2xl p-8 flex flex-col shadow-xl border-solid border-2 border-[#d9c7ff] bg-white/10 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl",
+      "relative overflow-hidden rounded-2xl p-8 flex flex-col shadow-xl border-2 border-solid transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl",
       variant === 'lavender' 
-        ? "bg-gradient-to-l from-[#fffff9] to-[#d9c7ff] text-black" 
-        : "bg-gradient-to-l from-[#fffff9] to-[#d9c7ff] text-black",
+        ? "bg-gradient-to-l from-[#fffff9] to-[#d9c7ff] text-black border-[#9F7AEA] hover:border-[#7F56D9]" 
+        : "bg-gradient-to-l from-[#fffff9] to-[#d9c7ff] text-black border-[#9F7AEA] hover:border-[#7F56D9]",
       className
     )}>
       <h3 className={cn(
