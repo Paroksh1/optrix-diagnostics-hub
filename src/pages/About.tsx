@@ -22,16 +22,16 @@ const About: React.FC = () => {
       image: "/assets/images/team/dalip-singh.jpg"
     },
     {
-      name: "Siddharth Mehta",
-      role: "Co-Founder and Director",
-      description: "Building the technology that powers our mission to make healthcare accessible to all.",
-      image: "/assets/images/team/siddharth-mehta.jpg"
-    },
-    {
       name: "Dr. Kanchan Saxena",
       role: "Cheif Executive Officer",
       description: "Leading the company in all its operations.",
       image: "/assets/images/team/kanchan-saxena.jpeg"
+    },
+    {
+      name: "Siddharth Mehta",
+      role: "Co-Founder and Director",
+      description: "Building the technology that powers our mission to make healthcare accessible to all.",
+      image: "/assets/images/team/siddharth-mehta.jpg"
     }
   ];
 
